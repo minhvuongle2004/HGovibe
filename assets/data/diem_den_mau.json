@@ -1,0 +1,69 @@
+{
+    "name": "",
+    "name_lowercase": "",
+    "slug": "",
+    "category": "",
+    "tags": [],
+    "location": {
+      "latitude": 0,
+      "longitude": 0,
+      "address": "",
+      "city": "",
+      "district": "",
+      "country": "Vietnam"
+    },
+    "description": "",
+    "short_description": "",
+    "images": [],
+    "thumbnail": "",
+    "rating": 0,
+    "review_count": 0,
+    "popularity_score": 0,
+    "opening_hours": {
+      "monday": {"open": "", "close": ""},
+      "tuesday": {"open": "", "close": ""},
+      "wednesday": {"open": "", "close": ""},
+      "thursday": {"open": "", "close": ""},
+      "friday": {"open": "", "close": ""},
+      "saturday": {"open": "", "close": ""},
+      "sunday": {"open": "", "close": ""},
+      "note": ""
+    },
+    "best_months": [],
+    "best_season": "",
+    "seasonal_events": [],
+    "avoid_months": [],
+    "specialties": [],
+    "activities": [],
+    "tips": [],
+    "nearby_places": [],
+    "estimated_cost": {
+      "entrance_fee": 0,
+      "average_meal": 0,
+      "shopping_budget": 0,
+      "total_suggested": 0,
+      "currency": "VND"
+    },
+    "entrance_fee": 0,
+    "parking": {
+      "available": false,
+      "fee": "",
+      "note": ""
+    },
+    "suggested_duration": "",
+    "suggested_duration_hours": 0,
+    "weather_dependent": false,
+    "ideal_weather": "",
+    "suitable_for": [],
+    "accessibility": {
+      "wheelchair_accessible": false,
+      "elderly_friendly": false,
+      "kid_friendly": false,
+      "notes": ""
+    },
+    "status": "active",
+    "verified": true,
+    "visit_count": 0,
+    "trending_score": 0,
+    "user_preference_tags": []
+  }

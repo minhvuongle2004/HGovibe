@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>446621147524-luh34nirtlclsdh82nh25mslb2au2d0k.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.446621147524-luh34nirtlclsdh82nh25mslb2au2d0k</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>446621147524-utk2e5gh9m0fdf9jds7tsmq54vvokbr1.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD65ivHN4UhDid2_7p35rON55Kr2lISE80</string>
+	<key>GCM_SENDER_ID</key>
+	<string>446621147524</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.smartTravelApp</string>
+	<key>PROJECT_ID</key>
+	<string>smart-travel-app-a2bfa</string>
+	<key>STORAGE_BUCKET</key>
+	<string>smart-travel-app-a2bfa.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:446621147524:ios:ee0152c2b66ddeac733dd1</string>
+</dict>
+</plist>

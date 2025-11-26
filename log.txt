@@ -1,0 +1,23 @@
+I/flutter ( 7968): 🔍 Đang load recommended destinations...
+D/EGL_emulation( 7968): app_time_stats: avg=35.88ms min=11.13ms max=825.62ms count=42
+E/AndroidRuntime( 7968): FATAL EXCEPTION: main
+E/AndroidRuntime( 7968): Process: com.example.smart_travel_app, PID: 7968
+E/AndroidRuntime( 7968): java.lang.IncompatibleClassChangeError: Found class com.google.android.gms.location.SettingsClient, but interface was expected (declaration of 'com.google.android.gms.location.SettingsClient' appears in /data/app/~~N2ZwXzq8NiwCMDJhTfwkOg==/com.example.smart_travel_app-WReS1-aS6QOf7LTbop9hew==/base.apk!classes18.dex)
+E/AndroidRuntime( 7968): 	at com.baseflow.geolocator.location.FusedLocationClient.isLocationServiceEnabled(FusedLocationClient.java:165)
+E/AndroidRuntime( 7968): 	at com.baseflow.geolocator.location.GeolocationManager.isLocationServiceEnabled(GeolocationManager.java:54)
+E/AndroidRuntime( 7968): 	at com.baseflow.geolocator.MethodCallHandlerImpl.onIsLocationServiceEnabled(MethodCallHandlerImpl.java:147)
+E/AndroidRuntime( 7968): 	at com.baseflow.geolocator.MethodCallHandlerImpl.onMethodCall(MethodCallHandlerImpl.java:68)
+E/AndroidRuntime( 7968): 	at io.flutter.plugin.common.MethodChannel$IncomingMethodCallHandler.onMessage(MethodChannel.java:267)
+E/AndroidRuntime( 7968): 	at io.flutter.embedding.engine.dart.DartMessenger.invokeHandler(DartMessenger.java:292)
+E/AndroidRuntime( 7968): 	at io.flutter.embedding.engine.dart.DartMessenger.lambda$dispatchMessageToQueue$0$io-flutter-embedding-engine-dart-DartMessenger(DartMessenger.java:319)
+E/AndroidRuntime( 7968): 	at io.flutter.embedding.engine.dart.DartMessenger$$ExternalSyntheticLambda0.run(D8$$SyntheticClass:0)
+E/AndroidRuntime( 7968): 	at android.os.Handler.handleCallback(Handler.java:958)
+E/AndroidRuntime( 7968): 	at android.os.Handler.dispatchMessage(Handler.java:99)
+E/AndroidRuntime( 7968): 	at android.os.Looper.loopOnce(Looper.java:205)
+E/AndroidRuntime( 7968): 	at android.os.Looper.loop(Looper.java:294)
+E/AndroidRuntime( 7968): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+E/AndroidRuntime( 7968): 	at java.lang.reflect.Method.invoke(Native Method)
+E/AndroidRuntime( 7968): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+E/AndroidRuntime( 7968): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+I/Process ( 7968): Sending signal. PID: 7968 SIG: 9
+Lost connection to device.

@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Người dùng chỉ được đọc/ghi document profile của chính họ
+    match /users/{userId} {
+      allow read, update, delete: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      
+      // Subcollection favorites: chỉ user sở hữu mới được đọc/ghi
+      match /favorites/{favoriteId} {
+        // Đọc: chỉ user sở hữu
+        allow read: if request.auth != null && request.auth.uid == userId;
+        
+        // Tạo mới: chỉ user sở hữu, và phải có destinationId
+        allow create: if request.auth != null && 
+          request.auth.uid == userId &&
+          request.resource.data.keys().hasAll(['destinationId', 'addedAt']) &&
+          request.resource.data.destinationId is string;
+        
+        // Cập nhật: không cho phép (favorites không nên được update)
+        allow update: if false;
+        
+        // Xóa: chỉ user sở hữu
+        allow delete: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+
+    // Các collection công khai khác (ví dụ destinations) vẫn giữ nguyên rule mặc định
+    match /{document=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
+

@@ -1,0 +1,3959 @@
+{
+  "destinations": [
+    {
+      "name": "Chợ Bến Thành",
+      "name_lowercase": "cho ben thanh",
+      "slug": "cho-ben-thanh",
+      "category": "shopping",
+      "tags": ["shopping", "landmark", "culture", "night-market", "food"],
+      "location": {
+        "latitude": 10.772461,
+        "longitude": 106.698055,
+        "address": "Đường Lê Lợi, Phường Bến Thành, Quận 1, TP.HCM",
+        "city": "TP.HCM",
+        "district": "Quận 1",
+        "country": "Vietnam"
+      },
+      "description": "Chợ Bến Thành là biểu tượng của Sài Gòn, nơi hội tụ văn hóa, ẩm thực và mua sắm. Được xây dựng từ năm 1914, chợ có kiến trúc độc đáo với mái vòm và đồng hồ lớn. Đây là điểm đến không thể bỏ qua khi khám phá thành phố, với hơn 3000 gian hàng bán đủ loại mặt hàng từ quần áo, đồ lưu niệm đến ẩm thực địa phương.",
+      "short_description": "Chợ truyền thống nổi tiếng nhất Sài Gòn, biểu tượng văn hóa và du lịch",
+      "images": [
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1559827260-dc66d52bef19",
+        "https://images.unsplash.com/photo-1528127269322-539801943592"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+      "rating": 4.5,
+      "review_count": 1250,
+      "popularity_score": 95,
+      "opening_hours": {
+        "monday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "tuesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "wednesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "thursday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "friday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "saturday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "sunday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "note": "Chợ đêm mở từ 18:00 - 23:00"
+      },
+      "best_months": [1, 2, 3, 11, 12],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Tết Nguyên Đán",
+          "months": [1, 2],
+          "description": "Không khí sôi động với hoa mai, bánh tết và đặc sản Tết"
+        }
+      ],
+      "avoid_months": [5, 6, 7, 8],
+      "specialties": [
+        {
+          "name": "Bánh mì Huỳnh Hoa",
+          "type": "food",
+          "price_range": "30k - 50k",
+          "description": "Bánh mì nổi tiếng với nhân thịt đầy đặn, pate béo ngậy",
+          "image": "https://images.unsplash.com/photo-1598182198871-d3f4ab4fd181",
+          "location": "Gần cổng chợ phía Lê Lợi",
+          "rating": 4.7
+        },
+        {
+          "name": "Cà phê vợt",
+          "type": "drink",
+          "price_range": "25k - 35k",
+          "description": "Cà phê pha phin truyền thống, đặc sánh, ngọt nhẹ",
+          "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348",
+          "location": "Các quán trong chợ",
+          "rating": 4.5
+        },
+        {
+          "name": "Mua đặc sản miền Tây",
+          "type": "activity",
+          "price_range": "50k - 500k",
+          "description": "Kẹo dừa Bến Tre, mứt Cần Thơ, khô cá sặc, bánh tráng",
+          "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+          "location": "Khu vực trung tâm chợ"
+        },
+        {
+          "name": "Áo dài lụa",
+          "type": "souvenir",
+          "price_range": "300k - 2tr",
+          "description": "Áo dài may sẵn hoặc đo đạc theo yêu cầu",
+          "image": "https://images.unsplash.com/photo-1583009313754-5d8f80f2b8e1",
+          "location": "Tầng 2 chợ"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Khám phá chợ đêm",
+          "duration": "2-3 giờ",
+          "best_time": "18:00 - 21:00",
+          "description": "Thưởng thức ẩm thực đường phố đa dạng: phở, hủ tiếu, bánh xèo, chè..."
+        },
+        {
+          "name": "Chụp ảnh check-in",
+          "duration": "30 phút",
+          "best_time": "Buổi sáng sớm (6:00 - 7:00)",
+          "description": "Chụp ảnh trước cổng chợ nổi tiếng với đồng hồ lớn"
+        },
+        {
+          "name": "Mua sắm đồ lưu niệm",
+          "duration": "1-2 giờ",
+          "best_time": "Buổi chiều",
+          "description": "Tìm quà tặng: móc khóa, nam châm tủ lạnh, tranh, mũ nón lá..."
+        }
+      ],
+      "tips": [
+        "Nên đi buổi sáng sớm (6-8h) để tránh đông đúc và nắng nóng",
+        "Luôn mặc cả khi mua sắm, giá ban đầu thường cao gấp 2-3 lần",
+        "Cẩn thận với túi xách và ví, giữ đồ gần người",
+        "Thử món bánh mì Huỳnh Hoa gần cổng chợ phía Lê Lợi",
+        "Chợ đêm (18h-23h) có nhiều quán ăn vỉa hè ngon và rẻ hơn trong chợ",
+        "Đừng ngại hỏi giá nhiều quán để so sánh"
+      ],
+      "nearby_places": [
+        {
+          "name": "Nhà hát Thành phố",
+          "distance_km": 0.5,
+          "type": "attraction",
+          "destination_id": "dest_002"
+        },
+        {
+          "name": "Phố đi bộ Nguyễn Huệ",
+          "distance_km": 0.8,
+          "type": "attraction",
+          "destination_id": "dest_004"
+        },
+        {
+          "name": "Bitexco Tower",
+          "distance_km": 1.2,
+          "type": "attraction",
+          "destination_id": "dest_007"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 50000,
+        "shopping_budget": 200000,
+        "total_suggested": 250000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "10k - 20k/xe máy, 30k - 50k/ô tô",
+        "note": "Có bãi xe gần cổng chợ và các con đường xung quanh"
+      },
+      "suggested_duration": "2-3 giờ",
+      "suggested_duration_hours": 2.5,
+      "weather_dependent": false,
+      "ideal_weather": "any",
+      "suitable_for": ["solo", "couple", "family", "group"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Có thang máy lên tầng 2, lối đi rộng rãi"
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 1500,
+      "trending_score": 85,
+      "user_preference_tags": [
+        "culture",
+        "shopping",
+        "food",
+        "budget-friendly",
+        "landmark"
+      ]
+    },
+    {
+      "name": "Dinh Độc Lập",
+      "name_lowercase": "dinh doc lap",
+      "slug": "dinh-doc-lap",
+      "category": "heritage",
+      "tags": [
+        "history",
+        "architecture",
+        "landmark",
+        "museum",
+        "war-history",
+        "culture"
+      ],
+      "location": {
+        "latitude": 10.776998,
+        "longitude": 106.695323,
+        "address": "135 Nam Kỳ Khởi Nghĩa, Phường Bến Thành, Quận 1, TP.HCM",
+        "city": "TP.HCM",
+        "district": "Quận 1",
+        "country": "Vietnam"
+      },
+      "description": "Công trình kiến trúc biểu tượng của Sài Gòn, nơi chứng kiến giây phút lịch sử trưa ngày 30/4/1975 khi xe tăng của Quân đội Giải phóng húc đổ cổng chính, đánh dấu sự thống nhất đất nước. Tòa nhà được thiết kế theo phong thủy và kiến trúc phương Đông hiện đại thập niên 60, bên trong còn lưu giữ nguyên vẹn nội thất, hầm chỉ huy và các hiện vật lịch sử.",
+      "short_description": "Biểu tượng lịch sử nơi kết thúc chiến tranh Việt Nam, kiệt tác kiến trúc thập niên 60",
+      "images": [
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1560493676-04071c5f467b"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+      "rating": 4.6,
+      "review_count": 15000,
+      "popularity_score": 98,
+      "opening_hours": {
+        "monday": {
+          "open": "08:00",
+          "close": "15:30"
+        },
+        "tuesday": {
+          "open": "08:00",
+          "close": "15:30"
+        },
+        "wednesday": {
+          "open": "08:00",
+          "close": "15:30"
+        },
+        "thursday": {
+          "open": "08:00",
+          "close": "15:30"
+        },
+        "friday": {
+          "open": "08:00",
+          "close": "15:30"
+        },
+        "saturday": {
+          "open": "08:00",
+          "close": "15:30"
+        },
+        "sunday": {
+          "open": "08:00",
+          "close": "15:30"
+        },
+        "note": "Quầy vé mở cửa từ 8:00 - 15:30. Giờ tham quan đến 17:00. Lưu ý: Dinh thường có nhiều đoàn khách lớn nên xếp hàng mua vé khá lâu."
+      },
+      "best_months": [1, 2, 3, 11, 12],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Kỷ niệm ngày Thống nhất",
+          "months": [4],
+          "description": "Ngày 30/4 hàng năm, Dinh trang hoàng cờ hoa rực rỡ và tổ chức nhiều triển lãm đặc biệt"
+        }
+      ],
+      "avoid_months": [5, 6, 7],
+      "specialties": [
+        {
+          "name": "Cà phê bệt Hàn Thuyên",
+          "type": "drink",
+          "price_range": "20k - 30k/ly",
+          "description": "Văn hóa uống cà phê ngồi bệt trên nền gạch tại công viên 30/4 ngay đối diện Dinh",
+          "image": "https://images.unsplash.com/photo-1623049628952-85981b796246",
+          "location": "Công viên 30/4 (Đối diện cổng chính)",
+          "rating": 4.7
+        },
+        {
+          "name": "Quà lưu niệm lịch sử",
+          "type": "souvenir",
+          "price_range": "50k - 500k",
+          "description": "Sách lịch sử, mô hình xe tăng 390, tem phiếu thời bao cấp",
+          "image": "https://images.unsplash.com/photo-1556382249-11c921e127b7",
+          "location": "Quầy lưu niệm bên trong Dinh"
+        },
+        {
+          "name": "Coco Dining (Nhà hàng trong Dinh)",
+          "type": "food",
+          "price_range": "500k - 1tr/người",
+          "description": "Nhà hàng sang trọng nằm ngay trong khuôn viên Dinh, phục vụ ẩm thực Việt Nam cao cấp",
+          "image": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b",
+          "location": "Khuôn viên sân vườn Dinh Độc Lập"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Tham quan Hầm chỉ huy",
+          "duration": "30 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Xuống tầng hầm kiên cố xem hệ thống thông tin liên lạc, phòng bản đồ thời chiến tranh"
+        },
+        {
+          "name": "Check-in với xe tăng lịch sử",
+          "duration": "15 phút",
+          "best_time": "Buổi sáng",
+          "description": "Chụp ảnh cùng 2 chiếc xe tăng 843 và 390 đã húc đổ cổng Dinh ngày 30/4/1975"
+        },
+        {
+          "name": "Khám phá nội thất Tổng thống",
+          "duration": "1 giờ",
+          "best_time": "Buổi sáng",
+          "description": "Tham quan phòng Khánh tiết, phòng làm việc của Tổng thống, phòng chiếu phim... với nội thất thập niên 60"
+        }
+      ],
+      "tips": [
+        "Tuyệt đối không đi lên cỏ trong khuôn viên (có biển báo 'Không đi lên cỏ').",
+        "Nên thuê tai nghe thuyết minh tự động (Audio Guide) có nhiều ngôn ngữ để hiểu rõ lịch sử từng phòng.",
+        "Trang phục cần lịch sự (áo có tay, quần/váy dài quá đầu gối) khi vào tham quan.",
+        "Giữ lại cuống vé để kiểm soát khi ra vào cổng an ninh.",
+        "Khu vực trưng bày 'Từ Dinh Norodom đến Dinh Độc Lập' là khu vực mới rất hay, đừng bỏ qua."
+      ],
+      "nearby_places": [
+        {
+          "name": "Nhà thờ Đức Bà",
+          "distance_km": 0.3,
+          "type": "attraction",
+          "destination_id": "dest_hcm_002"
+        },
+        {
+          "name": "Bưu điện Trung tâm",
+          "distance_km": 0.3,
+          "type": "attraction",
+          "destination_id": "dest_hcm_003"
+        },
+        {
+          "name": "Công viên 30/4",
+          "distance_km": 0.1,
+          "type": "park",
+          "destination_id": "dest_hcm_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 40000,
+        "average_meal": 50000,
+        "shopping_budget": 100000,
+        "total_suggested": 200000,
+        "currency": "VND"
+      },
+      "entrance_fee": 40000,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy",
+        "note": "Gửi xe tại đường Huyền Trân Công Chúa (bên hông Dinh) hoặc công viên Tao Đàn"
+      },
+      "suggested_duration": "1-2 giờ",
+      "suggested_duration_hours": 1.5,
+      "weather_dependent": false,
+      "ideal_weather": "any",
+      "suitable_for": ["family", "history-buff", "student", "group"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Có thang máy dành riêng cho người khuyết tật/người già để lên các tầng trên (cần liên hệ bảo vệ để được hướng dẫn)."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 12000,
+      "trending_score": 95,
+      "user_preference_tags": [
+        "history",
+        "architecture",
+        "education",
+        "landmark",
+        "must-visit"
+      ]
+    },
+    {
+      "name": "Nhà thờ Đức Bà & Bưu điện Trung tâm",
+      "name_lowercase": "nha tho duc ba va buu dien trung tam",
+      "slug": "nha-tho-duc-ba-buu-dien-trung-tam",
+      "category": "architecture",
+      "tags": [
+        "architecture",
+        "history",
+        "landmark",
+        "french-colonial",
+        "check-in",
+        "culture"
+      ],
+      "location": {
+        "latitude": 10.779785,
+        "longitude": 106.699018,
+        "address": "Số 1 & Số 2 Công xã Paris, Phường Bến Nghé, Quận 1, TP.HCM",
+        "city": "TP.HCM",
+        "district": "Quận 1",
+        "country": "Vietnam"
+      },
+      "description": "Bộ đôi kiệt tác kiến trúc Pháp cổ điển biểu tượng của Sài Gòn. Nhà thờ Đức Bà (Vương cung thánh đường) nổi bật với gạch đỏ Marseille và hai tháp chuông cao vút. Ngay bên cạnh là Bưu điện Trung tâm Sài Gòn với mái vòm khung sắt do Gustave Eiffel (người thiết kế tháp Eiffel) tham gia thiết kế, mang vẻ đẹp giao thoa giữa phương Tây và phương Đông.",
+      "short_description": "Biểu tượng kiến trúc trăm năm tuổi, trái tim của Sài Gòn",
+      "images": [
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+        "https://images.unsplash.com/photo-1599707033561-4c4297442934"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+      "rating": 4.7,
+      "review_count": 25000,
+      "popularity_score": 100,
+      "opening_hours": {
+        "monday": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "tuesday": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "wednesday": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "thursday": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "friday": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "saturday": {
+          "open": "07:00",
+          "close": "18:00"
+        },
+        "sunday": {
+          "open": "08:00",
+          "close": "17:00"
+        },
+        "note": "Giờ mở cửa trên áp dụng cho Bưu điện. Nhà thờ Đức Bà hiện đang đóng cửa trùng tu, chỉ cử hành thánh lễ cho giáo dân (giờ lễ: 5:30 sáng, 17:30 chiều)."
+      },
+      "best_months": [1, 2, 3, 11, 12],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Giáng Sinh (Noel)",
+          "months": [12],
+          "description": "Khu vực xung quanh Nhà thờ được trang trí đèn lộng lẫy, là điểm tụ tập đông nhất thành phố đêm Noel"
+        }
+      ],
+      "avoid_months": [5, 6, 7],
+      "specialties": [
+        {
+          "name": "Cà phê bệt",
+          "type": "drink",
+          "price_range": "15k - 25k/ly",
+          "description": "Ngồi bệt dưới bóng cây cổ thụ cạnh nhà thờ, thưởng thức ly cà phê nhựa và ngắm phố phường",
+          "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd",
+          "location": "Công viên quanh nhà thờ",
+          "rating": 4.8
+        },
+        {
+          "name": "Gửi bưu thiếp tay",
+          "type": "activity",
+          "price_range": "15k - 50k",
+          "description": "Mua một tấm bưu thiếp Sài Gòn xưa, viết tay và gửi đi quốc tế ngay tại quầy giao dịch cổ kính",
+          "image": "https://images.unsplash.com/photo-1566554273541-37a9ca77b91f",
+          "location": "Bên trong Bưu điện Trung tâm",
+          "rating": 4.9
+        },
+        {
+          "name": "Sách & Văn hóa phẩm",
+          "type": "souvenir",
+          "price_range": "50k - 300k",
+          "description": "Tìm mua sách hay, túi tote, đồ lưu niệm mang đậm chất Sài Gòn",
+          "image": "https://images.unsplash.com/photo-1526721940322-10fb6e3ae94a",
+          "location": "Đường sách Nguyễn Văn Bình (sát bên hông Bưu điện)"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Check-in kiến trúc Bưu điện",
+          "duration": "30 phút",
+          "best_time": "Buổi sáng (nắng chiếu vào mái vòm đẹp)",
+          "description": "Chiêm ngưỡng mái vòm thép khổng lồ, bản đồ cổ vẽ tay trên tường và gạch lát sàn hoa văn cầu kỳ"
+        },
+        {
+          "name": "Chụp ảnh với đàn bồ câu",
+          "duration": "15 phút",
+          "best_time": "Sáng sớm (6:00 - 8:00)",
+          "description": "Tại khu vực tượng Đức Bà Hòa Bình thường có đàn bồ câu hàng trăm con sà xuống ăn rất thân thiện"
+        },
+        {
+          "name": "Dạo chơi Đường sách",
+          "duration": "45 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Đi bộ dưới tán me xanh mát, xem sách và uống cà phê tại con đường văn hóa đẹp nhất Sài Gòn"
+        }
+      ],
+      "tips": [
+        "Hiện tại Nhà thờ Đức Bà đang quây giàn giáo để tu sửa (dự kiến xong 2027), bạn không thể vào trong tham quan như trước.",
+        "Trong Bưu điện có hai quầy đổi tiền và bán đồ lưu niệm ở hai bên cánh gà ngay cửa vào.",
+        "Cẩn thận tư trang, điện thoại khi chụp ảnh ở khu vực đông người phía trước nhà thờ.",
+        "Nếu muốn có ảnh đẹp vắng người ở Bưu điện, hãy đi thật sớm (vừa mở cửa lúc 7h-8h sáng).",
+        "Đừng quên ngước nhìn chiếc đồng hồ lớn ngay mặt tiền Bưu điện, nó đã chạy bền bỉ hơn 100 năm qua."
+      ],
+      "nearby_places": [
+        {
+          "name": "Dinh Độc Lập",
+          "distance_km": 0.5,
+          "type": "attraction",
+          "destination_id": "dest_hcm_001"
+        },
+        {
+          "name": "Nhà hát Thành phố",
+          "distance_km": 0.6,
+          "type": "attraction",
+          "destination_id": "dest_hcm_005"
+        },
+        {
+          "name": "Vincom Đồng Khởi",
+          "distance_km": 0.4,
+          "type": "shopping_mall",
+          "destination_id": "dest_hcm_006"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 50000,
+        "shopping_budget": 100000,
+        "total_suggested": 150000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy",
+        "note": "Gửi xe tại bãi xe Đường sách (đường Hai Bà Trưng) hoặc Diamond Plaza"
+      },
+      "suggested_duration": "1-1.5 giờ",
+      "suggested_duration_hours": 1.5,
+      "weather_dependent": false,
+      "ideal_weather": "sunny",
+      "suitable_for": ["solo", "couple", "group", "book-lover", "photographer"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Bưu điện có lối đi bằng phẳng và không gian rộng, xe lăn di chuyển dễ dàng. Khu vực công viên bên ngoài vỉa hè cũng rất thoáng."
+      },
+      "status": "partially_closed",
+      "verified": true,
+      "visit_count": 30000,
+      "trending_score": 99,
+      "user_preference_tags": [
+        "architecture",
+        "check-in",
+        "culture",
+        "free-entry",
+        "city-center"
+      ]
+    },
+    {
+      "name": "Bảo tàng Chứng tích Chiến tranh",
+      "name_lowercase": "bao tang chung tich chien tranh",
+      "slug": "bao-tang-chung-tich-chien-tranh",
+      "category": "museum",
+      "tags": [
+        "history",
+        "war",
+        "museum",
+        "educational",
+        "emotional",
+        "indoor"
+      ],
+      "location": {
+        "latitude": 10.779517,
+        "longitude": 106.692227,
+        "address": "28 Võ Văn Tần, Phường Võ Thị Sáu, Quận 3, TP.HCM",
+        "city": "TP.HCM",
+        "district": "Quận 3",
+        "country": "Vietnam"
+      },
+      "description": "Bảo tàng chuyên đề nghiên cứu, sưu tầm và trưng bày về chứng tích tội ác và hậu quả của các cuộc chiến tranh xâm lược Việt Nam. Nơi đây lưu giữ hơn 20.000 tài liệu, hiện vật và phim ảnh, đặc biệt là bộ sưu tập máy bay, xe tăng quân sự Mỹ ở sân trước và các phòng trưng bày hình ảnh gây chấn động mạnh về tàn khốc của chiến tranh.",
+      "short_description": "Bảo tàng nổi tiếng nhất Sài Gòn, nơi lưu giữ ký ức hào hùng và bi tráng của dân tộc",
+      "images": [
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+        "https://images.unsplash.com/photo-1557633649-3f57c5c9c6f6"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1557633649-3f57c5c9c6f6",
+      "rating": 4.8,
+      "review_count": 35000,
+      "popularity_score": 99,
+      "opening_hours": {
+        "monday": {
+          "open": "07:30",
+          "close": "17:30"
+        },
+        "tuesday": {
+          "open": "07:30",
+          "close": "17:30"
+        },
+        "wednesday": {
+          "open": "07:30",
+          "close": "17:30"
+        },
+        "thursday": {
+          "open": "07:30",
+          "close": "17:30"
+        },
+        "friday": {
+          "open": "07:30",
+          "close": "17:30"
+        },
+        "saturday": {
+          "open": "07:30",
+          "close": "17:30"
+        },
+        "sunday": {
+          "open": "07:30",
+          "close": "17:30"
+        },
+        "note": "Mở cửa thông trưa, không nghỉ trưa. Quầy vé đóng cửa lúc 17:00."
+      },
+      "best_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "best_season": "any",
+      "seasonal_events": [
+        {
+          "name": "Ngày Thương binh Liệt sĩ",
+          "months": [7],
+          "description": "Các triển lãm chuyên đề tri ân và giao lưu nhân chứng lịch sử dịp 27/7"
+        }
+      ],
+      "avoid_months": [],
+      "specialties": [
+        {
+          "name": "Chuồng cọp Côn Đảo (Mô hình)",
+          "type": "exhibition",
+          "price_range": "0",
+          "description": "Khu vực tái hiện lại nhà tù Côn Đảo với các hình thức tra tấn dã man, gây ám ảnh mạnh",
+          "image": "https://images.unsplash.com/photo-1625636044455-9494c76435c2",
+          "location": "Khu vực sân vườn bên trái bảo tàng",
+          "rating": 4.9
+        },
+        {
+          "name": "Bộ sưu tập ảnh 'Hồi niệm' (Requiem)",
+          "type": "exhibition",
+          "price_range": "0",
+          "description": "Bộ sưu tập ảnh chiến trường nổi tiếng thế giới của các phóng viên đã hy sinh tại Đông Dương",
+          "image": "https://images.unsplash.com/photo-1572949645841-094f3a9c4c94",
+          "location": "Tầng 2 bảo tàng",
+          "rating": 5.0
+        },
+        {
+          "name": "Máy bay quân sự Mỹ",
+          "type": "exhibit",
+          "price_range": "0",
+          "description": "Trưng bày các loại máy bay, trực thăng Chinook, xe tăng, pháo kích cỡ lớn",
+          "image": "https://images.unsplash.com/photo-1599638942040-868750f4d157",
+          "location": "Sân trước bảo tàng"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Xem hiện vật ngoài trời",
+          "duration": "30 phút",
+          "best_time": "Buổi sáng (cho đỡ nắng)",
+          "description": "Chụp ảnh và tìm hiểu về các loại khí tài quân sự khổng lồ"
+        },
+        {
+          "name": "Tham quan các phòng trưng bày",
+          "duration": "1-2 giờ",
+          "best_time": "Mọi thời điểm",
+          "description": "Đi lần lượt từ tầng trệt lên tầng 2 theo dòng lịch sử (nên chuẩn bị tâm lý vững)"
+        },
+        {
+          "name": "Mua sách lịch sử",
+          "duration": "15 phút",
+          "best_time": "Sau khi tham quan",
+          "description": "Tìm hiểu sâu hơn qua các đầu sách tư liệu hiếm có bán tại quầy lưu niệm"
+        }
+      ],
+      "tips": [
+        "CẢNH BÁO: Một số hình ảnh (nạn nhân chất độc da cam, tử thi) rất trần trụi và đáng sợ. Cân nhắc kỹ nếu bạn nhạy cảm hoặc đi cùng trẻ nhỏ.",
+        "Bảo tàng có thang máy dành cho người khuyết tật và người già ở phía sau tòa nhà chính.",
+        "Nên đi từ tầng cao nhất xuống tầng thấp để theo dõi mạch câu chuyện lịch sử dễ hơn.",
+        "Giữ trật tự và không cười đùa lớn tiếng để thể hiện sự tôn trọng.",
+        "Mang theo nước uống vì khuôn viên khá nóng, nhất là khu vực trưng bày ngoài trời."
+      ],
+      "nearby_places": [
+        {
+          "name": "Hồ Con Rùa",
+          "distance_km": 0.5,
+          "type": "landmark",
+          "destination_id": "dest_hcm_007"
+        },
+        {
+          "name": "Dinh Độc Lập",
+          "distance_km": 0.7,
+          "type": "attraction",
+          "destination_id": "dest_hcm_001"
+        },
+        {
+          "name": "Công viên Tao Đàn",
+          "distance_km": 0.4,
+          "type": "park",
+          "destination_id": "dest_hcm_008"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 40000,
+        "average_meal": 60000,
+        "shopping_budget": 100000,
+        "total_suggested": 200000,
+        "currency": "VND"
+      },
+      "entrance_fee": 40000,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy",
+        "note": "Bãi giữ xe nằm ngay cổng phụ đường Lê Quý Đôn (thường hay hết chỗ, nếu hết hãy sang bãi xe trường Marie Curie đối diện)"
+      },
+      "suggested_duration": "2 giờ",
+      "suggested_duration_hours": 2.0,
+      "weather_dependent": false,
+      "ideal_weather": "any",
+      "suitable_for": ["history-buff", "student", "group", "adult"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": false,
+        "notes": "Có thang máy và đường dốc cho xe lăn. Tuy nhiên, đánh giá Kid Friendly là FALSE do nội dung nhạy cảm."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 50000,
+      "trending_score": 96,
+      "user_preference_tags": [
+        "history",
+        "war",
+        "museum",
+        "must-visit",
+        "educational"
+      ]
+    },
+    {
+      "name": "Địa đạo Củ Chi",
+      "name_lowercase": "dia dao cu chi",
+      "slug": "dia-dao-cu-chi",
+      "category": "history",
+      "tags": [
+        "history",
+        "war-tunnels",
+        "adventure",
+        "educational",
+        "shooting-range",
+        "suburban"
+      ],
+      "location": {
+        "latitude": 11.058454,
+        "longitude": 106.526548,
+        "address": "Đường Tỉnh lộ 15, Ấp Phú Hiệp, Xã Phú Mỹ Hưng, Huyện Củ Chi, TP.HCM",
+        "city": "TP.HCM",
+        "district": "Huyện Củ Chi",
+        "country": "Vietnam"
+      },
+      "description": "Kỳ quan 'Thành phố trong lòng đất' độc nhất vô nhị trên thế giới. Hệ thống đường hầm dài hơn 250km tỏa rồng khắp nơi như mạng nhện, bao gồm bệnh xá, phòng ở, nhà bếp, kho chứa... được quân dân Củ Chi đào hoàn toàn bằng tay trong thời kỳ chiến tranh Đông Dương và Việt Nam. Đây là biểu tượng của ý chí kiên cường và nghệ thuật du kích đỉnh cao.",
+      "short_description": "Mê cung dưới lòng đất dài 250km, huyền thoại của chiến tranh du kích",
+      "images": [
+        "https://images.unsplash.com/photo-1565068264485-7136c0c54f72",
+        "https://images.unsplash.com/photo-1599708066952-1232634f299e",
+        "https://images.unsplash.com/photo-1614700690782-2030b8963d2f"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1565068264485-7136c0c54f72",
+      "rating": 4.7,
+      "review_count": 22000,
+      "popularity_score": 97,
+      "opening_hours": {
+        "monday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "tuesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "wednesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "thursday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "friday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "saturday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "sunday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "note": "Mở cửa tất cả các ngày trong tuần, kể cả Lễ, Tết."
+      },
+      "best_months": [12, 1, 2, 3, 4],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Ngày truyền thống Củ Chi",
+          "months": [4, 9],
+          "description": "Các hoạt động về nguồn, dâng hương tưởng niệm vào dịp 30/4 hoặc 2/9"
+        }
+      ],
+      "avoid_months": [8, 9, 10],
+      "specialties": [
+        {
+          "name": "Khoai mì chấm muối mè",
+          "type": "food",
+          "price_range": "Miễn phí",
+          "description": "Món ăn 'cứu đói' thời chiến, khoai mì (sắn) luộc nóng hổi chấm với muối mè đậu phộng, phục vụ miễn phí cuối tour tham quan",
+          "image": "https://images.unsplash.com/photo-1624303928632-77b6c72f5385",
+          "location": "Khu vực Bếp Hoàng Cầm",
+          "rating": 4.8
+        },
+        {
+          "name": "Bắn súng đạn thật",
+          "type": "activity",
+          "price_range": "60k - 80k/viên",
+          "description": "Thử tài thiện xạ với các loại súng quân dụng như AK-47, M16, M60, M30... (yêu cầu mua tối thiểu 5-10 viên)",
+          "image": "https://images.unsplash.com/photo-1595590424283-b8f17842773f",
+          "location": "Trường bắn Củ Chi (bên trong khu di tích)",
+          "rating": 4.9
+        },
+        {
+          "name": "Bò tơ Củ Chi",
+          "type": "food",
+          "price_range": "150k - 250k/người",
+          "description": "Đặc sản nức tiếng vùng đất thép, bò tơ mềm ngọt, bì giòn, thường chế biến món bò luộc cuốn rau rừng",
+          "image": "https://images.unsplash.com/photo-1558030006-450671960d72",
+          "location": "Các quán dọc Quốc lộ 22 (Bò tơ Xuân Đào, Vĩnh Xuân)",
+          "rating": 4.7
+        }
+      ],
+      "activities": [
+        {
+          "name": "Chui hầm địa đạo",
+          "duration": "15-30 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Trải nghiệm cảm giác sống dưới lòng đất khi bò qua các đoạn đường hầm chật hẹp (dài từ 20m đến 100m)"
+        },
+        {
+          "name": "Xem mô hình Bếp Hoàng Cầm",
+          "duration": "15 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Tìm hiểu loại bếp dã chiến độc đáo 'nấu không thấy khói' để tránh máy bay địch phát hiện"
+        },
+        {
+          "name": "Xem phim tư liệu",
+          "duration": "20 phút",
+          "best_time": "Đầu buổi tham quan",
+          "description": "Xem phim đen trắng về lịch sử hình thành địa đạo và cách quân dân Củ Chi chiến đấu"
+        }
+      ],
+      "tips": [
+        "Nếu bạn mắc chứng sợ không gian hẹp (claustrophobia) hoặc bệnh tim mạch, huyết áp cao, TUYỆT ĐỐI KHÔNG xuống hầm. Có lối đi trên mặt đất song song.",
+        "Củ Chi có 2 điểm tham quan: 'Bến Đình' (gần hơn, đông khách Tây) và 'Bến Dược' (xa hơn, hầm rộng hơn, có đền tưởng niệm, vắng khách hơn). Hãy kiểm tra kỹ vé xe/tour của bạn đi đâu.",
+        "Nên mang giày thể thao và quần áo tối màu vì chui hầm rất dễ lấm bẩn.",
+        "Giá đạn bắn súng thật khá cao (khoảng 60k/viên) và tiếng nổ rất lớn, nên đeo tai nghe chống ồn (có sẵn).",
+        "Khoai mì ở cuối tour là miễn phí (đã tính trong vé), bạn có thể ăn thoải mái và uống trà."
+      ],
+      "nearby_places": [
+        {
+          "name": "Đền Tưởng niệm Bến Dược",
+          "distance_km": 10.0,
+          "type": "attraction",
+          "destination_id": "dest_hcm_010"
+        },
+        {
+          "name": "Trạm cứu hộ động vật hoang dã",
+          "distance_km": 5.0,
+          "type": "attraction",
+          "destination_id": "dest_hcm_011"
+        },
+        {
+          "name": "Công viên nước Củ Chi",
+          "distance_km": 2.0,
+          "type": "entertainment",
+          "destination_id": "dest_hcm_012"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 70000,
+        "average_meal": 150000,
+        "shopping_budget": 500000,
+        "total_suggested": 1000000,
+        "currency": "VND"
+      },
+      "entrance_fee": 70000,
+      "parking": {
+        "available": true,
+        "fee": "5k/xe máy, 20k/ô tô",
+        "note": "Bãi xe rộng rãi ngay cổng khu du lịch"
+      },
+      "suggested_duration": "Half-day (Nửa ngày)",
+      "suggested_duration_hours": 4.0,
+      "weather_dependent": true,
+      "ideal_weather": "cloudy",
+      "suitable_for": [
+        "group",
+        "history-buff",
+        "adventure-seeker",
+        "foreigner"
+      ],
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "elderly_friendly": false,
+        "kid_friendly": true,
+        "notes": "Phần lớn trải nghiệm là đường đất rừng và chui hầm ngầm, hoàn toàn không phù hợp cho xe lăn. Người cao tuổi chỉ có thể tham quan khu vực trên mặt đất (phòng chiếu phim, trưng bày vũ khí)."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 8000,
+      "trending_score": 94,
+      "user_preference_tags": [
+        "history",
+        "war",
+        "adventure",
+        "shooting",
+        "suburban"
+      ]
+    },
+    {
+      "name": "Phố đi bộ Nguyễn Huệ",
+      "name_lowercase": "pho di bo nguyen hue",
+      "slug": "pho-di-bo-nguyen-hue",
+      "category": "attraction",
+      "tags": [
+        "landmark",
+        "nightlife",
+        "street-food",
+        "walking-street",
+        "photography",
+        "cafe"
+      ],
+      "location": {
+        "latitude": 10.773606,
+        "longitude": 106.701239,
+        "address": "Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM",
+        "city": "TP.HCM",
+        "district": "Quận 1",
+        "country": "Vietnam"
+      },
+      "description": "Quảng trường đi bộ hiện đại và sầm uất nhất Việt Nam, kéo dài từ trụ sở UBND Thành phố đến Bến Bạch Đằng. Đây là 'trái tim' của Sài Gòn về đêm, nơi giao thoa giữa những tòa nhà chọc trời hiện đại (Bitexco, Times Square) và các công trình kiến trúc Pháp cổ điển. Nơi đây thường xuyên diễn ra các hoạt động nghệ thuật đường phố, nhạc nước và lễ hội đếm ngược (Countdown).",
+      "short_description": "Trái tim sôi động của Sài Gòn, thiên đường cafe chung cư và nghệ thuật đường phố",
+      "images": [
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b",
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b",
+      "rating": 4.7,
+      "review_count": 45000,
+      "popularity_score": 100,
+      "opening_hours": {
+        "monday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "tuesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "wednesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "thursday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "friday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "saturday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "sunday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "note": "Mở cửa tự do 24/7. Cấm xe lưu thông vào tối Thứ 7 & Chủ Nhật (18:00 - 22:00)."
+      },
+      "best_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "best_season": "any",
+      "seasonal_events": [
+        {
+          "name": "Đường Hoa Nguyễn Huệ (Tết)",
+          "months": [1, 2],
+          "description": "Sự kiện thường niên lớn nhất TP.HCM dịp Tết Nguyên Đán, trưng bày linh vật và hoa nghệ thuật"
+        },
+        {
+          "name": "Countdown (Đếm ngược năm mới)",
+          "months": [12],
+          "description": "Đại nhạc hội và bắn pháo hoa đón giao thừa Dương lịch (31/12) thu hút hàng trăm ngàn người"
+        }
+      ],
+      "avoid_months": [],
+      "specialties": [
+        {
+          "name": "Chung cư Cafe 42 Nguyễn Huệ",
+          "type": "drink",
+          "price_range": "50k - 100k/ly",
+          "description": "Chung cư cũ được cải tạo thành tổ hợp hàng chục quán cafe, shop quần áo với ban công view thẳng xuống phố đi bộ cực đẹp",
+          "image": "https://images.unsplash.com/photo-1595856314999-7e725d424392",
+          "location": "Số 42 Nguyễn Huệ",
+          "rating": 4.8
+        },
+        {
+          "name": "Bánh tráng trộn Sài Gòn",
+          "type": "food",
+          "price_range": "20k - 30k/bịch",
+          "description": "Món ăn vặt 'quốc dân', thường được bán bởi các gánh hàng rong di động quanh khu vực phố đi bộ",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Vỉa hè hoặc các xe đẩy xung quanh",
+          "rating": 4.6
+        },
+        {
+          "name": "Trà sữa Phúc Long",
+          "type": "drink",
+          "price_range": "40k - 60k/ly",
+          "description": "Thương hiệu trà sữa biểu tượng của Sài Gòn, cửa hàng tại Ngô Đức Kế (gần phố đi bộ) luôn tấp nập",
+          "image": "https://images.unsplash.com/photo-1558030006-450671960d72",
+          "location": "Góc đường Ngô Đức Kế - Nguyễn Huệ",
+          "rating": 4.7
+        }
+      ],
+      "activities": [
+        {
+          "name": "Check-in Tượng đài Bác Hồ",
+          "duration": "15 phút",
+          "best_time": "Sáng sớm hoặc chiều tà",
+          "description": "Chụp ảnh lưu niệm trước tượng đài Chủ tịch Hồ Chí Minh và tòa nhà UBND Thành phố kiến trúc Pháp"
+        },
+        {
+          "name": "Xem trình diễn Nhạc nước",
+          "duration": "20 phút",
+          "best_time": "Buổi tối (thường sau 19:00)",
+          "description": "Thưởng thức màn trình diễn phun nước kết hợp ánh sáng và âm nhạc tại 2 đài phun nước lớn"
+        },
+        {
+          "name": "Nghe nhạc Acoustic đường phố",
+          "duration": "30-60 phút",
+          "best_time": "Tối cuối tuần",
+          "description": "Xem các nhóm bạn trẻ biểu diễn đàn hát, nhảy hiện đại dọc theo con phố"
+        },
+        {
+          "name": "Cafe hopping tại Chung cư 42",
+          "duration": "1-2 giờ",
+          "best_time": "Chiều tối",
+          "description": "Đi thang máy (có phí) hoặc leo thang bộ khám phá các quán cafe độc lạ trong chung cư cổ"
+        }
+      ],
+      "tips": [
+        "Gửi xe máy là vấn đề nan giải nhất: Hãy gửi tại hầm tòa nhà Vincom, Sun Wah, hoặc các bãi xe đường Hồ Tùng Mậu/Huỳnh Thúc Kháng. Tránh gửi các bãi tự phát 'chặt chém'.",
+        "Thang máy lên Chung cư 42 có thu phí (thường là 3k/lượt), nhưng nhiều quán cafe sẽ hoàn lại tiền này nếu bạn đưa vé/thông báo cho họ.",
+        "Cuối tuần cấm xe, không gian rất thoáng nhưng cũng cực kỳ đông đúc.",
+        "Cẩn thận tư trang, điện thoại ở chỗ đông người.",
+        "Có vòi nước uống trực tiếp miễn phí dọc theo phố đi bộ."
+      ],
+      "nearby_places": [
+        {
+          "name": "Trụ sở UBND TP.HCM",
+          "distance_km": 0.0,
+          "type": "landmark",
+          "destination_id": "dest_hcm_009"
+        },
+        {
+          "name": "Bitexco Financial Tower",
+          "distance_km": 0.3,
+          "type": "attraction",
+          "destination_id": "dest_hcm_010"
+        },
+        {
+          "name": "Bến Bạch Đằng",
+          "distance_km": 0.8,
+          "type": "park",
+          "destination_id": "dest_hcm_011"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 100000,
+        "shopping_budget": 100000,
+        "total_suggested": 200000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy (tại bãi quy định)",
+        "note": "Rất khó tìm chỗ gửi xe vào tối cuối tuần. Khuyên dùng Taxi/Grab."
+      },
+      "suggested_duration": "2-3 giờ",
+      "suggested_duration_hours": 2.5,
+      "weather_dependent": true,
+      "ideal_weather": "cloudy",
+      "suitable_for": [
+        "youth",
+        "family",
+        "couple",
+        "photographer",
+        "night-owl"
+      ],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Mặt đường lát đá granite rất phẳng, rộng rãi, cực kỳ thân thiện cho xe lăn và xe đẩy trẻ em. Tuy nhiên cần lưu ý các ngã tư giao cắt với đường Đồng Khởi/Mạc Thị Bưởi vẫn có xe chạy."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 80000,
+      "trending_score": 100,
+      "user_preference_tags": [
+        "nightlife",
+        "free-entry",
+        "check-in",
+        "city-center",
+        "walking"
+      ]
+    },
+    {
+      "name": "Landmark 81 SkyView",
+      "name_lowercase": "landmark 81 skyview",
+      "slug": "landmark-81-skyview",
+      "category": "attraction",
+      "tags": [
+        "viewpoint",
+        "luxury",
+        "skyscraper",
+        "sunset",
+        "modern",
+        "check-in"
+      ],
+      "location": {
+        "latitude": 10.795022,
+        "longitude": 106.721857,
+        "address": "720A Điện Biên Phủ, Phường 22, Quận Bình Thạnh, TP.HCM",
+        "city": "TP.HCM",
+        "district": "Quận Bình Thạnh",
+        "country": "Vietnam"
+      },
+      "description": "Tòa nhà chọc trời cao nhất Việt Nam và Đông Nam Á (tại thời điểm khánh thành), biểu tượng của sự thịnh vượng và hiện đại mới tại Sài Gòn. Đài quan sát SkyView nằm ở 3 tầng cao nhất (79, 80, 81), mang đến tầm nhìn 360 độ ngoạn mục bao trọn toàn cảnh thành phố từ độ cao gần 400m. Du khách có thể trải nghiệm cảm giác lơ lửng giữa không trung tại khu vực cầu kính SkyTouch.",
+      "short_description": "Đài quan sát cao nhất Việt Nam, chạm tay vào bầu trời Sài Gòn",
+      "images": [
+        "https://images.unsplash.com/photo-1558611848-73f7eb4001a1",
+        "https://images.unsplash.com/photo-1605833882703-2a460b27df6e",
+        "https://images.unsplash.com/photo-1634354250342-f25152119c93"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1558611848-73f7eb4001a1",
+      "rating": 4.6,
+      "review_count": 18000,
+      "popularity_score": 98,
+      "opening_hours": {
+        "monday": {
+          "open": "08:30",
+          "close": "22:00"
+        },
+        "tuesday": {
+          "open": "08:30",
+          "close": "22:00"
+        },
+        "wednesday": {
+          "open": "08:30",
+          "close": "22:00"
+        },
+        "thursday": {
+          "open": "08:30",
+          "close": "22:00"
+        },
+        "friday": {
+          "open": "08:30",
+          "close": "22:00"
+        },
+        "saturday": {
+          "open": "08:30",
+          "close": "22:00"
+        },
+        "sunday": {
+          "open": "08:30",
+          "close": "22:00"
+        },
+        "note": "Ngừng nhận khách lên đài quan sát lúc 21:00."
+      },
+      "best_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "best_season": "any",
+      "seasonal_events": [
+        {
+          "name": "Pháo hoa Giao thừa",
+          "months": [12, 1],
+          "description": "Khu vực công viên Landmark 81 là một trong những điểm bắn pháo hoa tầm cao đẹp nhất thành phố"
+        }
+      ],
+      "avoid_months": [],
+      "specialties": [
+        {
+          "name": "SkyTouch (Cầu kính)",
+          "type": "activity",
+          "price_range": "0",
+          "description": "Khu vực lồng kính lộ thiên tại tầng 81, nơi gió thổi lồng lộng và nhìn xuyên thấu xuống chân (dành cho người gan dạ)",
+          "image": "https://images.unsplash.com/photo-1580796005469-5267c6462558",
+          "location": "Tầng 81",
+          "rating": 4.8
+        },
+        {
+          "name": "VR Game Top of Vietnam",
+          "type": "activity",
+          "price_range": "0",
+          "description": "Trò chơi thực tế ảo nhảy dù từ đỉnh tòa nhà xuống mặt đất (thường đã bao gồm trong vé tham quan)",
+          "image": "https://images.unsplash.com/photo-1592478411213-61535fdd861d",
+          "location": "Tầng 81",
+          "rating": 4.5
+        },
+        {
+          "name": "Blank Lounge (Alternative)",
+          "type": "drink",
+          "price_range": "150k - 300k/món",
+          "description": "Lounge bar cao nhất Đông Nam Á. Không cần mua vé tham quan, chỉ cần trả tiền nước uống để tận hưởng view tương tự",
+          "image": "https://images.unsplash.com/photo-1570544829047-29846431d998",
+          "location": "Tầng 75 & 76",
+          "rating": 4.7
+        }
+      ],
+      "activities": [
+        {
+          "name": "Săn hoàng hôn trên cao",
+          "duration": "1-2 giờ",
+          "best_time": "17:00 - 18:30",
+          "description": "Ngắm khoảnh khắc mặt trời lặn xuống đường chân trời và thành phố bắt đầu lên đèn lung linh"
+        },
+        {
+          "name": "Check-in sống ảo",
+          "duration": "30 phút",
+          "best_time": "Buổi sáng hoặc chiều",
+          "description": "Chụp ảnh với đôi cánh thiên thần và khung kính vô cực"
+        },
+        {
+          "name": "Dạo chơi công viên Central Park",
+          "duration": "1 giờ",
+          "best_time": "Chiều mát (sau 16:00)",
+          "description": "Công viên ven sông trị giá 500 tỷ đồng lấy cảm hứng từ Central Park New York, nằm ngay dưới chân tòa nhà"
+        }
+      ],
+      "tips": [
+        "Mẹo tiết kiệm: Nếu thấy vé SkyView (khoảng 500k-810k) quá đắt, hãy đặt bàn tại Blank Lounge (tầng 75) hoặc Nest by AIA (tầng 75). Bạn chỉ tốn tiền nước (~200k) mà vẫn có view triệu đô.",
+        "Thời điểm đẹp nhất là đi lúc 17:00 để ngắm được cả cảnh ban ngày, hoàng hôn và cảnh đêm.",
+        "Vé SkyView bao gồm cả 3 tầng (79, 80, 81), tầng 79 có quán cafe Miwaku, tầng 81 có cầu kính lộ thiên.",
+        "Mang theo áo khoác nhẹ nếu lên khu vực SkyTouch vào buổi tối vì gió trên cao rất mạnh và lạnh.",
+        "Nếu đi vào cuối tuần, nên đặt vé online trước để tránh xếp hàng mua vé lâu."
+      ],
+      "nearby_places": [
+        {
+          "name": "Công viên Vinhomes Central Park",
+          "distance_km": 0.1,
+          "type": "park",
+          "destination_id": "dest_hcm_012"
+        },
+        {
+          "name": "Khu du lịch Văn Thánh",
+          "distance_km": 1.5,
+          "type": "attraction",
+          "destination_id": "dest_hcm_013"
+        },
+        {
+          "name": "Pearl Plaza",
+          "distance_km": 1.0,
+          "type": "shopping_mall",
+          "destination_id": "dest_hcm_014"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 500000,
+        "average_meal": 200000,
+        "shopping_budget": 0,
+        "total_suggested": 700000,
+        "currency": "VND"
+      },
+      "entrance_fee": 500000,
+      "parking": {
+        "available": true,
+        "fee": "5k/xe máy (4 tiếng đầu), 20k/ô tô",
+        "note": "Gửi xe dưới hầm tòa nhà Landmark 81 (Rộng nhưng khá sâu và dễ lạc, nhớ chụp lại vị trí cột)"
+      },
+      "suggested_duration": "1-2 giờ",
+      "suggested_duration_hours": 1.5,
+      "weather_dependent": true,
+      "ideal_weather": "sunny",
+      "suitable_for": ["couple", "family", "photographer", "luxury-traveler"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Hệ thống thang máy hiện đại tốc độ cao, hoàn toàn phù hợp cho xe lăn và người già."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 15000,
+      "trending_score": 97,
+      "user_preference_tags": [
+        "luxury",
+        "viewpoint",
+        "city-view",
+        "modern",
+        "sunset"
+      ]
+    },
+    {
+      "name": "Núi Bà Đen",
+      "name_lowercase": "nui ba den",
+      "slug": "nui-ba-den",
+      "category": "nature",
+      "tags": [
+        "mountain",
+        "spiritual",
+        "cloud-hunting",
+        "cable-car",
+        "pilgrimage",
+        "sun-world"
+      ],
+      "location": {
+        "latitude": 11.379997,
+        "longitude": 106.1725,
+        "address": "Khu phố Ninh Phú, Phường Ninh Sơn, Thành phố Tây Ninh, Tỉnh Tây Ninh",
+        "city": "Tây Ninh",
+        "district": "Thành phố Tây Ninh",
+        "country": "Vietnam"
+      },
+      "description": "Được mệnh danh là 'Nóc nhà Nam Bộ' với độ cao 986m. Đây là quần thể du lịch tâm linh và sinh thái nổi tiếng nhất miền Nam. Đỉnh núi sở hữu tượng Phật Bà Tây Bổ Đà Sơn bằng đồng cao nhất Châu Á và tượng Phật Di Lặc khổng lồ ghép từ đá sa thạch. Hệ thống cáp treo Sun World hiện đại giúp du khách dễ dàng chinh phục đỉnh núi và chiêm ngưỡng biển mây bồng bềnh.",
+      "short_description": "Nóc nhà Nam Bộ, điểm săn mây và hành hương linh thiêng bậc nhất",
+      "images": [
+        "https://images.unsplash.com/photo-1625636369126-1b8b36473362",
+        "https://images.unsplash.com/photo-1618895438787-4111c6796258",
+        "https://images.unsplash.com/photo-1643782886228-c7f0b4437233"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1625636369126-1b8b36473362",
+      "rating": 4.8,
+      "review_count": 18500,
+      "popularity_score": 99,
+      "opening_hours": {
+        "monday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "tuesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "wednesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "thursday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "friday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "saturday": {
+          "open": "05:30",
+          "close": "21:00"
+        },
+        "sunday": {
+          "open": "05:30",
+          "close": "21:00"
+        },
+        "note": "Cáp treo hoạt động liên tục. Vào dịp Tết Nguyên Đán hoặc Lễ hội vía Bà (Tháng 1 âm lịch), cáp treo có thể hoạt động 22/24h."
+      },
+      "best_months": [1, 2, 3, 11, 12],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Hội Xuân Núi Bà",
+          "months": [1, 2],
+          "description": "Lễ hội lớn nhất trong năm (tháng Giêng âm lịch), thu hút hàng triệu người hành hương cầu an"
+        },
+        {
+          "name": "Lễ Vía Bà Linh Sơn Thánh Mẫu",
+          "months": [5, 6],
+          "description": "Lễ hội quan trọng diễn ra vào ngày 4, 5, 6 tháng 5 âm lịch"
+        }
+      ],
+      "avoid_months": [9, 10],
+      "specialties": [
+        {
+          "name": "Muối tôm Tây Ninh",
+          "type": "souvenir",
+          "price_range": "20k - 150k/hũ",
+          "description": "Đặc sản trứ danh dù Tây Ninh không có biển. Muối được rang với tôm khô và ớt, chấm trái cây cực ngon",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Các quầy hàng dưới chân núi",
+          "rating": 4.9
+        },
+        {
+          "name": "Bánh canh Trảng Bàng",
+          "type": "food",
+          "price_range": "40k - 60k/tô",
+          "description": "Sợi bánh canh bột gạo dai mềm, nước dùng ngọt thanh từ xương heo, ăn kèm rau rừng và giò heo",
+          "image": "https://images.unsplash.com/photo-1551260863-057589254742",
+          "location": "Hệ thống Năm Dung, Hoàng Minh (trên đường từ Sài Gòn đi Tây Ninh)",
+          "rating": 4.7
+        },
+        {
+          "name": "Buffet chay Vân Sơn",
+          "type": "food",
+          "price_range": "250k - 300k/người",
+          "description": "Thưởng thức hơn 80 món ăn (chay/mặn tùy thời điểm) tại nhà hàng trên đỉnh núi giữa mây ngàn",
+          "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+          "location": "Nhà hàng Vân Sơn (Đỉnh núi)",
+          "rating": 4.5
+        }
+      ],
+      "activities": [
+        {
+          "name": "Chiêm bái Tượng Phật Bà Tây Bổ Đà Sơn",
+          "duration": "30 phút",
+          "best_time": "Sáng sớm hoặc chiều tà",
+          "description": "Chiêm ngưỡng tượng Phật Bà bằng đồng cao 72m uy nghi trên đỉnh núi"
+        },
+        {
+          "name": "Săn mây trên đỉnh núi",
+          "duration": "1 giờ",
+          "best_time": "Sáng sớm (06:00 - 08:00)",
+          "description": "Chụp ảnh với biển mây bồng bềnh bao quanh ban công 'săn mây' ở độ cao 986m"
+        },
+        {
+          "name": "Viếng Chùa Bà (Linh Sơn Tiên Thạch Tự)",
+          "duration": "1-2 giờ",
+          "best_time": "Mọi thời điểm",
+          "description": "Ngôi chùa cổ linh thiêng hơn 300 năm tuổi nằm ở lưng chừng núi (đi cáp treo tuyến Chùa Hang)"
+        },
+        {
+          "name": "Trekking đường cột điện",
+          "duration": "3-4 giờ",
+          "best_time": "Sáng sớm",
+          "description": "Thử thách leo núi đường bộ dành cho dân phượt (không đi cáp treo), cần sức khỏe tốt"
+        }
+      ],
+      "tips": [
+        "Lưu ý khi mua vé cáp treo: Có 2 tuyến riêng biệt (lên Chùa và lên Đỉnh). Nên mua vé Combo (cả 2 tuyến) để trải nghiệm trọn vẹn.",
+        "Đỉnh núi buổi tối rất lạnh và gió mạnh, nếu ở lại ngắm cảnh đêm cần mang áo khoác.",
+        "Trang phục cần kín đáo, lịch sự khi vào các khu vực thờ tự, chùa chiền.",
+        "Nắng Tây Ninh rất gắt, hãy mang mũ rộng vành, kính râm và uống nhiều nước.",
+        "Nếu đi trekking đường bộ, hãy đi theo nhóm và chuẩn bị giày leo núi chuyên dụng."
+      ],
+      "nearby_places": [
+        {
+          "name": "Tòa Thánh Tây Ninh",
+          "distance_km": 10.0,
+          "type": "heritage",
+          "destination_id": "dest_tn_002"
+        },
+        {
+          "name": "Thung lũng Ma Thiên Lãnh",
+          "distance_km": 5.0,
+          "type": "nature",
+          "destination_id": "dest_tn_003"
+        },
+        {
+          "name": "Hồ Dầu Tiếng",
+          "distance_km": 20.0,
+          "type": "nature",
+          "destination_id": "dest_tn_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 10000,
+        "average_meal": 150000,
+        "shopping_budget": 200000,
+        "total_suggested": 1000000,
+        "currency": "VND"
+      },
+      "entrance_fee": 10000,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy, 20k/ô tô",
+        "note": "Bãi xe Sun World cực rộng, có xe điện trung chuyển từ bãi xe vào cổng vé"
+      },
+      "suggested_duration": "1 ngày",
+      "suggested_duration_hours": 8.0,
+      "weather_dependent": true,
+      "ideal_weather": "cloudy",
+      "suitable_for": ["family", "pilgrim", "photographer", "group"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Rất thân thiện. Hệ thống cáp treo, thang máy và thang cuốn hiện đại đưa du khách lên tận chân tượng Phật Bà, người già đi lại rất thuận tiện."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 20000,
+      "trending_score": 98,
+      "user_preference_tags": [
+        "spiritual",
+        "mountain",
+        "cable-car",
+        "family-friendly",
+        "cloud-hunting"
+      ]
+    },
+    {
+      "name": "Tòa Thánh Tây Ninh",
+      "name_lowercase": "toa thanh tay ninh",
+      "slug": "toa-thanh-tay-ninh",
+      "category": "heritage",
+      "tags": [
+        "religion",
+        "architecture",
+        "culture",
+        "caodaism",
+        "landmark",
+        "pilgrimage"
+      ],
+      "location": {
+        "latitude": 11.310439,
+        "longitude": 106.127076,
+        "address": "Đường Phạm Hộ Pháp, Phường Long Hoa, Thị xã Hòa Thành, Tỉnh Tây Ninh",
+        "city": "Tây Ninh",
+        "district": "Thị xã Hòa Thành",
+        "country": "Vietnam"
+      },
+      "description": "Tổ đình của đạo Cao Đài, một tôn giáo nội sinh độc đáo của Việt Nam. Tòa Thánh được xây dựng từ năm 1933 với kiến trúc kết hợp Đông - Tây kim cổ: tháp chuông như nhà thờ, mái cong như chùa, và Bát Quái Đài linh thiêng. Bên trong chánh điện nổi bật với hình tượng Thiên Nhãn (Con mắt thiêng) và những hàng cột rồng chạm trổ tinh xảo rực rỡ sắc màu.",
+      "short_description": "Thánh địa của đạo Cao Đài với kiến trúc Đông - Tây kết hợp độc nhất vô nhị",
+      "images": [
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+        "https://images.unsplash.com/photo-1648377649276-527393336876",
+        "https://images.unsplash.com/photo-1528127269322-539801943592"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+      "rating": 4.7,
+      "review_count": 8500,
+      "popularity_score": 96,
+      "opening_hours": {
+        "monday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "tuesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "wednesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "thursday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "friday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "saturday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "sunday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "note": "Khuôn viên mở cửa 24/7. Giờ hành lễ chính (khách được vào xem): 06:00, 12:00, 18:00, 00:00. Giờ đẹp nhất là 12:00 trưa."
+      },
+      "best_months": [1, 2, 8, 9],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Đại lễ Vía Đức Chí Tôn",
+          "months": [1, 2],
+          "description": "Lễ hội lớn nhất trong năm (mùng 9 tháng Giêng âm lịch) với các màn múa rồng nhang, ngọc kỳ lân hoành tráng"
+        },
+        {
+          "name": "Hội Yến Diêu Trì Cung",
+          "months": [9, 10],
+          "description": "Lễ hội rằm tháng 8 âm lịch (Trung thu) với các mô hình trái cây khổng lồ và tiệc chay đãi khách thập phương"
+        }
+      ],
+      "avoid_months": [],
+      "specialties": [
+        {
+          "name": "Ẩm thực chay Tây Ninh",
+          "type": "food",
+          "price_range": "20k - 50k/phần",
+          "description": "Khu vực quanh Tòa Thánh nổi tiếng với các món chay ngon và rẻ như: nem bưởi, mắm đậu, hủ tiếu chay",
+          "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+          "location": "Chợ Long Hoa (gần Tòa Thánh)",
+          "rating": 4.8
+        },
+        {
+          "name": "Nem bưởi",
+          "type": "food",
+          "price_range": "30k - 50k/xâu",
+          "description": "Món nem chay chua ngọt làm từ vỏ bưởi, đu đủ và khế, màu hồng đẹp mắt, ăn giòn sần sật",
+          "image": "https://images.unsplash.com/photo-1563508914678-01070dc32c9f",
+          "location": "Các quầy hàng dọc đường vào Tòa Thánh",
+          "rating": 4.6
+        },
+        {
+          "name": "Muối tôm Tây Ninh",
+          "type": "souvenir",
+          "price_range": "20k - 100k/hũ",
+          "description": "Món quà không thể thiếu, dù là vùng đất không biển nhưng muối tôm ở đây ngon nức tiếng",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Chợ Long Hoa"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Xem lễ cúng thời Tý/Ngọ",
+          "duration": "45 phút",
+          "best_time": "12:00 trưa",
+          "description": "Quan sát từ trên ban công nghi thức hành lễ trang nghiêm với hàng trăm chức sắc mặc áo dài trắng, đỏ, xanh, vàng"
+        },
+        {
+          "name": "Chiêm ngưỡng Thiên Nhãn",
+          "duration": "30 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Ngắm nhìn biểu tượng 'Con mắt thấu suốt' trên quả càn khôn khổng lồ nơi chánh điện"
+        },
+        {
+          "name": "Cho khỉ ăn",
+          "duration": "20 phút",
+          "best_time": "Buổi sáng hoặc chiều mát",
+          "description": "Trong khuôn viên rừng thiên nhiên (Rừng Thánh) có nhiều đàn khỉ tự nhiên sinh sống rất dạn dĩ"
+        }
+      ],
+      "tips": [
+        "QUY ĐỊNH BẮT BUỘC: Phải bỏ giày dép bên ngoài trước khi vào chánh điện. Nam đi cửa bên phải (Bạch Ngọc Chung Đài), Nữ đi cửa bên trái (Lôi Âm Cổ Đài).",
+        "Không được đi vào khu vực giữa chánh điện (lối đi của Đức Hộ Pháp), khách tham quan chỉ được đi ở hai bên hành lang.",
+        "Trang phục phải kín đáo, lịch sự. Tuyệt đối không mặc quần đùi, váy ngắn trên đầu gối, áo sát nách.",
+        "Trong giờ hành lễ, giữ trật tự tuyệt đối và không được chụp ảnh có đèn flash trực diện vào người đang cúng.",
+        "Vào dịp Đại lễ (tháng Giêng và tháng 8 âm lịch), Tòa Thánh rất đông đúc và thường kẹt xe."
+      ],
+      "nearby_places": [
+        {
+          "name": "Núi Bà Đen",
+          "distance_km": 12.0,
+          "type": "attraction",
+          "destination_id": "dest_tn_001"
+        },
+        {
+          "name": "Chợ Long Hoa",
+          "distance_km": 2.0,
+          "type": "market",
+          "destination_id": "dest_tn_003"
+        },
+        {
+          "name": "Trại Bò sữa Long Thành (Điểm dừng chân)",
+          "distance_km": 50.0,
+          "type": "rest_stop",
+          "destination_id": "dest_dongnai_001"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 50000,
+        "shopping_budget": 100000,
+        "total_suggested": 150000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "Miễn phí",
+        "note": "Bãi giữ xe máy và ô tô rất rộng trong khuôn viên, hoàn toàn miễn phí (tùy tâm bỏ thùng công đức)"
+      },
+      "suggested_duration": "1-2 giờ",
+      "suggested_duration_hours": 1.5,
+      "weather_dependent": false,
+      "ideal_weather": "any",
+      "suitable_for": ["family", "culture-lover", "photographer", "senior"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Khuôn viên bên ngoài rất rộng và phẳng. Tuy nhiên, để vào Chánh điện phải lên bậc tam cấp khá cao. Có lối đi phụ ít bậc hơn ở hai bên hông."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 10000,
+      "trending_score": 94,
+      "user_preference_tags": [
+        "religion",
+        "architecture",
+        "culture",
+        "free-entry",
+        "unique"
+      ]
+    },
+    {
+      "name": "Tượng Chúa Kitô Vua",
+      "name_lowercase": "tuong chua kito vua",
+      "slug": "tuong-chua-kito-vua-vung-tau",
+      "category": "attraction",
+      "tags": [
+        "landmark",
+        "religion",
+        "viewpoint",
+        "hiking",
+        "iconic",
+        "spiritual"
+      ],
+      "location": {
+        "latitude": 10.326342,
+        "longitude": 107.084436,
+        "address": "Thùy Vân (Cổng lên tại đường Hạ Long), Phường 2, Thành phố Vũng Tàu, Tỉnh Bà Rịa - Vũng Tàu",
+        "city": "Vũng Tàu",
+        "district": "Phường 2",
+        "country": "Vietnam"
+      },
+      "description": "Biểu tượng du lịch nổi tiếng nhất của phố biển Vũng Tàu, tọa lạc trên đỉnh Núi Nhỏ (Tao Phùng). Bức tượng cao 32m, sải tay dài 18.4m, được xác lập kỷ lục là 'Tượng Chúa Giêsu lớn nhất khu vực Châu Á' năm 2012. Để chinh phục đỉnh tượng, du khách cần vượt qua gần 1.000 bậc thang, đổi lại là tầm nhìn panorama tuyệt đẹp ôm trọn biển trời và thành phố.",
+      "short_description": "Tượng Chúa dang tay lớn nhất Châu Á, điểm ngắm toàn cảnh Vũng Tàu đẹp nhất",
+      "images": [
+        "https://images.unsplash.com/photo-1596627828785-c04740123825",
+        "https://images.unsplash.com/photo-1626776386744-591957272864",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1596627828785-c04740123825",
+      "rating": 4.6,
+      "review_count": 16000,
+      "popularity_score": 98,
+      "opening_hours": {
+        "monday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "tuesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "wednesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "thursday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "friday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "saturday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "sunday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "note": "Giờ mở cửa cổng tham quan lên tay Chúa: Sáng 7:00-11:30, Chiều 13:30-16:30. Trời mưa to sẽ đóng cửa lên tay tượng để đảm bảo an toàn."
+      },
+      "best_months": [1, 2, 3, 4, 5, 6, 7, 8, 12],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Lễ Giáng Sinh",
+          "months": [12],
+          "description": "Dù là điểm tham quan, nơi đây vẫn thu hút đông đảo giáo dân và du khách đến cầu nguyện dịp Noel"
+        }
+      ],
+      "avoid_months": [9, 10],
+      "specialties": [
+        {
+          "name": "Bánh khọt Vũng Tàu",
+          "type": "food",
+          "price_range": "50k - 70k/phần",
+          "description": "Đặc sản trứ danh với lớp vỏ giòn rụm, nhân tôm tươi rói, ăn kèm rau sống và đu đủ ngâm",
+          "image": "https://images.unsplash.com/photo-1599708066952-1232634f299e",
+          "location": "Bánh khọt Gốc Vú Sữa, Cô Ba Vũng Tàu, Bà Hai",
+          "rating": 4.8
+        },
+        {
+          "name": "Lẩu cá đuối",
+          "type": "food",
+          "price_range": "150k - 250k/nồi",
+          "description": "Món lẩu chua cay đậm đà, thịt cá đuối dai ngọt sần sật, chấm nước mắm ớt",
+          "image": "https://images.unsplash.com/photo-1631452180519-c014fe946120",
+          "location": "Khu đường Trương Công Định (Hoàng Minh, Út Mười)",
+          "rating": 4.7
+        },
+        {
+          "name": "Nước mía lau / Rau má đậu",
+          "type": "drink",
+          "price_range": "10k - 15k/ly",
+          "description": "Thức uống giải khát tuyệt vời sau khi leo núi, bán nhiều ngay dưới chân tượng",
+          "image": "https://images.unsplash.com/photo-1623049628952-85981b796246",
+          "location": "Quầy nước chân núi và dọc đường lên"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Chinh phục 811 bậc thang",
+          "duration": "30-45 phút",
+          "best_time": "Sáng sớm (7:00 - 8:30) cho mát",
+          "description": "Leo bộ qua các chặng nghỉ có ghế đá và bóng mát, tận hưởng không khí trong lành của núi rừng"
+        },
+        {
+          "name": "Check-in tại Cánh tay Chúa",
+          "duration": "10-15 phút",
+          "best_time": "Tránh giờ cao điểm (9:00 - 10:00)",
+          "description": "Leo tiếp 133 bậc thang xoắn ốc bên trong lòng tượng để ra ban công trên vai Chúa, ngắm toàn cảnh Vũng Tàu"
+        },
+        {
+          "name": "Ngắm mũi Nghinh Phong từ trên cao",
+          "duration": "15 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Từ các trạm nghỉ lưng chừng núi, bạn có thể nhìn thấy Mũi Nghinh Phong vươn ra biển rất đẹp"
+        }
+      ],
+      "tips": [
+        "TRANG PHỤC: Bắt buộc quần/váy dài qua gối, áo có tay. Nếu lỡ mặc ngắn, bạn có thể mua khăn quấn/quần dài ở các quầy dưới chân núi (nhưng khá bất tiện).",
+        "Phải bỏ giày dép và túi xách (đồ cồng kềnh) bên ngoài trước khi vào trong lòng tượng để leo lên tay Chúa.",
+        "Lòng tượng (cầu thang xoắn) rất hẹp, chỉ vừa 1 người đi, nên di chuyển nhanh và nhường nhịn nhau.",
+        "Nên đi vệ sinh ở dưới chân núi trước khi leo, vì trên núi hạn chế nhà vệ sinh.",
+        "Mang theo nước uống, tuy nhiên dọc đường leo cũng có nhiều điểm bán nước và trạm nghỉ."
+      ],
+      "nearby_places": [
+        {
+          "name": "Mũi Nghinh Phong",
+          "distance_km": 0.5,
+          "type": "attraction",
+          "destination_id": "dest_vt_002"
+        },
+        {
+          "name": "Đảo Hòn Bà (Miếu Hòn Bà)",
+          "distance_km": 0.8,
+          "type": "attraction",
+          "destination_id": "dest_vt_003"
+        },
+        {
+          "name": "Ngọn Hải Đăng Vũng Tàu",
+          "distance_km": 3.0,
+          "type": "landmark",
+          "destination_id": "dest_vt_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 150000,
+        "shopping_budget": 50000,
+        "total_suggested": 200000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy (Tùy tâm bỏ thùng công đức)",
+        "note": "Bãi xe nằm ngay cổng dưới chân núi đường Hạ Long. Phí giữ xe thường là tùy tâm ủng hộ nhà thờ."
+      },
+      "suggested_duration": "2-3 giờ",
+      "suggested_duration_hours": 2.5,
+      "weather_dependent": true,
+      "ideal_weather": "cloudy",
+      "suitable_for": ["youth", "group", "pilgrim", "fitness-lover"],
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "elderly_friendly": false,
+        "kid_friendly": false,
+        "notes": "Hoàn toàn là bậc thang bộ dốc (gần 1000 bậc), KHÔNG CÓ cáp treo hay lối đi cho xe lăn. Người già yếu, người bệnh tim mạch hoặc trẻ em quá nhỏ không nên leo."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 18000,
+      "trending_score": 97,
+      "user_preference_tags": [
+        "viewpoint",
+        "hiking",
+        "religious",
+        "free-entry",
+        "must-visit"
+      ]
+    },
+    {
+      "name": "Côn Đảo",
+      "name_lowercase": "con dao",
+      "slug": "con-dao",
+      "category": "island",
+      "tags": [
+        "history",
+        "spiritual",
+        "beach",
+        "nature",
+        "turtle-watching",
+        "relaxation"
+      ],
+      "location": {
+        "latitude": 8.682661,
+        "longitude": 106.606836,
+        "address": "Huyện Côn Đảo, Tỉnh Bà Rịa - Vũng Tàu",
+        "city": "Bà Rịa - Vũng Tàu",
+        "district": "Huyện Côn Đảo",
+        "country": "Vietnam"
+      },
+      "description": "Từng được mệnh danh là 'Địa ngục trần gian', Côn Đảo nay đã chuyển mình thành thiên đường nghỉ dưỡng và du lịch tâm linh hàng đầu Việt Nam. Hòn đảo này sở hữu vẻ đẹp hoang sơ đầy ám ảnh với hệ thống nhà tù lịch sử, những bãi biển trong vắt và rừng nguyên sinh được bảo tồn nghiêm ngặt. Đây cũng là nơi yên nghỉ của nữ anh hùng Võ Thị Sáu, biểu tượng linh thiêng của vùng đất này.",
+      "short_description": "Từ 'địa ngục trần gian' đến thiên đường nghỉ dưỡng và du lịch tâm linh",
+      "images": [
+        "https://images.unsplash.com/photo-1589802663723-340031101216",
+        "https://images.unsplash.com/photo-1603954085086-1e22753f6266",
+        "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1589802663723-340031101216",
+      "rating": 4.9,
+      "review_count": 5200,
+      "popularity_score": 95,
+      "opening_hours": {
+        "monday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "tuesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "wednesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "thursday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "friday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "saturday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "sunday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "note": "Di tích Nhà tù mở cửa 7:30-11:30 & 13:30-17:00. Nghĩa trang Hàng Dương mở cửa 24/24 (viếng Mộ cô Sáu đông nhất từ 20:00 - 23:00)."
+      },
+      "best_months": [3, 4, 5, 6, 7, 8, 9],
+      "best_season": "summer",
+      "seasonal_events": [
+        {
+          "name": "Mùa rùa biển đẻ trứng",
+          "months": [4, 5, 6, 7, 8, 9],
+          "description": "Xem rùa Vích bò lên bãi cát đẻ trứng ban đêm tại Hòn Bảy Cạnh (cần đặt tour kiểm lâm)"
+        },
+        {
+          "name": "Ngày giỗ Cô Sáu",
+          "months": [1],
+          "description": "Ngày 23 tháng Giêng âm lịch, người dân khắp nơi đổ về làm lễ giỗ rất lớn"
+        }
+      ],
+      "avoid_months": [10, 11, 12],
+      "specialties": [
+        {
+          "name": "Mứt hạt bàng",
+          "type": "souvenir",
+          "price_range": "200k - 500k/kg",
+          "description": "Đặc sản độc quyền chỉ có ở Côn Đảo, hạt bàng rang muối hoặc đường, vị bùi béo rất lạ miệng",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Chợ Côn Đảo hoặc các cửa hàng đặc sản",
+          "rating": 4.8
+        },
+        {
+          "name": "Ốc Vú Nàng",
+          "type": "food",
+          "price_range": "100k - 150k/đĩa",
+          "description": "Loại ốc hình chóp nón, thịt giòn ngọt, thường nướng mỡ hành hoặc luộc chấm muối tiêu chanh",
+          "image": "https://images.unsplash.com/photo-1599638942040-868750f4d157",
+          "location": "Các quán hải sản đường Phạm Văn Đồng",
+          "rating": 4.6
+        },
+        {
+          "name": "Cháo hàu",
+          "type": "food",
+          "price_range": "40k - 60k/tô",
+          "description": "Cháo nấu với hàu sữa tươi rói, ngọt lịm, rắc thêm tiêu và hành phi thơm lừng",
+          "image": "https://images.unsplash.com/photo-1562600298-d940c85791f8",
+          "location": "Quán ăn khu vực Chợ đêm",
+          "rating": 4.7
+        }
+      ],
+      "activities": [
+        {
+          "name": "Viếng mộ Cô Sáu (đêm)",
+          "duration": "1-2 giờ",
+          "best_time": "22:00 - 23:59",
+          "description": "Hoạt động tâm linh quan trọng nhất, dâng hoa trắng và lễ vật cầu bình an tại Nghĩa trang Hàng Dương"
+        },
+        {
+          "name": "Tham quan Hệ thống Nhà tù",
+          "duration": "2-3 giờ",
+          "best_time": "Buổi sáng",
+          "description": "Chứng kiến 'Chuồng cọp kiểu Pháp', 'Chuồng cọp kiểu Mỹ' và nghe thuyết minh về lịch sử đấu tranh hào hùng"
+        },
+        {
+          "name": "Lặn ngắm san hô Hòn Bảy Cạnh",
+          "duration": "4-5 giờ",
+          "best_time": "Buổi sáng (08:00 - 12:00)",
+          "description": "Đi cano ra đảo nhỏ, lặn biển (snorkeling) và xem rùa đẻ trứng (nếu đi tour đêm)"
+        },
+        {
+          "name": "Tắm biển Bãi Đầm Trầu",
+          "duration": "2 giờ",
+          "best_time": "Chiều tà (ngắm máy bay)",
+          "description": "Bãi biển đẹp nhất đảo, nơi duy nhất ở VN có thể ngắm máy bay hạ cánh sát ngay trên đầu"
+        }
+      ],
+      "tips": [
+        "Lễ vật viếng Cô Sáu nên chuẩn bị: Hoa trắng (cô thích hoa trắng), gương lược, nón lá. Nên mua trước ở chợ thị trấn để có giá tốt.",
+        "Trang phục khi đi viếng mộ và nhà tù phải cực kỳ nghiêm túc, kín đáo. Áo sát nách hay quần đùi sẽ bị mời ra ngoài.",
+        "Côn Đảo rất ít cây xăng (chỉ có 2 cây), hãy đổ đầy bình ngay khi thuê xe.",
+        "Đồ ăn và vật giá trên đảo khá cao do phải vận chuyển từ đất liền ra, hãy chuẩn bị tâm lý.",
+        "Vé tàu cao tốc (từ Vũng Tàu/Sóc Trăng) rất dễ bị hủy nếu biển động (tháng 10-12), hãy luôn có phương án dự phòng."
+      ],
+      "nearby_places": [
+        {
+          "name": "Nhà tù Côn Đảo",
+          "distance_km": 1.0,
+          "type": "heritage",
+          "destination_id": "dest_cd_002"
+        },
+        {
+          "name": "Bãi Đầm Trầu",
+          "distance_km": 14.0,
+          "type": "beach",
+          "destination_id": "dest_cd_003"
+        },
+        {
+          "name": "Vân Sơn Tự (Chùa Núi Một)",
+          "distance_km": 3.0,
+          "type": "temple",
+          "destination_id": "dest_cd_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 40000,
+        "average_meal": 200000,
+        "shopping_budget": 500000,
+        "total_suggested": 2000000,
+        "currency": "VND"
+      },
+      "entrance_fee": 40000,
+      "parking": {
+        "available": true,
+        "fee": "Miễn phí",
+        "note": "An ninh trên đảo rất tốt, xe máy thường để ngoài đường không mất, nhiều nơi không thu phí giữ xe."
+      },
+      "suggested_duration": "3 ngày 2 đêm",
+      "suggested_duration_hours": 48.0,
+      "weather_dependent": true,
+      "ideal_weather": "sunny",
+      "suitable_for": ["spiritual", "history-buff", "nature-lover", "couple"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": false,
+        "notes": "Các khu di tích (Nhà tù, Nghĩa trang) đường đi bằng phẳng, xe lăn đi tốt. Tuy nhiên, không khí u buồn và hình ảnh mô phỏng tra tấn trong nhà tù KHÔNG phù hợp cho trẻ nhỏ."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 5000,
+      "trending_score": 96,
+      "user_preference_tags": [
+        "spiritual",
+        "island",
+        "history",
+        "nature",
+        "relaxation"
+      ]
+    },
+    {
+      "name": "Chợ nổi Cái Răng",
+      "name_lowercase": "cho noi cai rang",
+      "slug": "cho-noi-cai-rang",
+      "category": "culture",
+      "tags": [
+        "floating-market",
+        "river-life",
+        "food",
+        "culture",
+        "sunrise",
+        "mekong-delta"
+      ],
+      "location": {
+        "latitude": 10.006589,
+        "longitude": 105.746857,
+        "address": "Sông Cần Thơ, Quận Cái Răng, Thành phố Cần Thơ",
+        "city": "Cần Thơ",
+        "district": "Quận Cái Răng",
+        "country": "Vietnam"
+      },
+      "description": "Di sản văn hóa phi vật thể quốc gia, đại diện tiêu biểu nhất cho văn hóa sông nước miền Tây. Khác với các chợ nổi du lịch ở Thái Lan, Cái Răng là chợ đầu mối nông sản thực thụ, nơi hàng trăm ghe thuyền tụ họp từ tờ mờ sáng để giao thương trái cây, rau củ. Điểm độc đáo nhất là hình ảnh 'Cây bẹo' - cây sào tre treo mặt hàng cần bán để khách dễ nhận biết từ xa.",
+      "short_description": "Chợ nổi lớn và sầm uất nhất miền Tây, nét đẹp văn hóa sông nước độc đáo",
+      "images": [
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1605633688777-2c65da77d979"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+      "rating": 4.5,
+      "review_count": 9800,
+      "popularity_score": 97,
+      "opening_hours": {
+        "monday": {
+          "open": "04:30",
+          "close": "09:00"
+        },
+        "tuesday": {
+          "open": "04:30",
+          "close": "09:00"
+        },
+        "wednesday": {
+          "open": "04:30",
+          "close": "09:00"
+        },
+        "thursday": {
+          "open": "04:30",
+          "close": "09:00"
+        },
+        "friday": {
+          "open": "04:30",
+          "close": "09:00"
+        },
+        "saturday": {
+          "open": "04:30",
+          "close": "10:00"
+        },
+        "sunday": {
+          "open": "04:30",
+          "close": "10:00"
+        },
+        "note": "Chợ họp đông nhất lúc 6:00 - 7:00 sáng. Sau 9:00 chợ bắt đầu vãn khách."
+      },
+      "best_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "best_season": "any",
+      "seasonal_events": [
+        {
+          "name": "Ngày hội Du lịch Chợ nổi Cái Răng",
+          "months": [7],
+          "description": "Sự kiện thường niên tôn vinh văn hóa chợ nổi với các hoạt động diễu hành tàu và ẩm thực"
+        },
+        {
+          "name": "Mùa nước nổi",
+          "months": [9, 10, 11],
+          "description": "Thời điểm mực nước dâng cao, sản vật phong phú và cảnh sắc sông nước hữu tình nhất"
+        }
+      ],
+      "avoid_months": [],
+      "specialties": [
+        {
+          "name": "Hủ tiếu lắc (Hủ tiếu trên ghe)",
+          "type": "food",
+          "price_range": "40k - 50k/tô",
+          "description": "Thưởng thức tô hủ tiếu nóng hổi ngay trên thuyền chòng chành, hương vị đậm đà miền Tây",
+          "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348",
+          "location": "Các ghe bán đồ ăn di động giữa chợ",
+          "rating": 4.8
+        },
+        {
+          "name": "Khóm Cần Thơ (Dứa)",
+          "type": "food",
+          "price_range": "10k - 15k/trái",
+          "description": "Loại trái cây đặc sản được bán nhiều nhất tại chợ, ngọt lịm và mọng nước, có thể ăn ngay tại chỗ",
+          "image": "https://images.unsplash.com/photo-1589820296156-2454bb8a4540",
+          "location": "Các ghe bầu lớn",
+          "rating": 4.7
+        },
+        {
+          "name": "Cà phê kho",
+          "type": "drink",
+          "price_range": "15k - 20k/ly",
+          "description": "Cà phê vợt nấu trong siêu đất giữ nóng, hương vị mộc mạc, đậm chất sông nước",
+          "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd",
+          "location": "Ghe nước giải khát"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Đi thuyền tham quan chợ",
+          "duration": "45 phút",
+          "best_time": "06:00 - 07:00",
+          "description": "Ngồi thuyền máy len lỏi giữa hàng trăm ghe thuyền nông sản, quan sát cảnh giao thương tấp nập"
+        },
+        {
+          "name": "Ăn sáng trên sông",
+          "duration": "30 phút",
+          "best_time": "Buổi sáng",
+          "description": "Gọi một tô bún riêu hoặc hủ tiếu từ ghe hàng rong và thưởng thức bữa sáng bồng bềnh"
+        },
+        {
+          "name": "Thăm lò hủ tiếu truyền thống",
+          "duration": "30 phút",
+          "best_time": "Sau khi đi chợ nổi",
+          "description": "Xem quy trình tráng bánh, phơi bánh và thử làm hủ tiếu (thường nằm trong tour chợ nổi)"
+        }
+      ],
+      "tips": [
+        "Bắt buộc phải dậy sớm! Hãy xuất phát từ bến Ninh Kiều lúc 5:00 hoặc 5:30 sáng. Đi trễ là 'mất tiền mua vé mà không thấy gì'.",
+        "Nên thuê tàu riêng (nếu đi nhóm) để chủ động thời gian, giá khoảng 350k - 500k/tàu. Đi ghép tàu lớn thường phải chờ đợi lâu.",
+        "Hãy để ý 'Cây bẹo' (cây sào tre) trên mỗi ghe: Treo gì bán nấy. (Lưu ý: Treo quần áo là không bán, đó là quần áo phơi của cư dân sống trên ghe).",
+        "Cẩn thận khi bước từ tàu lên ghe lớn để mua trái cây, sông nước trơn trượt.",
+        "Khi mua trái cây, nên mua ở các ghe bầu lớn (ghe sỉ) sẽ rẻ và ngon hơn mua của các ghe nhỏ chèo theo mời chào khách du lịch."
+      ],
+      "nearby_places": [
+        {
+          "name": "Lò hủ tiếu Cần Thơ",
+          "distance_km": 1.0,
+          "type": "workshop",
+          "destination_id": "dest_ct_002"
+        },
+        {
+          "name": "Bến Ninh Kiều",
+          "distance_km": 6.0,
+          "type": "landmark",
+          "destination_id": "dest_ct_003"
+        },
+        {
+          "name": "Vườn trái cây Ba Cống",
+          "distance_km": 3.0,
+          "type": "farm",
+          "destination_id": "dest_ct_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 50000,
+        "shopping_budget": 200000,
+        "total_suggested": 400000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy",
+        "note": "Gửi xe tại Bến Ninh Kiều (nếu đi tàu từ bến) hoặc Chợ An Bình (nếu đi từ nhánh Cái Răng)"
+      },
+      "suggested_duration": "3-4 giờ",
+      "suggested_duration_hours": 3.5,
+      "weather_dependent": true,
+      "ideal_weather": "cloudy",
+      "suitable_for": ["family", "group", "photographer", "foodie"],
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "elderly_friendly": false,
+        "kid_friendly": true,
+        "notes": "Việc lên xuống tàu thuyền nhỏ rất tròng trành và nguy hiểm cho người ngồi xe lăn hoặc người già yếu chân. Cần cân nhắc kỹ."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 15000,
+      "trending_score": 96,
+      "user_preference_tags": [
+        "culture",
+        "river",
+        "food",
+        "early-bird",
+        "market"
+      ]
+    },
+    {
+      "name": "Nhà cổ Bình Thủy",
+      "name_lowercase": "nha co binh thuy",
+      "slug": "nha-co-binh-thuy",
+      "category": "heritage",
+      "tags": [
+        "architecture",
+        "history",
+        "culture",
+        "movie-set",
+        "vintage",
+        "antique"
+      ],
+      "location": {
+        "latitude": 10.063549,
+        "longitude": 105.762749,
+        "address": "144 Bùi Hữu Nghĩa, Phường Bình Thủy, Quận Bình Thủy, Thành phố Cần Thơ",
+        "city": "Cần Thơ",
+        "district": "Quận Bình Thủy",
+        "country": "Vietnam"
+      },
+      "description": "Ngôi nhà cổ đẹp nhất xứ Tây Đô, được xây dựng từ năm 1870 bởi gia tộc họ Dương. Công trình là sự giao thoa kiến trúc Đông - Tây độc đáo: bên ngoài mang dáng dấp biệt thự Pháp sang trọng, bên trong lại giữ nguyên lối bài trí thuần Việt với các gian thờ uy nghi. Đây là phim trường nổi tiếng của bộ phim 'Người Tình' (L'Amant) và lưu giữ kho tàng cổ vật quý giá hàng trăm năm tuổi.",
+      "short_description": "Bối cảnh phim 'Người Tình', tuyệt tác kiến trúc cổ giao thoa Đông Tây",
+      "images": [
+        "https://images.unsplash.com/photo-1599708153386-52e093640595",
+        "https://images.unsplash.com/photo-1625636369126-1b8b36473362",
+        "https://images.unsplash.com/photo-1528127269322-539801943592"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1599708153386-52e093640595",
+      "rating": 4.6,
+      "review_count": 3200,
+      "popularity_score": 94,
+      "opening_hours": {
+        "monday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "tuesday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "wednesday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "thursday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "friday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "saturday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "sunday": {
+          "open": "08:00",
+          "close": "18:00"
+        },
+        "note": "Thường nghỉ trưa từ 12:00 - 14:00. Gia chủ vẫn đang sinh sống tại đây nên giờ giấc đôi khi linh hoạt."
+      },
+      "best_months": [12, 1, 2, 3, 4],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Lễ Thượng Điền/Hạ Điền Đình Bình Thủy",
+          "months": [4, 12],
+          "description": "Lễ hội tại Đình Bình Thủy (ngay gần nhà cổ) rất lớn, thu hút đông đảo khách thập phương (tháng 4 và tháng 12 âm lịch)"
+        }
+      ],
+      "avoid_months": [9, 10],
+      "specialties": [
+        {
+          "name": "Vườn lan cổ",
+          "type": "nature",
+          "price_range": "0",
+          "description": "Gia chủ có thú chơi lan nổi tiếng, sân trước nhà là vườn lan rực rỡ quanh năm, điểm check-in yêu thích",
+          "image": "https://images.unsplash.com/photo-1598521621814-2f3b688c303a",
+          "location": "Sân trước nhà cổ",
+          "rating": 4.7
+        },
+        {
+          "name": "Kho cổ vật",
+          "type": "exhibit",
+          "price_range": "0",
+          "description": "Bộ sưu tập đồ gốm sứ, đèn chùm, bộ chén bát từ thời Minh - Thanh và bàn ghế cẩm thạch quý hiếm",
+          "image": "https://images.unsplash.com/photo-1565024565388-18294f40230b",
+          "location": "Gian chính và gian khách",
+          "rating": 4.8
+        },
+        {
+          "name": "Bánh tét lá cẩm",
+          "type": "food",
+          "price_range": "80k - 120k/đòn",
+          "description": "Đặc sản Cần Thơ với nếp màu tím lá cẩm đẹp mắt, nhân trứng muối, thịt ba rọi, đậu xanh",
+          "image": "https://images.unsplash.com/photo-1615486017364-b4a776737277",
+          "location": "Chợ Bình Thủy hoặc các lò bánh gần nhà cổ (Lò bánh Huỳnh Thảo)",
+          "rating": 4.9
+        }
+      ],
+      "activities": [
+        {
+          "name": "Nghe thuyết minh về gia tộc",
+          "duration": "30 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Trò chuyện với hậu duệ đời thứ 6 của gia đình họ Dương để nghe những giai thoại thú vị về ngôi nhà"
+        },
+        {
+          "name": "Chụp ảnh phong cách Indochine",
+          "duration": "45 phút",
+          "best_time": "Buổi sáng (nắng chiếu qua cửa sổ)",
+          "description": "Kiến trúc gạch bông, cửa vòm và cầu thang cổ tạo nên những góc ảnh 'Đông Dương' cực chất"
+        },
+        {
+          "name": "Tham quan Đình Bình Thủy",
+          "duration": "30 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Ghé thăm ngôi đình cổ kiến trúc nghệ thuật quốc gia nằm ngay đầu đường vào nhà cổ"
+        }
+      ],
+      "tips": [
+        "Đây là nhà tư nhân (Private house) chứ không phải bảo tàng công cộng, hãy xin phép trước khi chụp ảnh chân dung chuyên nghiệp.",
+        "Cần bỏ giày dép bên ngoài trước khi bước vào gian chính.",
+        "Không được ngồi lên các bộ bàn ghế cổ hoặc chạm tay vào hiện vật quý.",
+        "Nhà cổ cách trung tâm bến Ninh Kiều khoảng 7-8km, có thể đi taxi hoặc thuê xe máy.",
+        "Nếu may mắn, bạn sẽ gặp cụ ông chủ nhà (hậu duệ) rất uyên bác và mến khách."
+      ],
+      "nearby_places": [
+        {
+          "name": "Cồn Sơn",
+          "distance_km": 3.0,
+          "type": "island",
+          "destination_id": "dest_ct_005"
+        },
+        {
+          "name": "Đình Bình Thủy",
+          "distance_km": 0.5,
+          "type": "heritage",
+          "destination_id": "dest_ct_006"
+        },
+        {
+          "name": "Chợ nổi Cái Răng",
+          "distance_km": 10.0,
+          "type": "culture",
+          "destination_id": "dest_ct_001"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 20000,
+        "average_meal": 100000,
+        "shopping_budget": 100000,
+        "total_suggested": 250000,
+        "currency": "VND"
+      },
+      "entrance_fee": 20000,
+      "parking": {
+        "available": true,
+        "fee": "5k/xe máy",
+        "note": "Gửi xe ngay trong sân vườn của nhà cổ hoặc quán nước đối diện"
+      },
+      "suggested_duration": "45 phút - 1 giờ",
+      "suggested_duration_hours": 1.0,
+      "weather_dependent": false,
+      "ideal_weather": "any",
+      "suitable_for": ["culture-lover", "photographer", "family", "movie-fan"],
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Để vào nhà chính phải leo lên cầu thang (bậc tam cấp) khá cao hình cánh cung. Bên trong nhà nhiều đồ đạc cổ nên lối đi hơi hẹp cho xe lăn."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 8000,
+      "trending_score": 92,
+      "user_preference_tags": [
+        "architecture",
+        "history",
+        "vintage",
+        "photography",
+        "movie-set"
+      ]
+    },
+    {
+      "name": "Rừng tràm Trà Sư",
+      "name_lowercase": "rung tram tra su",
+      "slug": "rung-tram-tra-su",
+      "category": "ecotourism",
+      "tags": [
+        "nature",
+        "forest",
+        "wetland",
+        "bird-watching",
+        "boat-tour",
+        "photography"
+      ],
+      "location": {
+        "latitude": 10.594376,
+        "longitude": 105.071263,
+        "address": "Xã Văn Giáo, Huyện Tịnh Biên, Tỉnh An Giang",
+        "city": "An Giang",
+        "district": "Huyện Tịnh Biên",
+        "country": "Vietnam"
+      },
+      "description": "Thiên đường xanh ngập nước tiêu biểu nhất cho vùng Tây sông Hậu. Rừng tràm Trà Sư là ngôi nhà của hàng ngàn cá thể chim, cò, vạc quý hiếm. Điểm đặc biệt nhất tại đây là những thảm bèo cám li ti phủ kín mặt nước, tạo nên một màu xanh ngọc bích trải dài ngút ngàn, mang lại cảm giác thư thái tuyệt đối khi ngồi xuồng len lỏi giữa rừng.",
+      "short_description": "Tuyệt tác mùa nước nổi với thảm bèo xanh ngút ngàn và cây cầu tre dài nhất Việt Nam",
+      "images": [
+        "https://images.unsplash.com/photo-1559060017-445fb9722f2a",
+        "https://images.unsplash.com/photo-1605218457332-9e9219e4a0d9",
+        "https://images.unsplash.com/photo-1530893898579-44713eb8071f"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1559060017-445fb9722f2a",
+      "rating": 4.6,
+      "review_count": 4500,
+      "popularity_score": 95,
+      "opening_hours": {
+        "monday": {
+          "open": "07:00",
+          "close": "17:15"
+        },
+        "tuesday": {
+          "open": "07:00",
+          "close": "17:15"
+        },
+        "wednesday": {
+          "open": "07:00",
+          "close": "17:15"
+        },
+        "thursday": {
+          "open": "07:00",
+          "close": "17:15"
+        },
+        "friday": {
+          "open": "07:00",
+          "close": "17:15"
+        },
+        "saturday": {
+          "open": "07:00",
+          "close": "17:15"
+        },
+        "sunday": {
+          "open": "07:00",
+          "close": "17:15"
+        },
+        "note": "Nên đi sớm trước 16:30 để kịp chuyến xuồng chèo tay cuối cùng."
+      },
+      "best_months": [9, 10, 11],
+      "best_season": "floating_season",
+      "seasonal_events": [
+        {
+          "name": "Mùa nước nổi (Floating Season)",
+          "months": [9, 10, 11],
+          "description": "Thời điểm mực nước dâng cao, bèo cám sinh sôi dày đặc nhất và chim về làm tổ nhiều nhất"
+        }
+      ],
+      "avoid_months": [],
+      "specialties": [
+        {
+          "name": "Cá lóc nướng trui",
+          "type": "food",
+          "price_range": "150k - 200k/con",
+          "description": "Món ăn dân dã số 1 miền Tây. Cá lóc đồng nướng rơm thơm lừng, cuốn với bánh tráng, rau rừng và chấm nước mắm me",
+          "image": "https://images.unsplash.com/photo-1632056566809-31d57910583d",
+          "location": "Nhà hàng trong khu du lịch Trà Sư",
+          "rating": 4.8
+        },
+        {
+          "name": "Lẩu mắm miền Tây",
+          "type": "food",
+          "price_range": "250k - 350k/nồi",
+          "description": "Lẩu đậm đà hương vị mắm cá linh/cá sặc, ăn kèm bông điên điển và bông súng đặc trưng mùa nước nổi",
+          "image": "https://images.unsplash.com/photo-1565068264485-7136c0c54f72",
+          "location": "Nhà hàng Út Mười (gần cổng)",
+          "rating": 4.7
+        },
+        {
+          "name": "Nước thốt nốt tươi",
+          "type": "drink",
+          "price_range": "15k - 20k/ly",
+          "description": "Vùng Tịnh Biên là xứ sở thốt nốt, nước ngọt lịm tự nhiên, có cơm thốt nốt giòn dai",
+          "image": "https://images.unsplash.com/photo-1525261042933-7222d19f9257",
+          "location": "Các quán nước dọc đường vào rừng tràm",
+          "rating": 4.9
+        }
+      ],
+      "activities": [
+        {
+          "name": "Đi tắc ráng (xuồng máy)",
+          "duration": "15 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Di chuyển nhanh vào lõi rừng, lướt trên mặt nước rẽ sóng cực đẹp"
+        },
+        {
+          "name": "Đi xuồng chèo (xuồng ba lá)",
+          "duration": "30 phút",
+          "best_time": "Sáng sớm hoặc chiều mát",
+          "description": "Ngồi xuồng nhỏ do các cô chú chèo tay, đi chậm rãi xuyên qua thảm bèo xanh mướt để ngắm chim cò ở cự ly gần"
+        },
+        {
+          "name": "Check-in Cầu tre vạn bước",
+          "duration": "45 phút",
+          "best_time": "Sáng sớm (nắng đẹp)",
+          "description": "Đi bộ xuyên rừng trên cây cầu tre dài nhất Việt Nam (hơn 2km), tha hồ chụp ảnh sống ảo"
+        },
+        {
+          "name": "Lên Vọng gác quan sát",
+          "duration": "20 phút",
+          "best_time": "Chiều tà (ngắm hoàng hôn)",
+          "description": "Dùng kính viễn vọng quan sát toàn cảnh rừng tràm và các đàn chim bay về tổ từ trên cao"
+        }
+      ],
+      "tips": [
+        "Nên mặc trang phục màu nổi (Vàng, Đỏ, Trắng) để chụp ảnh nổi bật trên nền xanh của rừng tràm và bèo.",
+        "Mùa nước nổi (tháng 9-11) là đẹp nhất, nhưng nếu đi mùa khô vẫn có thể tham quan bình thường (tuy nhiên bèo sẽ ít hơn).",
+        "Giữ trật tự khi đi xuồng chèo để không làm đàn chim hoảng sợ bay mất.",
+        "Mang theo thuốc chống muỗi và côn trùng vì đây là môi trường rừng ngập nước.",
+        "Nên mua vé trọn gói (Combo tham quan + Tắc ráng + Xuồng chèo) ngay từ cổng để tiết kiệm hơn mua lẻ."
+      ],
+      "nearby_places": [
+        {
+          "name": "Miếu Bà Chúa Xứ Núi Sam",
+          "distance_km": 25.0,
+          "type": "temple",
+          "destination_id": "dest_ag_002"
+        },
+        {
+          "name": "Khu du lịch Núi Cấm",
+          "distance_km": 15.0,
+          "type": "mountain",
+          "destination_id": "dest_ag_003"
+        },
+        {
+          "name": "Hồ Tà Pạ",
+          "distance_km": 20.0,
+          "type": "nature",
+          "destination_id": "dest_ag_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 190000,
+        "average_meal": 150000,
+        "shopping_budget": 100000,
+        "total_suggested": 500000,
+        "currency": "VND"
+      },
+      "entrance_fee": 100000,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy, 30k/ô tô",
+        "note": "Bãi xe rộng ngay cổng vào khu du lịch"
+      },
+      "suggested_duration": "3-4 giờ",
+      "suggested_duration_hours": 3.5,
+      "weather_dependent": true,
+      "ideal_weather": "cloudy",
+      "suitable_for": ["nature-lover", "photographer", "family", "group"],
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Cầu tre đi bộ khá tốt, nhưng việc lên xuống xuồng ba lá nhỏ chòng chành rất khó khăn cho người đi xe lăn. Người cao tuổi đi lại bình thường thì vẫn tham gia tốt."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 7500,
+      "trending_score": 94,
+      "user_preference_tags": [
+        "nature",
+        "eco-friendly",
+        "bird-watching",
+        "photography",
+        "boat-tour"
+      ]
+    },
+    {
+      "name": "Miếu Bà Chúa Xứ Núi Sam",
+      "name_lowercase": "mieu ba chua xu nui sam",
+      "slug": "mieu-ba-chua-xu-nui-sam",
+      "category": "spiritual",
+      "tags": [
+        "religion",
+        "pilgrimage",
+        "culture",
+        "night-visit",
+        "landmark",
+        "festival"
+      ],
+      "location": {
+        "latitude": 10.696627,
+        "longitude": 105.076296,
+        "address": "Phường Núi Sam, Thành phố Châu Đốc, Tỉnh An Giang",
+        "city": "An Giang",
+        "district": "Thành phố Châu Đốc",
+        "country": "Vietnam"
+      },
+      "description": "Ngôi miếu linh thiêng bậc nhất vùng Nam Bộ, thu hút hàng triệu lượt khách hành hương mỗi năm. Tọa lạc dưới chân núi Sam, miếu thờ tượng Bà Chúa Xứ tạc bằng đá sa thạch cổ xưa (được cho là có từ thế kỷ thứ 6). Kiến trúc miếu hình chữ 'Quốc', mái tam cấp lợp ngói xanh ngọc bích hình hoa sen nở, tạo nên vẻ uy nghiêm và tráng lệ.",
+      "short_description": "Trung tâm tín ngưỡng linh thiêng nhất Nam Bộ, nổi tiếng cầu tài lộc và làm ăn",
+      "images": [
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1599707033561-4c4297442934",
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+      "rating": 4.7,
+      "review_count": 35000,
+      "popularity_score": 100,
+      "opening_hours": {
+        "monday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "tuesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "wednesday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "thursday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "friday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "saturday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "sunday": {
+          "open": "00:00",
+          "close": "23:59"
+        },
+        "note": "Mở cửa 24/24. Thời điểm đông khách nhất là từ 22:00 đêm đến 4:00 sáng."
+      },
+      "best_months": [1, 2, 3, 4],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Lễ hội Vía Bà Chúa Xứ",
+          "months": [4],
+          "description": "Lễ hội cấp Quốc gia (từ 23 đến 27 tháng 4 âm lịch), có lễ Tắm Bà và rước kiệu hoành tráng"
+        },
+        {
+          "name": "Tháng Giêng (Hành hương)",
+          "months": [1, 2],
+          "description": "Mùa cao điểm nhất trong năm, người dân đổ về xin lộc đầu năm, thường kẹt xe cục bộ"
+        }
+      ],
+      "avoid_months": [],
+      "specialties": [
+        {
+          "name": "Mắm Châu Đốc",
+          "type": "souvenir",
+          "price_range": "50k - 200k/kg",
+          "description": "Châu Đốc được mệnh danh là 'Vương quốc mắm'. Mắm thái, mắm lóc, mắm sặc là quà mua về phổ biến nhất",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Chợ Châu Đốc (cách miếu 5km)",
+          "rating": 4.9
+        },
+        {
+          "name": "Heo quay cúng Bà",
+          "type": "offering",
+          "price_range": "300k - 3tr/con",
+          "description": "Lễ vật phổ biến nhất để dâng Bà. Có thể mua heo miếng hoặc heo nguyên con. (Lưu ý mua tại các lò uy tín)",
+          "image": "https://images.unsplash.com/photo-1605218457332-9e9219e4a0d9",
+          "location": "Xung quanh khu vực miếu",
+          "rating": 4.7
+        },
+        {
+          "name": "Đường thốt nốt",
+          "type": "souvenir",
+          "price_range": "30k - 50k/kg",
+          "description": "Đường nguyên chất nấu từ mật hoa thốt nốt, vị ngọt thanh, dùng nấu chè rất ngon",
+          "image": "https://images.unsplash.com/photo-1589820296156-2454bb8a4540",
+          "location": "Các quầy hàng đặc sản An Giang"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Dâng lễ & Cầu nguyện",
+          "duration": "30-60 phút",
+          "best_time": "Ban đêm",
+          "description": "Dâng hương, heo quay, trái cây và 'vay' lộc Bà (bao lì xì đỏ) để làm vốn buôn bán"
+        },
+        {
+          "name": "Xin xăm",
+          "duration": "15 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Gieo quẻ xin xăm đầu năm để đoán vận mệnh (hoạt động tín ngưỡng dân gian)"
+        },
+        {
+          "name": "Tham quan Lăng Thoại Ngọc Hầu",
+          "duration": "30 phút",
+          "best_time": "Ban ngày",
+          "description": "Viếng lăng mộ của vị danh thần có công khai phá vùng đất Nam Bộ và đào kênh Vĩnh Tế, nằm ngay đối diện miếu Bà"
+        }
+      ],
+      "tips": [
+        "CẢNH BÁO LỪA ĐẢO: Tuyệt đối không nhận nhang đèn từ người lạ dúi vào tay. Không nghe lời 'cò mồi' dẫn đi mua heo quay hoặc thả chim phóng sinh (giá sẽ bị đội lên gấp 10 lần).",
+        "Nên chuẩn bị lễ vật từ nhà hoặc mua tại các cửa hàng lớn có niêm yết giá rõ ràng ở chợ Châu Đốc.",
+        "Tư trang: Giữ chặt ví tiền, điện thoại. Tình trạng móc túi vẫn xảy ra lúc chen lấn vào chánh điện.",
+        "Trang phục: Kín đáo, lịch sự. Không mặc áo dây, váy ngắn.",
+        "Nếu muốn tắm Bà (Lễ Mộc Dục), bạn phải đăng ký trước và chỉ được tham gia vào rạng sáng ngày 24/4 âm lịch."
+      ],
+      "nearby_places": [
+        {
+          "name": "Lăng Thoại Ngọc Hầu",
+          "distance_km": 0.1,
+          "type": "heritage",
+          "destination_id": "dest_ag_005"
+        },
+        {
+          "name": "Chùa Tây An (Tây An Cổ Tự)",
+          "distance_km": 0.2,
+          "type": "temple",
+          "destination_id": "dest_ag_006"
+        },
+        {
+          "name": "Chùa Hang (Phước Điền Tự)",
+          "distance_km": 1.0,
+          "type": "temple",
+          "destination_id": "dest_ag_007"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 100000,
+        "shopping_budget": 500000,
+        "total_suggested": 600000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "10k - 20k/xe máy, 50k/ô tô",
+        "note": "Nên gửi xe tại bãi xe chính quy của Khu du lịch Núi Sam. Tránh gửi các bãi tự phát ven đường dễ bị 'chặt chém' hoặc mất mũ bảo hiểm."
+      },
+      "suggested_duration": "1-2 giờ",
+      "suggested_duration_hours": 2.0,
+      "weather_dependent": false,
+      "ideal_weather": "any",
+      "suitable_for": ["business-owner", "family", "pilgrim", "senior"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Sân miếu rộng và bằng phẳng. Tuy nhiên, lối vào chánh điện thường rất đông đúc, chen lấn, không thuận tiện cho xe lăn vào sâu bên trong nơi đặt tượng."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 50000,
+      "trending_score": 100,
+      "user_preference_tags": [
+        "spiritual",
+        "culture",
+        "night-visit",
+        "free-entry",
+        "business-luck"
+      ]
+    },
+    {
+      "name": "Làng hoa Sa Đéc",
+      "name_lowercase": "lang hoa sa dec",
+      "slug": "lang-hoa-sa-dec",
+      "category": "nature",
+      "tags": [
+        "flower-village",
+        "photography",
+        "culture",
+        "spring-festival",
+        "mekong-delta",
+        "nature"
+      ],
+      "location": {
+        "latitude": 10.306226,
+        "longitude": 105.738562,
+        "address": "Đường Hoa Sa Đéc, Phường Tân Quy Đông, Thành phố Sa Đéc, Tỉnh Đồng Tháp",
+        "city": "Đồng Tháp",
+        "district": "Thành phố Sa Đéc",
+        "country": "Vietnam"
+      },
+      "description": "Thủ phủ hoa kiểng của miền Tây với lịch sử hơn 100 năm tuổi. Điểm khác biệt độc đáo của Sa Đéc so với Đà Lạt là hoa được trồng trên các giàn cao, phía dưới ngập nước dẫn từ rạch vào. Người nông dân phải chèo xuồng len lỏi giữa các luống hoa để chăm sóc và thu hoạch, tạo nên hình ảnh sông nước miền Tây tuyệt đẹp không nơi nào có được.",
+      "short_description": "Làng hoa 'trên giàn' độc đáo nhất Việt Nam, rực rỡ sắc màu mỗi dịp Tết đến",
+      "images": [
+        "https://images.unsplash.com/photo-1586053226636-62808798fd53",
+        "https://images.unsplash.com/photo-1582466869674-718b42637c6e",
+        "https://images.unsplash.com/photo-1558289825-113dc9640b76"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1586053226636-62808798fd53",
+      "rating": 4.5,
+      "review_count": 6500,
+      "popularity_score": 96,
+      "opening_hours": {
+        "monday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "tuesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "wednesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "thursday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "friday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "saturday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "sunday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "note": "Làng hoa là khu dân cư mở cửa tự do. Các vườn hoa tư nhân bên trong thường mở từ 7:00 - 17:30."
+      },
+      "best_months": [12, 1, 2],
+      "best_season": "spring",
+      "seasonal_events": [
+        {
+          "name": "Tuần lễ Văn hóa Du lịch Đồng Tháp",
+          "months": [1],
+          "description": "Lễ hội hoa xuân thường niên (khoảng tháng 1 dương lịch) với xe hoa diễu hành và trang trí đường phố rực rỡ"
+        }
+      ],
+      "avoid_months": [5, 6, 7, 8, 9, 10],
+      "specialties": [
+        {
+          "name": "Hủ tiếu Sa Đéc",
+          "type": "food",
+          "price_range": "35k - 55k/tô",
+          "description": "Một trong 3 dòng hủ tiếu nổi tiếng miền Nam. Sợi hủ tiếu to, trắng ngà, dai mềm, nước lèo trong vắt ngọt thanh từ xương và mực khô",
+          "image": "https://images.unsplash.com/photo-1631062665093-4e4a0550795e",
+          "location": "Hủ tiếu Bà Sẩm, Hủ tiếu Phú Thành",
+          "rating": 4.9
+        },
+        {
+          "name": "Lẩu gà nòi",
+          "type": "food",
+          "price_range": "200k - 300k/nồi",
+          "description": "Gà nòi (gà đá) thịt chắc, da giòn, nấu lẩu chua cơm mẻ hoặc hầm sả, đặc sản dân dã Đồng Tháp",
+          "image": "https://images.unsplash.com/photo-1604908554025-e477d54e85e0",
+          "location": "Các quán ăn sân vườn tại Sa Đéc",
+          "rating": 4.6
+        },
+        {
+          "name": "Nem Lai Vung",
+          "type": "souvenir",
+          "price_range": "30k - 40k/chục",
+          "description": "Nem chua nổi tiếng vùng Đồng Tháp, gói lá chuối vuông vức, vị chua ngọt cay nồng tỏi ớt",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Chợ Sa Đéc hoặc các trạm dừng chân",
+          "rating": 4.8
+        }
+      ],
+      "activities": [
+        {
+          "name": "Check-in Đường hoa Sa Nhiên",
+          "duration": "1-2 giờ",
+          "best_time": "Sáng sớm hoặc chiều mát",
+          "description": "Đi bộ hoặc xe điện dọc theo con đường chính dài 2-3km, hai bên là bạt ngàn các loại hoa (Cúc mâm xôi, Hoa hồng, Vạn thọ...)"
+        },
+        {
+          "name": "Lên đài quan sát (Mirador)",
+          "duration": "30 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Leo lên tháp cao 18m để ngắm toàn cảnh làng hoa rực rỡ sắc màu từ trên cao"
+        },
+        {
+          "name": "Tham quan Nhà cổ Huỳnh Thủy Lê",
+          "duration": "45 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Ghé thăm ngôi nhà cổ nổi tiếng trong tiểu thuyết 'Người Tình' nằm ngay trung tâm thành phố Sa Đéc (cách làng hoa 3km)"
+        }
+      ],
+      "tips": [
+        "THỜI ĐIỂM VÀNG: Hãy đi vào khoảng Rằm tháng Chạp (15/12 âm lịch) đến 22/12 âm lịch. Sau ngày 23, hoa đã được chuyển đi bán Tết, làng hoa sẽ rất vắng.",
+        "Có dịch vụ xe điện (khoảng 20k-30k/lượt) chạy dọc trục đường chính nếu bạn ngại đi bộ.",
+        "Đừng tự ý bước xuống ruộng hoa hoặc bẻ hoa để chụp ảnh, người dân rất quý hoa vì đó là công sức cả năm.",
+        "Nên mặc áo bà ba hoặc áo dài để có những bức ảnh đúng chất miền Tây.",
+        "Chuẩn bị mũ nón vì đường hoa rất ít bóng cây, nắng khá gắt."
+      ],
+      "nearby_places": [
+        {
+          "name": "Nhà cổ Huỳnh Thủy Lê",
+          "distance_km": 3.0,
+          "type": "heritage",
+          "destination_id": "dest_dt_002"
+        },
+        {
+          "name": "Chùa Kiến An Cung",
+          "distance_km": 3.5,
+          "type": "temple",
+          "destination_id": "dest_dt_003"
+        },
+        {
+          "name": "Khu du lịch Xẻo Quýt",
+          "distance_km": 15.0,
+          "type": "ecotourism",
+          "destination_id": "dest_dt_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 100000,
+        "shopping_budget": 150000,
+        "total_suggested": 300000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy",
+        "note": "Nhiều bãi giữ xe tư nhân dọc cổng chào và đường vào làng hoa"
+      },
+      "suggested_duration": "2-3 giờ",
+      "suggested_duration_hours": 2.5,
+      "weather_dependent": true,
+      "ideal_weather": "sunny",
+      "suitable_for": ["family", "photographer", "couple", "flower-lover"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Đường trục chính của làng hoa được tráng nhựa phẳng lì, rất rộng rãi, xe lăn và xe đẩy trẻ em đi lại thoải mái. Xe điện cũng hỗ trợ tốt cho người cao tuổi."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 30000,
+      "trending_score": 98,
+      "user_preference_tags": [
+        "flower",
+        "photography",
+        "spring",
+        "culture",
+        "free-entry"
+      ]
+    },
+    {
+      "name": "Vườn Quốc gia Tràm Chim",
+      "name_lowercase": "vuon quoc gia tram chim",
+      "slug": "vuon-quoc-gia-tram-chim",
+      "category": "ecotourism",
+      "tags": [
+        "nature",
+        "wetland",
+        "ramsar",
+        "bird-watching",
+        "boat-tour",
+        "photography"
+      ],
+      "location": {
+        "latitude": 10.690833,
+        "longitude": 105.506944,
+        "address": "Khóm 4, Thị trấn Tràm Chim, Huyện Tam Nông, Tỉnh Đồng Tháp",
+        "city": "Đồng Tháp",
+        "district": "Huyện Tam Nông",
+        "country": "Vietnam"
+      },
+      "description": "Khu Ramsar thứ 2.000 của thế giới và thứ 4 của Việt Nam, Tràm Chim là vùng đất ngập nước tiêu biểu của Đồng Tháp Mười thu nhỏ. Nơi đây nổi tiếng là nơi cư trú của loài Sếu đầu đỏ quý hiếm (nằm trong Sách Đỏ). Hệ sinh thái tại đây cực kỳ đa dạng với 130 loài thực vật và hơn 230 loài chim nước, tạo nên bức tranh thiên nhiên hoang sơ và sống động.",
+      "short_description": "Vương quốc của loài Sếu đầu đỏ và hệ sinh thái đất ngập nước Ramsar thế giới",
+      "images": [
+        "https://images.unsplash.com/photo-1584278701756-783d64b4c61c",
+        "https://images.unsplash.com/photo-1600178684771-705258223d01",
+        "https://images.unsplash.com/photo-1541414779316-956a5084c0d4"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1584278701756-783d64b4c61c",
+      "rating": 4.5,
+      "review_count": 2100,
+      "popularity_score": 90,
+      "opening_hours": {
+        "monday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "tuesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "wednesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "thursday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "friday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "saturday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "sunday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "note": "Các tour xem chim buổi sáng thường xuất phát sớm (5:30 - 6:00). Ngưng bán vé tham quan lúc 16:00."
+      },
+      "best_months": [1, 2, 3, 4, 9, 10, 11, 12],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Mùa Sếu đầu đỏ về",
+          "months": [2, 3, 4, 5],
+          "description": "Mùa khô, nước rút, Sếu đầu đỏ bay về kiếm ăn củ năng (tuy nhiên số lượng sếu hiện nay khá ít và phụ thuộc may mắn)"
+        },
+        {
+          "name": "Mùa hoa Hoàng Đầu Ấn",
+          "months": [12, 1, 2],
+          "description": "Những cánh đồng hoa vàng rực nở rộ trên mặt nước (thường mở tour giới hạn số lượng khách)"
+        }
+      ],
+      "avoid_months": [6, 7, 8],
+      "specialties": [
+        {
+          "name": "Chuột đồng quay lu",
+          "type": "food",
+          "price_range": "80k - 120k/con",
+          "description": "Đặc sản 'trứ danh' miền Tây, chuột đồng ăn lúa béo múp, quay lu da giòn thịt thơm như thịt gà (món ăn thử thách)",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Nhà hàng trong KDL Tràm Chim",
+          "rating": 4.6
+        },
+        {
+          "name": "Cá lóc nướng trui cuốn lá sen",
+          "type": "food",
+          "price_range": "120k - 150k/con",
+          "description": "Cá lóc nướng rơm, cuốn với lá sen non (thay vì bánh tráng) tạo vị chát nhẹ đặc trưng Đồng Tháp",
+          "image": "https://images.unsplash.com/photo-1632056566809-31d57910583d",
+          "location": "Các quán ăn khu vực Tam Nông",
+          "rating": 4.8
+        },
+        {
+          "name": "Lẩu lươn đồng",
+          "type": "food",
+          "price_range": "200k - 250k/nồi",
+          "description": "Lươn đồng tự nhiên thịt ngọt, nấu lẩu chua cơm mẻ hoặc lẩu mắm",
+          "image": "https://images.unsplash.com/photo-1604909052743-94e838986d24",
+          "location": "Nhà hàng sinh thái Bảo Yến"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Đi tắc ráng tham quan",
+          "duration": "1-2 giờ",
+          "best_time": "Sáng sớm hoặc chiều mát",
+          "description": "Ngồi xuồng máy chạy sâu vào lõi rừng, ngắm đồng cỏ năng, lúa ma và các loài chim nước"
+        },
+        {
+          "name": "Ngắm chim từ đài vọng cảnh",
+          "duration": "30 phút",
+          "best_time": "Sáng sớm",
+          "description": "Leo lên đài quan sát cao 20m để phóng tầm mắt bao quát cả vùng đất ngập nước rộng lớn"
+        },
+        {
+          "name": "Trải nghiệm thu hoạch Lúa Ma",
+          "duration": "1 giờ",
+          "best_time": "Mùa nước nổi (Tháng 10-11)",
+          "description": "Tham gia thu hoạch giống lúa trời mọc hoang, đêm nước lên đến đâu lúa vươn cao đến đó (Tour đặc biệt)"
+        }
+      ],
+      "tips": [
+        "Sếu đầu đỏ hiện nay rất hiếm và nhạy cảm với tiếng động. Muốn xem Sếu phải đi nhẹ, nói khẽ và mặc quần áo màu trầm (xanh lá, rằn ri) để ngụy trang.",
+        "Nắng ở Tràm Chim rất gắt và không có nhiều bóng cây che khi ngồi trên xuồng, hãy mang mũ rộng vành và áo khoác.",
+        "Nên mang theo ống nhòm (binoculars) để quan sát chim từ xa rõ hơn.",
+        "Mùa hoa Hoàng Đầu Ấn (tháng 12-2) thường quy định giờ tham quan nghiêm ngặt (chỉ mở 9:00 - 13:00 khi hoa nở) và giới hạn số người để bảo vệ hoa.",
+        "Nếu không dám ăn chuột đồng, hãy dặn trước nhà hàng đổi sang món gà vườn hoặc cá lóc."
+      ],
+      "nearby_places": [
+        {
+          "name": "Khu du lịch Gáo Giồng",
+          "distance_km": 40.0,
+          "type": "ecotourism",
+          "destination_id": "dest_dt_005"
+        },
+        {
+          "name": "Lăng cụ Phó bảng Nguyễn Sinh Sắc",
+          "distance_km": 35.0,
+          "type": "heritage",
+          "destination_id": "dest_dt_006"
+        },
+        {
+          "name": "Chợ Tam Nông",
+          "distance_km": 2.0,
+          "type": "market",
+          "destination_id": "dest_dt_007"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 20000,
+        "average_meal": 150000,
+        "shopping_budget": 100000,
+        "total_suggested": 500000,
+        "currency": "VND"
+      },
+      "entrance_fee": 20000,
+      "parking": {
+        "available": true,
+        "fee": "5k/xe máy, 20k/ô tô",
+        "note": "Bãi xe nằm ngay cổng trung tâm điều hành du lịch"
+      },
+      "suggested_duration": "3-4 giờ",
+      "suggested_duration_hours": 3.5,
+      "weather_dependent": true,
+      "ideal_weather": "cloudy",
+      "suitable_for": [
+        "nature-lover",
+        "photographer",
+        "bird-watcher",
+        "student"
+      ],
+      "accessibility": {
+        "wheelchair_accessible": false,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Tương tự các khu du lịch miền Tây, việc lên xuống tắc ráng (xuồng máy) khá khó khăn cho người dùng xe lăn. Người cao tuổi đi lại bình thường vẫn tham gia tốt."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 4500,
+      "trending_score": 88,
+      "user_preference_tags": [
+        "nature",
+        "bird-watching",
+        "wildlife",
+        "photography",
+        "eco-friendly"
+      ]
+    },
+    {
+      "name": "Chùa Dơi (Chùa Mã Tộc)",
+      "name_lowercase": "chua doi soc trang",
+      "slug": "chua-doi-soc-trang",
+      "category": "temple",
+      "tags": [
+        "spiritual",
+        "khmer-culture",
+        "animals",
+        "architecture",
+        "history",
+        "mystery"
+      ],
+      "location": {
+        "latitude": 9.588254,
+        "longitude": 105.963587,
+        "address": "Đường Văn Ngọc Chính, Phường 3, Thành phố Sóc Trăng, Tỉnh Sóc Trăng",
+        "city": "Sóc Trăng",
+        "district": "Thành phố Sóc Trăng",
+        "country": "Vietnam"
+      },
+      "description": "Ngôi chùa Khmer cổ kính hơn 400 năm tuổi, tên gốc là Wath Mahatup (chùa Mã Tộc). Đây là quần thể kiến trúc đẹp bậc nhất Sóc Trăng với màu vàng rực rỡ đặc trưng. Điều kỳ lạ khiến chùa nổi tiếng là khuôn viên vườn cây cổ thụ rộng lớn là nơi trú ngụ của hàng vạn con dơi ngựa khổng lồ (sải cánh hơn 1m). Ngoài ra, chùa còn có khu mộ kỳ lạ dành cho những chú heo 5 móng.",
+      "short_description": "Ngôi chùa Khmer bí ẩn nơi hàng vạn con dơi khổng lồ trú ngụ",
+      "images": [
+        "https://images.unsplash.com/photo-1599707033561-4c4297442934",
+        "https://images.unsplash.com/photo-1583417319070-4a69db38a482",
+        "https://images.unsplash.com/photo-1565024565388-18294f40230b"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1599707033561-4c4297442934",
+      "rating": 4.5,
+      "review_count": 8500,
+      "popularity_score": 94,
+      "opening_hours": {
+        "monday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "tuesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "wednesday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "thursday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "friday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "saturday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "sunday": {
+          "open": "07:00",
+          "close": "17:00"
+        },
+        "note": "Dơi thường treo mình ngủ vào ban ngày, bay đi kiếm ăn vào chập tối (khoảng 18:00)."
+      },
+      "best_months": [10, 11, 12, 1, 2, 3],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Lễ hội Ooc Om Boc",
+          "months": [10],
+          "description": "Lễ hội lớn nhất của người Khmer (Rằm tháng 10 âm lịch) với giải Đua ghe Ngo kịch tính trên sông Maspero"
+        },
+        {
+          "name": "Lễ Chol Chnam Thmay",
+          "months": [4],
+          "description": "Tết cổ truyền mừng năm mới của người Khmer (giữa tháng 4 dương lịch)"
+        }
+      ],
+      "avoid_months": [6, 7, 8, 9],
+      "specialties": [
+        {
+          "name": "Bánh Pía Sóc Trăng",
+          "type": "souvenir",
+          "price_range": "60k - 100k/cây",
+          "description": "Đặc sản trứ danh với vỏ ngàn lớp, nhân sầu riêng trứng muối thơm lừng. (Các thương hiệu lớn: Tân Huê Viên, Công Lập Thành)",
+          "image": "https://images.unsplash.com/photo-1631808163633-5b1e8a9c9c2a",
+          "location": "Các cửa hàng dọc Quốc lộ 1A hoặc ngay cổng chùa",
+          "rating": 5.0
+        },
+        {
+          "name": "Bún nước lèo Sóc Trăng",
+          "type": "food",
+          "price_range": "30k - 45k/tô",
+          "description": "Món bún có nước dùng nấu từ mắm bò hóc, cá lóc và ngải bún, ăn kèm thịt quay và rau ghém",
+          "image": "https://images.unsplash.com/photo-1551260863-057589254742",
+          "location": "Quán Cây Nhãn, Quán Thảo (TP. Sóc Trăng)",
+          "rating": 4.8
+        },
+        {
+          "name": "Lạp xưởng tôm",
+          "type": "souvenir",
+          "price_range": "200k - 300k/kg",
+          "description": "Lạp xưởng làm từ tôm đất tươi, vị thanh nhẹ, ít mỡ hơn lạp xưởng heo",
+          "image": "https://images.unsplash.com/photo-1615485507771-5b0433908f97",
+          "location": "Chợ Sóc Trăng"
+        }
+      ],
+      "activities": [
+        {
+          "name": "Ngắm Dơi khổng lồ",
+          "duration": "30 phút",
+          "best_time": "Buổi trưa nắng",
+          "description": "Đi dạo trong vườn cây sao, cây dầu để xem hàng ngàn con dơi treo ngược ngủ (Lưu ý: không gây ồn ào)"
+        },
+        {
+          "name": "Thưởng thức Nhạc ngũ âm",
+          "duration": "20 phút",
+          "best_time": "Dịp lễ tết hoặc cuối tuần",
+          "description": "Nghe dàn nhạc dân tộc Khmer biểu diễn các nhạc cụ truyền thống độc đáo"
+        },
+        {
+          "name": "Thăm mộ Heo 5 móng",
+          "duration": "15 phút",
+          "best_time": "Mọi thời điểm",
+          "description": "Ra phía sau chùa xem khu nghĩa địa chôn cất những chú heo 5 móng được người dân gửi vào chùa"
+        }
+      ],
+      "tips": [
+        "Tuyệt đối không đứng ngay dưới gốc cây nơi dơi ngủ quá lâu nếu không muốn bị... dơi 'ị' lên người (mùi rất hôi).",
+        "Trang phục phải kín đáo, lịch sự (áo có tay, quần dài) khi vào chánh điện.",
+        "Dịch vụ xe ôm/xe lôi chèo kéo ở cổng chùa rất nhiều, hãy hỏi giá kỹ trước khi đi.",
+        "Cẩn thận tư trang vì khuôn viên chùa khá đông đúc.",
+        "Nếu muốn mua bánh Pía làm quà, nên vào các showroom lớn (như Tân Huê Viên) để được nếm thử miễn phí và có giá niêm yết, tránh mua hàng trôi nổi."
+      ],
+      "nearby_places": [
+        {
+          "name": "Chùa Chén Kiểu (Chùa Sà Lôn)",
+          "distance_km": 12.0,
+          "type": "temple",
+          "destination_id": "dest_st_002"
+        },
+        {
+          "name": "Chùa Đất Sét (Bửu Sơn Tự)",
+          "distance_km": 3.0,
+          "type": "temple",
+          "destination_id": "dest_st_003"
+        },
+        {
+          "name": "Bảo tàng Khmer Sóc Trăng",
+          "distance_km": 2.0,
+          "type": "museum",
+          "destination_id": "dest_st_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 0,
+        "average_meal": 50000,
+        "shopping_budget": 200000,
+        "total_suggested": 250000,
+        "currency": "VND"
+      },
+      "entrance_fee": 0,
+      "parking": {
+        "available": true,
+        "fee": "5k - 10k/xe máy",
+        "note": "Bãi xe nằm đối diện cổng chùa, do người dân quản lý (có thu phí)"
+      },
+      "suggested_duration": "1 giờ",
+      "suggested_duration_hours": 1.0,
+      "weather_dependent": false,
+      "ideal_weather": "sunny",
+      "suitable_for": ["family", "culture-lover", "animal-lover", "senior"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Khuôn viên chùa rất rộng và bằng phẳng, nhiều bóng mát, xe lăn di chuyển dễ dàng."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 12000,
+      "trending_score": 93,
+      "user_preference_tags": [
+        "spiritual",
+        "khmer-culture",
+        "animals",
+        "free-entry",
+        "history"
+      ]
+    },
+    {
+      "name": "Cánh đồng điện gió Bạc Liêu",
+      "name_lowercase": "canh dong dien gio bac lieu",
+      "slug": "canh-dong-dien-gio-bac-lieu",
+      "category": "attraction",
+      "tags": [
+        "check-in",
+        "wind-farm",
+        "photography",
+        "sea",
+        "landmark",
+        "modern"
+      ],
+      "location": {
+        "latitude": 9.241132,
+        "longitude": 105.768598,
+        "address": "Ấp Biển Đông A, Xã Vĩnh Trạch Đông, Thành phố Bạc Liêu, Tỉnh Bạc Liêu",
+        "city": "Bạc Liêu",
+        "district": "Thành phố Bạc Liêu",
+        "country": "Vietnam"
+      },
+      "description": "Được mệnh danh là 'Châu Âu thu nhỏ' giữa lòng miền Tây, đây là nhà máy điện gió trên biển lớn nhất Việt Nam (giai đoạn đầu). Với 62 trụ tuabin khổng lồ cao hơn 80m, cánh quạt dài 42m quay đều trong gió biển, kết nối với nhau bằng những cầu dẫn bê tông trên mặt biển trải dài ngút ngàn, nơi đây tạo nên khung cảnh hiện đại và lãng mạn hiếm có.",
+      "short_description": "Thiên đường sống ảo với những tuabin gió khổng lồ giữa biển khơi",
+      "images": [
+        "https://images.unsplash.com/photo-1466611653911-95081537e5b7",
+        "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51",
+        "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1466611653911-95081537e5b7",
+      "rating": 4.6,
+      "review_count": 8200,
+      "popularity_score": 97,
+      "opening_hours": {
+        "monday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "tuesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "wednesday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "thursday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "friday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "saturday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "sunday": {
+          "open": "06:00",
+          "close": "18:00"
+        },
+        "note": "Giờ đẹp nhất để chụp ảnh là lúc bình minh (6:00 - 7:30) hoặc hoàng hôn (16:30 - 17:30)."
+      },
+      "best_months": [12, 1, 2, 3, 4],
+      "best_season": "dry",
+      "seasonal_events": [],
+      "avoid_months": [6, 7, 8, 9, 10],
+      "specialties": [
+        {
+          "name": "Hải sản Nhà Mát",
+          "type": "food",
+          "price_range": "150k - 250k/người",
+          "description": "Khu vực Nhà Mát ngay gần điện gió có nhiều quán hải sản tươi ngon, đặc biệt là tôm tít, cua biển và nghêu",
+          "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de",
+          "location": "Khu du lịch Nhà Mát",
+          "rating": 4.5
+        },
+        {
+          "name": "Bánh xèo A Mật",
+          "type": "food",
+          "price_range": "50k - 70k/cái",
+          "description": "Bánh xèo miền Tây siêu to, nhân tôm thịt đầy đặn, rau rừng ăn kèm tươi xanh, nổi tiếng nhất Bạc Liêu",
+          "image": "https://images.unsplash.com/photo-1516684669134-de6d7c47743b",
+          "location": "Đường Cao Văn Lầu (TP Bạc Liêu)",
+          "rating": 4.8
+        },
+        {
+          "name": "Bún nước lèo Bạc Liêu",
+          "type": "food",
+          "price_range": "30k - 40k/tô",
+          "description": "Món bún mang hương vị mắm đặc trưng, nấu trong nồi đất để giữ nhiệt, ăn kèm thịt quay và cá lóc",
+          "image": "https://images.unsplash.com/photo-1626805056862-433965297452",
+          "location": "Quán Năm Hớn, Cô Ba",
+          "rating": 4.7
+        }
+      ],
+      "activities": [
+        {
+          "name": "Check-in Cầu dẫn trên biển",
+          "duration": "1 giờ",
+          "best_time": "Hoàng hôn (16:30 - 17:30)",
+          "description": "Đi bộ trên con đường bê tông dài tít tắp giữa biển, chụp ảnh với background là những cây quạt gió khổng lồ"
+        },
+        {
+          "name": "Ngắm rừng ngập mặn",
+          "duration": "30 phút",
+          "best_time": "Khi thủy triều xuống",
+          "description": "Quan sát hệ sinh thái rừng đước và bãi bồi ven biển khi đi dọc theo cầu dẫn"
+        }
+      ],
+      "tips": [
+        "Thời điểm chụp ảnh đẹp nhất là 16:00 chiều, khi nắng đã dịu và ngả màu vàng cam, không bị nheo mắt.",
+        "Gió ở đây RẤT MẠNH. Nếu đội mũ rộng vành phải giữ chặt, hạn chế mặc váy ngắn xòe để tránh sự cố.",
+        "Đoạn đường đi bộ từ cổng vào đến tuabin xa nhất khá dài (vài km), hãy mang giày êm chân.",
+        "Không có mái che hay chỗ bán nước trên cầu dẫn, hãy mang theo dù (ô) và nước uống.",
+        "Nên kết hợp đi viếng Mẹ Nam Hải (Quan Âm Phật Đài) cách đó chỉ 2km."
+      ],
+      "nearby_places": [
+        {
+          "name": "Quan Âm Phật Đài (Mẹ Nam Hải)",
+          "distance_km": 3.0,
+          "type": "temple",
+          "destination_id": "dest_bl_002"
+        },
+        {
+          "name": "Nhà Công tử Bạc Liêu",
+          "distance_km": 10.0,
+          "type": "heritage",
+          "destination_id": "dest_bl_003"
+        },
+        {
+          "name": "Khu du lịch Nhà Mát",
+          "distance_km": 2.0,
+          "type": "entertainment",
+          "destination_id": "dest_bl_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 30000,
+        "average_meal": 150000,
+        "shopping_budget": 0,
+        "total_suggested": 250000,
+        "currency": "VND"
+      },
+      "entrance_fee": 30000,
+      "parking": {
+        "available": true,
+        "fee": "5k/xe máy, 20k/ô tô",
+        "note": "Bãi xe rộng ngay cổng soát vé"
+      },
+      "suggested_duration": "1-2 giờ",
+      "suggested_duration_hours": 1.5,
+      "weather_dependent": true,
+      "ideal_weather": "sunny",
+      "suitable_for": ["youth", "couple", "photographer", "group"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Cầu dẫn là đường bê tông phẳng lì, rộng rãi, rất thuận tiện cho xe lăn và xe đẩy. Tuy nhiên quãng đường di chuyển khá xa (đi bộ nhiều)."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 10000,
+      "trending_score": 95,
+      "user_preference_tags": [
+        "check-in",
+        "landscape",
+        "modern",
+        "sea",
+        "budget-friendly"
+      ]
+    },
+    {
+      "name": "Mũi Cà Mau (Khu du lịch Quốc gia)",
+      "name_lowercase": "mui ca mau",
+      "slug": "mui-ca-mau",
+      "category": "nature",
+      "tags": [
+        "landmark",
+        "nature",
+        "mangrove-forest",
+        "national-park",
+        "boat-tour",
+        "seafood"
+      ],
+      "location": {
+        "latitude": 8.607745,
+        "longitude": 104.718316,
+        "address": "Ấp Mũi, Xã Đất Mũi, Huyện Ngọc Hiển, Tỉnh Cà Mau",
+        "city": "Cà Mau",
+        "district": "Huyện Ngọc Hiển",
+        "country": "Vietnam"
+      },
+      "description": "Điểm cực Nam trên đất liền của Tổ quốc, nơi duy nhất ở Việt Nam có thể ngắm mặt trời mọc ở biển Đông và lặn ở biển Tây. Mũi Cà Mau nổi tiếng với cột mốc tọa độ GPS 0001, biểu tượng con tàu vươn ra biển lớn và hệ sinh thái rừng ngập mặn nguyên sinh (Rừng đước, Rừng mắm) bạt ngàn được UNESCO công nhận là Khu dự trữ sinh quyển thế giới.",
+      "short_description": "Cực Nam Tổ quốc, nơi đất biết nở, rừng biết đi và biển sinh sôi",
+      "images": [
+        "https://images.unsplash.com/photo-1629647578727-a17e2c25d7f8",
+        "https://images.unsplash.com/photo-1596873210258-42b001596520",
+        "https://images.unsplash.com/photo-1566737236500-c8ac43014a67"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1629647578727-a17e2c25d7f8",
+      "rating": 4.7,
+      "review_count": 6500,
+      "popularity_score": 98,
+      "opening_hours": {
+        "monday": {
+          "open": "06:00",
+          "close": "17:30"
+        },
+        "tuesday": {
+          "open": "06:00",
+          "close": "17:30"
+        },
+        "wednesday": {
+          "open": "06:00",
+          "close": "17:30"
+        },
+        "thursday": {
+          "open": "06:00",
+          "close": "17:30"
+        },
+        "friday": {
+          "open": "06:00",
+          "close": "17:30"
+        },
+        "saturday": {
+          "open": "06:00",
+          "close": "17:30"
+        },
+        "sunday": {
+          "open": "06:00",
+          "close": "17:30"
+        },
+        "note": "Khu du lịch mở cửa cả tuần. Cano xuyên rừng hoạt động đến 16:30."
+      },
+      "best_months": [12, 1, 2, 3, 4],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Ngày hội Cua Cà Mau",
+          "months": [12],
+          "description": "Sự kiện tôn vinh đặc sản Cua Cà Mau với các cuộc thi Cua lớn nhất, Cua chạy nhanh nhất và ẩm thực 69 món từ cua"
+        },
+        {
+          "name": "Lễ hội Nghinh Ông Sông Đốc",
+          "months": [2],
+          "description": "Lễ hội cầu ngư lớn nhất miền Tây (tháng 2 âm lịch), đoàn tàu cả nghìn chiếc ra khơi rước Ông rất hoành tráng"
+        }
+      ],
+      "avoid_months": [8, 9, 10],
+      "specialties": [
+        {
+          "name": "Cua Năm Căn (Cua Cà Mau)",
+          "type": "food",
+          "price_range": "300k - 600k/kg",
+          "description": "Đặc sản số 1 Việt Nam. Cua thịt chắc, ngọt; cua gạch son béo ngậy. Nên ăn cua hấp bia hoặc rang me",
+          "image": "https://images.unsplash.com/photo-1550968863-884b19e28267",
+          "location": "Các nhà hàng sinh thái Đất Mũi (Quán Hùng, Quán Thủy)",
+          "rating": 5.0
+        },
+        {
+          "name": "Cá thòi lòi nướng muối ớt",
+          "type": "food",
+          "price_range": "100k - 150k/đĩa",
+          "description": "Loài cá 'kỳ lạ' biết leo cây, thịt dai và ngọt như thịt gà, nướng muối ớt là món nhậu trứ danh",
+          "image": "https://images.unsplash.com/photo-1633879392877-0e5b55c4d4d8",
+          "location": "Nhà hàng du lịch cộng đồng Đất Mũi",
+          "rating": 4.7
+        },
+        {
+          "name": "Mắm Ba Khía Rạch Gốc",
+          "type": "souvenir",
+          "price_range": "80k - 120k/hũ",
+          "description": "Ba khía muối đậm đà, trộn tỏi ớt chanh đường, ăn với cơm nguội cực bắt vị",
+          "image": "https://images.unsplash.com/photo-1625937751919-0d3679701b6b",
+          "location": "Chợ Đất Mũi hoặc các trạm dừng chân",
+          "rating": 4.8
+        }
+      ],
+      "activities": [
+        {
+          "name": "Check-in Cột mốc Tọa độ GPS 0001",
+          "duration": "30 phút",
+          "best_time": "Sáng sớm",
+          "description": "Chụp ảnh kỷ niệm tại cột mốc đánh dấu điểm cực Nam thiêng liêng của Tổ quốc"
+        },
+        {
+          "name": "Tour Cano xuyên rừng đước",
+          "duration": "1-2 giờ",
+          "best_time": "Khi triều cường lên",
+          "description": "Ngồi cano/vỏ lãi chạy len lỏi giữa rừng đước nguyên sinh bạt ngàn và ra bãi bồi ngắm biển"
+        },
+        {
+          "name": "Lên Cột cờ Hà Nội (Mũi Cà Mau)",
+          "duration": "45 phút",
+          "best_time": "Chiều mát",
+          "description": "Leo lên phiên bản Cột cờ Hà Nội tại Đất Mũi để ngắm toàn cảnh rừng ngập mặn và biển Đông - Tây hội tụ"
+        },
+        {
+          "name": "Trải nghiệm soi ba khía đêm",
+          "duration": "2 giờ",
+          "best_time": "Ban đêm (nước ròng)",
+          "description": "Theo chân người dân địa phương đi bắt ba khía, mò vọp trong rừng đước (Tour cộng đồng)"
+        }
+      ],
+      "tips": [
+        "Từ TP. Cà Mau xuống Đất Mũi khoảng 110km (hơn 2 tiếng đi xe). Đường hiện nay đã trải nhựa đẹp, xe ô tô đi tận nơi (không cần đi tàu cao tốc như xưa).",
+        "Nên mang theo thuốc chống muỗi (nhang muỗi/xịt) vì rừng ngập mặn rất nhiều muỗi và bù mắt.",
+        "Khi đi tour xuyên rừng, hãy mặc áo phao đầy đủ và giữ chắc điện thoại/máy ảnh.",
+        "Mua cua Cà Mau làm quà: Hãy kiểm tra kỹ dây trói (nhiều nơi dây rất to làm nặng cân) và độ chắc của cua (bóp vào yếm cua không bị mềm).",
+        "Điểm cực Nam thực tế (trên bản đồ địa lý) nằm ở bãi bồi cách tượng đài con tàu khoảng 1-2km, phải đi cano mới ra tới nơi."
+      ],
+      "nearby_places": [
+        {
+          "name": "Vườn Quốc gia Mũi Cà Mau",
+          "distance_km": 0.5,
+          "type": "national_park",
+          "destination_id": "dest_cm_002"
+        },
+        {
+          "name": "Khu du lịch Khai Long",
+          "distance_km": 15.0,
+          "type": "beach_resort",
+          "destination_id": "dest_cm_003"
+        },
+        {
+          "name": "Chợ Đất Mũi",
+          "distance_km": 4.0,
+          "type": "market",
+          "destination_id": "dest_cm_004"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 30000,
+        "average_meal": 250000,
+        "shopping_budget": 500000,
+        "total_suggested": 800000,
+        "currency": "VND"
+      },
+      "entrance_fee": 30000,
+      "parking": {
+        "available": true,
+        "fee": "5k/xe máy, 20k/ô tô",
+        "note": "Bãi xe rất rộng ngay cổng khu du lịch"
+      },
+      "suggested_duration": "1 ngày",
+      "suggested_duration_hours": 6.0,
+      "weather_dependent": true,
+      "ideal_weather": "sunny",
+      "suitable_for": ["patriot", "nature-lover", "family", "foodie"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Khu vực công viên văn hóa Mũi Cà Mau (Cột mốc, Tượng đài) có đường bê tông và xe điện trung chuyển (10k/lượt) rất thuận tiện cho người già và xe lăn. Tuy nhiên, đi tour xuyên rừng bằng cano nhỏ sẽ khó khăn hơn."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 12000,
+      "trending_score": 99,
+      "user_preference_tags": [
+        "landmark",
+        "nature",
+        "seafood",
+        "educational",
+        "must-visit"
+      ]
+    },
+    {
+      "name": "VinWonders & Safari Phú Quốc",
+      "name_lowercase": "vinwonders va safari phu quoc",
+      "slug": "vinwonders-safari-phu-quoc",
+      "category": "theme_park",
+      "tags": [
+        "amusement-park",
+        "zoo",
+        "safari",
+        "aquarium",
+        "family",
+        "entertainment"
+      ],
+      "location": {
+        "latitude": 10.325163,
+        "longitude": 103.86277,
+        "address": "Bãi Dài, Xã Gành Dầu, Thành phố Phú Quốc, Tỉnh Kiên Giang",
+        "city": "Phú Quốc",
+        "district": "Xã Gành Dầu",
+        "country": "Vietnam"
+      },
+      "description": "Siêu quần thể giải trí hàng đầu Châu Á tại Bắc đảo Phú Quốc. Vinpearl Safari là công viên chăm sóc và bảo tồn động vật bán hoang dã đầu tiên tại Việt Nam với mô hình 'nhốt người thả thú' độc đáo. Kế bên là VinWonders - công viên chủ đề lớn nhất Việt Nam với 6 phân khu, nổi bật là Cung điện Hải Vương hình rùa khổng lồ (Top 5 thủy cung lớn nhất thế giới).",
+      "short_description": "Công viên chủ đề lớn nhất Việt Nam và Safari bán hoang dã đầu tiên",
+      "images": [
+        "https://images.unsplash.com/photo-1572492989508-171176217702",
+        "https://images.unsplash.com/photo-1534567153574-2b12153a87f0",
+        "https://images.unsplash.com/photo-1597838809512-6c2792c3682c"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1572492989508-171176217702",
+      "rating": 4.8,
+      "review_count": 25000,
+      "popularity_score": 100,
+      "opening_hours": {
+        "monday": {
+          "open": "09:00",
+          "close": "19:30"
+        },
+        "tuesday": {
+          "open": "09:00",
+          "close": "19:30"
+        },
+        "wednesday": {
+          "open": "09:00",
+          "close": "19:30"
+        },
+        "thursday": {
+          "open": "09:00",
+          "close": "19:30"
+        },
+        "friday": {
+          "open": "09:00",
+          "close": "19:30"
+        },
+        "saturday": {
+          "open": "09:00",
+          "close": "19:30"
+        },
+        "sunday": {
+          "open": "09:00",
+          "close": "19:30"
+        },
+        "note": "Lưu ý quan trọng: Safari mở 9:00 - 16:00 (chuyến xe buýt xem thú cuối cùng lúc 15:20). VinWonders mở 9:00 - 19:30."
+      },
+      "best_months": [11, 12, 1, 2, 3, 4],
+      "best_season": "dry",
+      "seasonal_events": [
+        {
+          "name": "Lễ hội Giáng Sinh & Năm mới",
+          "months": [12, 1],
+          "description": "Trang trí lộng lẫy, diễu hành carnival và bắn pháo hoa tại Grand World kế bên"
+        }
+      ],
+      "avoid_months": [7, 8, 9],
+      "specialties": [
+        {
+          "name": "Tour xe buýt Safari",
+          "type": "activity",
+          "price_range": "0",
+          "description": "Trải nghiệm 'nhốt người thả thú': Ngồi trên xe buýt chuyên dụng đi vào khu rừng nơi hổ, sư tử, tê giác sinh sống tự do (đã bao gồm trong vé)",
+          "image": "https://images.unsplash.com/photo-1503919005314-30d93d07382e",
+          "location": "Khu bán hoang dã Safari",
+          "rating": 4.9
+        },
+        {
+          "name": "Cung điện Hải Vương",
+          "type": "attraction",
+          "price_range": "0",
+          "description": "Thủy cung hình con rùa khổng lồ, một trong 5 bể thủy cung lớn nhất thế giới, nơi ngụ cư của hàng ngàn sinh vật biển",
+          "image": "https://images.unsplash.com/photo-1582967788606-a171f1080ca8",
+          "location": "VinWonders (Khu Thế giới Đại dương)",
+          "rating": 4.8
+        },
+        {
+          "name": "Show 'Once'",
+          "type": "show",
+          "price_range": "0",
+          "description": "Show diễn thực cảnh đa phương tiện triệu đô kết hợp nhạc nước, khói lửa và 3D mapping",
+          "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
+          "location": "Quảng trường Phượng Hoàng Lửa (VinWonders)",
+          "rating": 4.7
+        }
+      ],
+      "activities": [
+        {
+          "name": "Cho hươu cao cổ ăn",
+          "duration": "30 phút",
+          "best_time": "Buổi trưa (11:00 - 13:00)",
+          "description": "Ăn trưa tại nhà hàng Giraffe và tự tay đút cà rốt/chuối cho hươu cao cổ (30k/phần thức ăn)"
+        },
+        {
+          "name": "Chinh phục 'Cơn thịnh nộ của Zeus'",
+          "duration": "5 phút",
+          "best_time": "Buổi chiều",
+          "description": "Tàu lượn siêu tốc nhanh nhất thế giới hiện nay với tốc độ 110km/h (Khu Thế giới Phiêu lưu)"
+        },
+        {
+          "name": "Tham quan Vườn thú mở (Open Zoo)",
+          "duration": "1-2 giờ",
+          "best_time": "Sáng sớm",
+          "description": "Đi bộ ngắm các loài động vật quý hiếm: Vượn cáo đuôi khoang, Hà mã, Hồng hạc..."
+        }
+      ],
+      "tips": [
+        "LỘ TRÌNH VÀNG: Sáng đi Safari (thú buổi sáng khỏe, ít ngủ) -> Ăn trưa -> Chiều qua VinWonders chơi công viên nước và thủy cung cho mát -> Tối xem show Once.",
+        "Đừng tốn tiền taxi! Hãy sử dụng xe buýt điện VinBus miễn phí chạy từ sân bay và trung tâm thị trấn Dương Đông (tải app VinBus để xem lịch).",
+        "Nên mua vé Combo (VinWonders + Safari) để tiết kiệm khoảng 20-30% so với mua lẻ.",
+        "Mang theo mũ, dù và kem chống nắng vì Safari rất ít bóng cây và nắng Phú Quốc cực gắt.",
+        "Tại Safari, hãy ngồi bên TRÁI của xe buýt để nhìn thấy thú rõ hơn và nhiều hơn."
+      ],
+      "nearby_places": [
+        {
+          "name": "Grand World Phú Quốc",
+          "distance_km": 2.0,
+          "type": "entertainment",
+          "destination_id": "dest_pq_005"
+        },
+        {
+          "name": "Mũi Gành Dầu",
+          "distance_km": 5.0,
+          "type": "nature",
+          "destination_id": "dest_pq_006"
+        },
+        {
+          "name": "Casino Corona",
+          "distance_km": 1.5,
+          "type": "entertainment",
+          "destination_id": "dest_pq_007"
+        }
+      ],
+      "estimated_cost": {
+        "entrance_fee": 1350000,
+        "average_meal": 300000,
+        "shopping_budget": 200000,
+        "total_suggested": 2000000,
+        "currency": "VND"
+      },
+      "entrance_fee": 1350000,
+      "parking": {
+        "available": true,
+        "fee": "Miễn phí",
+        "note": "Bãi xe rộng rãi, có xe điện trung chuyển vào cổng."
+      },
+      "suggested_duration": "1 ngày trọn vẹn",
+      "suggested_duration_hours": 10.0,
+      "weather_dependent": true,
+      "ideal_weather": "sunny",
+      "suitable_for": ["family", "kids", "couple", "group"],
+      "accessibility": {
+        "wheelchair_accessible": true,
+        "elderly_friendly": true,
+        "kid_friendly": true,
+        "notes": "Hạ tầng rất tốt. Safari có xe điện (thu phí) chở khách đi vòng quanh khu Open Zoo nếu không muốn đi bộ. Xe buýt vào khu thú dữ có lối lên cho xe lăn."
+      },
+      "status": "active",
+      "verified": true,
+      "visit_count": 30000,
+      "trending_score": 100,
+      "user_preference_tags": [
+        "family-friendly",
+        "animals",
+        "amusement-park",
+        "luxury",
+        "must-visit"
+      ]
+    }
+  ]
+}
