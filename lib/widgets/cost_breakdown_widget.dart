@@ -44,7 +44,7 @@ class _CostBreakdownWidgetState extends State<CostBreakdownWidget>
   }
 
   Future<void> _checkAIPlan() async {
-    final plan = await AIPlanService.instance.getCurrentAIPlan(widget.tripId);
+    final plan = await AIPlanService.instance.getCurrentAIPlan(widget.trip.userId, widget.tripId);
     if (mounted) {
       setState(() {
         _hasAIPlan = plan != null && plan.description.isNotEmpty;
@@ -73,7 +73,7 @@ class _CostBreakdownWidgetState extends State<CostBreakdownWidget>
             controller: _tabController,
             children: [
               _buildCostTab(context),
-              AIPlanViewer(tripId: widget.tripId),
+              AIPlanViewer(tripId: widget.tripId, userId: widget.trip.userId),
             ],
           ),
         ),

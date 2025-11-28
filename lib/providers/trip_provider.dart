@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../models/trip.dart';
@@ -6,11 +7,13 @@ import '../models/trip_item.dart';
 import '../models/trip_cost_estimate.dart';
 import '../models/weather_forecast.dart';
 import '../models/ai_activity_suggestion.dart';
+import '../services/ai_destination_service.dart';
 import '../services/trip_service.dart';
 import '../services/weather_service.dart';
 import '../services/ai_cost_estimation_service.dart';
 import '../services/ai_plan_service.dart';
 import '../models/ai_plan.dart';
+import '../services/ai_place_recommendation_service.dart';
 
 /// Provider để quản lý state của trips
 class TripProvider extends ChangeNotifier {
@@ -37,6 +40,12 @@ class TripProvider extends ChangeNotifier {
   // AI suggestions state
   List<AIActivitySuggestion>? _aiSuggestions;
   bool _isLoadingSuggestions = false;
+  String? _aiSuggestionError;
+  
+  // Cache cho AI suggestions (key: tripId, value: suggestions)
+  final Map<String, List<AIActivitySuggestion>> _aiSuggestionsCache = {};
+  // Cache key dựa trên items hash (để invalidate khi items thay đổi)
+  final Map<String, String> _aiSuggestionsCacheKey = {};
 
   // Getters
   List<Trip> get trips => _trips;
@@ -50,6 +59,7 @@ class TripProvider extends ChangeNotifier {
   bool get isLoadingWeather => _isLoadingWeather;
   List<AIActivitySuggestion>? get aiSuggestions => _aiSuggestions;
   bool get isLoadingSuggestions => _isLoadingSuggestions;
+  String? get aiSuggestionError => _aiSuggestionError;
 
   /// Load danh sách trips
   Future<void> loadTrips(String userId) async {
@@ -65,7 +75,8 @@ class TripProvider extends ChangeNotifier {
     _safeNotifyListeners();
 
     try {
-      final trips = await _tripService.getTrips(userId);
+      var trips = await _tripService.getTrips(userId);
+      trips = await _ensureDestinationCounts(userId, trips);
       _trips = trips;
       _error = null;
       debugPrint('✅ Loaded ${_trips.length} trips');
@@ -95,8 +106,8 @@ class TripProvider extends ChangeNotifier {
     _tripsSubscription = _tripService
         .watchTrips(userId)
         .listen(
-          (trips) {
-            _trips = trips;
+          (trips) async {
+            _trips = await _ensureDestinationCounts(userId, trips);
             _error = null;
             debugPrint('✅ Trips updated: ${_trips.length} items');
             _safeNotifyListeners();
@@ -107,6 +118,37 @@ class TripProvider extends ChangeNotifier {
             _safeNotifyListeners();
           },
         );
+  }
+
+  Future<List<Trip>> _ensureDestinationCounts(
+    String userId,
+    List<Trip> trips,
+  ) async {
+    final updatedTrips = <Trip>[];
+    for (final trip in trips) {
+      if (trip.id == null) {
+        updatedTrips.add(trip);
+        continue;
+      }
+
+      if (trip.destinationsCount > 0) {
+        updatedTrips.add(trip);
+        continue;
+      }
+
+      final count = await _tripService.getTripItemsCount(userId, trip.id!);
+      if (count != trip.destinationsCount) {
+        try {
+          await _tripService.updateTrip(userId, trip.id!, {
+            'destinationsCount': count,
+          });
+        } catch (e) {
+          debugPrint('⚠️ Unable to update destinationsCount for ${trip.id}: $e');
+        }
+      }
+      updatedTrips.add(trip.copyWith(destinationsCount: count));
+    }
+    return updatedTrips;
   }
 
   /// Dừng lắng nghe thay đổi trips
@@ -220,6 +262,22 @@ class TripProvider extends ChangeNotifier {
         }
         // Bắt đầu watch items
         _startWatchingItems(userId, tripId);
+        
+        // Load AI suggestions từ Firestore (nếu có)
+        try {
+          final cachedSuggestions = await _tripService.getAISuggestions(userId, tripId);
+          if (cachedSuggestions.isNotEmpty) {
+            _aiSuggestions = cachedSuggestions;
+            // Cập nhật cache
+            final cacheKey = _generateCacheKey(tripId, trip.items);
+            _aiSuggestionsCache[tripId] = cachedSuggestions;
+            _aiSuggestionsCacheKey[tripId] = cacheKey;
+            debugPrint('✅ Loaded ${cachedSuggestions.length} AI suggestions từ Firestore');
+          }
+        } catch (e) {
+          debugPrint('⚠️ Không thể load AI suggestions từ Firestore: $e');
+        }
+        
         _safeNotifyListeners();
       } else {
         debugPrint('⚠️ Trip $tripId not found');
@@ -256,6 +314,14 @@ class TripProvider extends ChangeNotifier {
               if (currentCostEstimate != null) {
                 _costEstimate = currentCostEstimate;
               }
+              
+              // Invalidate AI suggestions cache khi items thay đổi
+              if (tripId.isNotEmpty) {
+                _aiSuggestionsCache.remove(tripId);
+                _aiSuggestionsCacheKey.remove(tripId);
+                debugPrint('🗑️ Đã invalidate AI suggestions cache cho trip $tripId (items thay đổi)');
+              }
+              
               _safeNotifyListeners();
             }
           },
@@ -396,6 +462,75 @@ class TripProvider extends ChangeNotifier {
     }
   }
 
+  /// Kiểm tra xem một lịch trình mới có bị trùng giờ với item hiện có không
+  TripItem? findScheduleConflict({
+    required DateTime plannedDate,
+    required TimeOfDay plannedTime,
+    required int durationHours,
+    String? excludeItemId,
+  }) {
+    if (_currentTrip == null) {
+      return null;
+    }
+
+    final normalizedDate = DateTime(
+      plannedDate.year,
+      plannedDate.month,
+      plannedDate.day,
+    );
+
+    final newStart = DateTime(
+      normalizedDate.year,
+      normalizedDate.month,
+      normalizedDate.day,
+      plannedTime.hour,
+      plannedTime.minute,
+    );
+
+    // Thời gian tối thiểu 1 giờ để tránh end == start
+    final effectiveDuration = durationHours > 0 ? durationHours : 1;
+    final newEnd = newStart.add(Duration(hours: effectiveDuration));
+
+    for (final item in _currentTrip!.items) {
+      if (item.id != null && item.id == excludeItemId) {
+        continue;
+      }
+      if (item.plannedDate == null || item.plannedTime == null) {
+        continue;
+      }
+
+      final itemDate = DateTime(
+        item.plannedDate!.year,
+        item.plannedDate!.month,
+        item.plannedDate!.day,
+      );
+
+      if (itemDate != normalizedDate) {
+        continue;
+      }
+
+      final itemStart = DateTime(
+        itemDate.year,
+        itemDate.month,
+        itemDate.day,
+        item.plannedTime!.hour,
+        item.plannedTime!.minute,
+      );
+      final itemDuration = item.durationHours != null && item.durationHours! > 0
+          ? item.durationHours!
+          : 2;
+      final itemEnd = itemStart.add(Duration(hours: itemDuration));
+
+      final isOverlap =
+          newStart.isBefore(itemEnd) && newEnd.isAfter(itemStart);
+      if (isOverlap) {
+        return item;
+      }
+    }
+
+    return null;
+  }
+
   /// Tính toán chi phí bằng AI
   /// [multiplierChange] để điều chỉnh: 0.2 = cao hơn 20%, -0.2 = thấp hơn 20%
   Future<void> estimateCost(
@@ -502,7 +637,7 @@ class TripProvider extends ChangeNotifier {
         updatedAt: DateTime.now(),
       );
       
-      await AIPlanService.instance.saveAIPlan(plan);
+      await AIPlanService.instance.saveAIPlan(userId, plan);
       debugPrint('✅ AIPlan saved to Firestore (description length: ${description.length} chars)');
     } catch (e, stack) {
       debugPrint('❌ Error saving AIPlan to Firestore: $e');
@@ -566,14 +701,189 @@ class TripProvider extends ChangeNotifier {
     String tripId, {
     String? destinationId,
   }) async {
+    if (userId.isEmpty || tripId.isEmpty) {
+      return;
+    }
+
     _isLoadingSuggestions = true;
+    _aiSuggestionError = null;
     _safeNotifyListeners();
 
-    // TODO: Implement AI suggestions in Phase 5
-    await Future.delayed(const Duration(seconds: 1));
-    
-    _isLoadingSuggestions = false;
-    _safeNotifyListeners();
+    try {
+      if (_currentTrip == null || _currentTrip!.id != tripId) {
+        await setCurrentTrip(userId, tripId);
+      }
+      final trip = _currentTrip;
+      if (trip == null) {
+        _aiSuggestions = [];
+        _aiSuggestionError = 'Không tìm thấy kế hoạch để gợi ý.';
+        return;
+      }
+
+      final itemsWithDestination = trip.items.where((item) {
+        if (destinationId != null && item.destinationId != destinationId) {
+          return false;
+        }
+        return item.destination != null;
+      }).toList();
+
+      if (itemsWithDestination.isEmpty) {
+        _aiSuggestions = [];
+        _aiSuggestionError = 'Chưa có điểm đến nào để AI phân tích.';
+        return;
+      }
+
+      final tripItemsByKey = LinkedHashMap<String, TripItem>();
+      for (var index = 0; index < itemsWithDestination.length; index++) {
+        final item = itemsWithDestination[index];
+        final itemKey = item.id ?? 'item_${index}_${item.destinationId}';
+        tripItemsByKey[itemKey] = item;
+      }
+
+      // Tạo cache key dựa trên tripId + hash của items (để invalidate khi items thay đổi)
+      final itemsHash = itemsWithDestination
+          .map((item) => '${item.destinationId}_${item.plannedDate?.millisecondsSinceEpoch ?? 0}_${item.plannedTime?.hour ?? 0}_${item.plannedTime?.minute ?? 0}')
+          .join('|');
+      final cacheKey = '$tripId|$itemsHash';
+      
+      // Kiểm tra cache trước
+      if (_aiSuggestionsCache.containsKey(tripId) && 
+          _aiSuggestionsCacheKey[tripId] == cacheKey) {
+        debugPrint('✅ Sử dụng cache AI suggestions cho trip $tripId');
+        _aiSuggestions = _aiSuggestionsCache[tripId];
+        _aiSuggestionError = null;
+        _isLoadingSuggestions = false;
+        _safeNotifyListeners();
+        return;
+      }
+
+      debugPrint('🔄 Gọi AI để generate suggestions mới...');
+      final aiResults = await AIPlaceRecommendationService.instance.generateSuggestions(
+        tripId: tripId,
+        trip: trip,
+        tripItemsByKey: tripItemsByKey,
+      );
+
+      // Lưu vào cache và Firestore
+      if (aiResults.isNotEmpty) {
+        _aiSuggestionsCache[tripId] = aiResults;
+        _aiSuggestionsCacheKey[tripId] = cacheKey;
+        debugPrint('💾 Đã cache AI suggestions cho trip $tripId');
+        
+        // Lưu vào Firestore
+        try {
+          await _tripService.saveAISuggestions(userId, tripId, aiResults);
+        } catch (e) {
+          debugPrint('⚠️ Không thể lưu AI suggestions vào Firestore: $e');
+          // Không throw error để không ảnh hưởng đến flow chính
+        }
+      }
+
+      _aiSuggestions = aiResults;
+      if (aiResults.isEmpty) {
+        _aiSuggestionError = 'AI chưa trả về gợi ý phù hợp. Vui lòng thử lại sau.';
+      } else {
+        _aiSuggestionError = null;
+      }
+      _error = null;
+    } catch (e, stack) {
+      _aiSuggestions = [];
+      _aiSuggestionError = 'Không thể tải gợi ý AI: $e';
+      _error = _aiSuggestionError;
+      debugPrint('❌ Error loading AI suggestions: $e');
+      debugPrint('$stack');
+    } finally {
+      _isLoadingSuggestions = false;
+      _safeNotifyListeners();
+    }
+  }
+
+  /// Tạo cache key dựa trên tripId và items
+  String _generateCacheKey(String tripId, List<TripItem> items) {
+    final itemsHash = items
+        .map((item) => '${item.destinationId}_${item.plannedDate?.millisecondsSinceEpoch ?? 0}_${item.plannedTime?.hour ?? 0}_${item.plannedTime?.minute ?? 0}')
+        .join('|');
+    return '$tripId|$itemsHash';
+  }
+
+  /// Thêm AI suggestion vào trip với validation và destination creation
+  Future<void> addAISuggestionToTrip(
+    String userId,
+    String tripId,
+    AIActivitySuggestion suggestion, {
+    required DateTime plannedDate,
+    TimeOfDay? plannedTime,
+  }) async {
+    try {
+      String destinationId;
+      
+      // AI suggestions luôn cần tạo destination mới (không dùng destinationId từ tripItem)
+      // Vì destinationId trong suggestion chỉ là reference đến điểm gốc, không phải destination của suggestion
+      debugPrint('🔄 Creating destination from AI suggestion: ${suggestion.activityName}');
+      
+      // 1. Kiểm tra destination đã tồn tại chưa (theo tọa độ và tên)
+      var existingDestination = await AIDestinationService.instance.findExistingDestination(suggestion);
+      
+      if (existingDestination != null) {
+        // Sử dụng destination có sẵn nếu tên và vị trí khớp
+        destinationId = existingDestination.id!;
+        debugPrint('✅ Using existing destination: ${existingDestination.name} (ID: $destinationId)');
+      } else {
+        // Tạo destination mới từ AI suggestion
+        try {
+          final newDestination = await AIDestinationService.instance.createDestinationFromSuggestion(suggestion);
+          destinationId = await AIDestinationService.instance.saveAIDestination(newDestination);
+          
+          debugPrint('✅ Created new destination from AI: ${newDestination.name} (ID: $destinationId)');
+        } on ValidationException catch (e) {
+          // Validation failed
+          throw Exception('AI suggestion không hợp lệ: ${e.message}');
+        } on DuplicateLocationException catch (e) {
+          // Duplicate location - use existing
+          final existingData = e.existingDestination;
+          destinationId = existingData['id'] as String;
+          debugPrint('✅ Using duplicate destination: ${existingData['name']} (ID: $destinationId)');
+        }
+      }
+      
+      // 2. Thêm vào trip với details
+      await addDestinationToTripWithDetails(
+        userId,
+        tripId,
+        destinationId,
+        plannedDate: plannedDate,
+        plannedTime: plannedTime,
+      );
+      
+      // 3. Cập nhật suggestion status trong Firestore
+      try {
+        await _tripService.updateAISuggestionStatus(userId, tripId, suggestion.id, true);
+        
+        // Cập nhật trong memory cache
+        if (_aiSuggestions != null) {
+          final index = _aiSuggestions!.indexWhere((s) => s.id == suggestion.id);
+          if (index != -1) {
+            _aiSuggestions![index] = _aiSuggestions![index].copyWith(isAdded: true);
+            _safeNotifyListeners();
+          }
+        }
+      } catch (e) {
+        debugPrint('⚠️ Không thể cập nhật suggestion status: $e');
+        // Không throw error để không ảnh hưởng đến flow chính
+      }
+      
+      debugPrint('✅ Successfully added AI suggestion "${suggestion.activityName}" to trip');
+    } catch (e, stack) {
+      debugPrint('❌ Error adding AI suggestion to trip: $e');
+      debugPrint('$stack');
+      
+      // Rethrow với message user-friendly
+      if (e.toString().contains('không hợp lệ')) {
+        rethrow;
+      } else {
+        throw Exception('Không thể thêm "${suggestion.activityName}" vào lịch trình: $e');
+      }
+    }
   }
 
   /// Clear tất cả trips (dùng khi logout)
@@ -584,6 +894,8 @@ class TripProvider extends ChangeNotifier {
     _costEstimate = null;
     _weatherForecasts = null;
     _aiSuggestions = null;
+    _aiSuggestionsCache.clear();
+    _aiSuggestionsCacheKey.clear();
     stopWatchingTrips();
     _itemsSubscription?.cancel();
     _itemsSubscription = null;

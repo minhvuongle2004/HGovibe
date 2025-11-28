@@ -131,7 +131,7 @@ class TripCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        '${trip.items.length} điểm đến',
+                        '${trip.previewDestinationsCount} điểm đến',
                         style: TextStyle(
                           fontSize: 13,
                           color: Colors.grey[600],
@@ -168,9 +168,6 @@ class TripCard extends StatelessWidget {
   Widget _buildStatusBadge(TripStatus status) {
     Color color;
     switch (status) {
-      case TripStatus.planning:
-        color = Colors.blue;
-        break;
       case TripStatus.upcoming:
         color = Colors.green;
         break;
@@ -179,9 +176,6 @@ class TripCard extends StatelessWidget {
         break;
       case TripStatus.completed:
         color = Colors.grey;
-        break;
-      case TripStatus.cancelled:
-        color = Colors.red;
         break;
     }
 

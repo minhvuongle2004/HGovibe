@@ -86,46 +86,69 @@ class TripValidationService {
       return ValidationResult.valid();
     }
 
+    // Chuẩn bị danh sách tọa độ để tính toán hàng loạt
+    final coordinates = relevantItems
+        .map((item) => [
+              item.destination!.location.latitude,
+              item.destination!.location.longitude,
+            ])
+        .toList();
+
+    if (coordinates.isEmpty) {
+      debugPrint('✅ Relevant items have no destinations, destination is valid');
+      return ValidationResult.valid();
+    }
+
+    coordinates.add([
+      newDestination.location.latitude,
+      newDestination.location.longitude,
+    ]);
+
+    List<DistanceResult?> distanceResults = [];
+    try {
+      distanceResults = await _mapboxService.calculateDistancesFromOrigin(
+        coordinates,
+        coordinates.length - 1,
+        mode: 'driving',
+      );
+    } catch (e, stack) {
+      debugPrint('⚠️ Error calculating distance matrix: $e');
+      debugPrint('$stack');
+    }
+
+    if (distanceResults.isEmpty) {
+      debugPrint('⚠️ Could not retrieve distance results, assuming valid');
+      return ValidationResult.valid();
+    }
+
     // Tính khoảng cách đến điểm gần nhất và xa nhất
     double? maxDistance;
     DistanceResult? maxDistanceResult;
     double? nearestDistance;
     Destination? comparedDestination; // Điểm đã chọn được dùng để so sánh (điểm xa nhất)
 
-    for (var item in relevantItems) {
-      if (item.destination == null) continue;
-
-      try {
-        debugPrint('🔍 Calculating distance:');
-        debugPrint('   From: ${item.destination!.name} (${item.destination!.location.latitude}, ${item.destination!.location.longitude})');
-        debugPrint('   To: ${newDestination.name} (${newDestination.location.latitude}, ${newDestination.location.longitude})');
-        
-        final result = await _mapboxService.calculateDistance(
-          item.destination!.location.latitude,
-          item.destination!.location.longitude,
-          newDestination.location.latitude,
-          newDestination.location.longitude,
-          mode: 'driving',
+    for (var i = 0; i < relevantItems.length; i++) {
+      final item = relevantItems[i];
+      final result = i < distanceResults.length ? distanceResults[i] : null;
+      if (item.destination == null || result == null) {
+        debugPrint(
+          '⚠️ Missing distance result for ${item.destination?.name ?? 'unknown destination'}',
         );
+        continue;
+      }
 
-        if (result != null) {
-          debugPrint('✅ Distance calculated: ${result.distance.toStringAsFixed(2)} km');
-          
-          if (maxDistance == null || result.distance > maxDistance) {
-            maxDistance = result.distance;
-            maxDistanceResult = result;
-            comparedDestination = item.destination; // Lưu điểm đã chọn xa nhất
-            debugPrint('   📍 This is the maximum distance so far');
-          }
-          if (nearestDistance == null || result.distance < nearestDistance) {
-            nearestDistance = result.distance;
-          }
-        } else {
-          debugPrint('⚠️ MapBox API returned null, using Haversine fallback');
-        }
-      } catch (e, stack) {
-        debugPrint('⚠️ Error calculating distance: $e');
-        debugPrint('$stack');
+      debugPrint(
+        '✅ Distance to ${item.destination!.name}: ${result.distance.toStringAsFixed(2)} km',
+      );
+
+      if (maxDistance == null || result.distance > maxDistance) {
+        maxDistance = result.distance;
+        maxDistanceResult = result;
+        comparedDestination = item.destination; // Lưu điểm đã chọn xa nhất
+        debugPrint('   📍 This is the maximum distance so far');
+      }
+      if (nearestDistance == null || result.distance < nearestDistance) {
+        nearestDistance = result.distance;
       }
     }
 

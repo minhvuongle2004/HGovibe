@@ -15,13 +15,13 @@ class Trip {
   final DateTime endDate; // Ngày kết thúc
   final String? location; // Thành phố/khu vực chính
   final String? startingLocation; // Điểm xuất phát (thành phố/địa chỉ)
-  final TripStatus status; // Trạng thái
   final int numberOfTravelers; // Số người tham gia
   final TripBudgetLevel budgetLevel; // Loại du lịch
   final double? budgetLimit; // Budget giới hạn (optional)
   final DateTime createdAt;
   final DateTime updatedAt;
   final List<TripItem> items; // Các điểm đến trong trip
+  final int destinationsCount; // Tổng số điểm đến (preview nhanh)
   final TripCostEstimate? costEstimate; // Ước tính chi phí từ AI
   final List<WeatherForecast>? weatherForecasts; // Dự báo thời tiết
   final List<AIActivitySuggestion>? aiSuggestions; // Gợi ý từ AI
@@ -35,7 +35,6 @@ class Trip {
     required this.endDate,
     this.location,
     this.startingLocation,
-    required this.status,
     required this.numberOfTravelers,
     required this.budgetLevel,
     this.budgetLimit,
@@ -45,6 +44,7 @@ class Trip {
     this.costEstimate,
     this.weatherForecasts,
     this.aiSuggestions,
+    this.destinationsCount = 0,
   });
 
   /// Convert từ Firestore DocumentSnapshot
@@ -75,7 +75,6 @@ class Trip {
       endDate: (data['endDate'] as Timestamp).toDate(),
       location: data['location'],
       startingLocation: data['startingLocation'],
-      status: TripStatusExtension.fromString(data['status'] ?? 'planning'),
       numberOfTravelers: data['numberOfTravelers'] ?? 1,
       budgetLevel: TripBudgetLevelExtension.fromString(data['budgetLevel'] ?? 'moderate'),
       budgetLimit: data['budgetLimit'] != null
@@ -86,6 +85,9 @@ class Trip {
       // items, weatherForecasts, aiSuggestions sẽ được load riêng
       items: const [],
       costEstimate: costEstimate, // Load từ Firestore
+      destinationsCount: data['destinationsCount'] != null
+          ? (data['destinationsCount'] as num).toInt()
+          : 0,
     );
   }
 
@@ -99,10 +101,10 @@ class Trip {
       'endDate': Timestamp.fromDate(endDate),
       'location': location,
       'startingLocation': startingLocation,
-      'status': status.toValue(),
       'numberOfTravelers': numberOfTravelers,
       'budgetLevel': budgetLevel.toValue(),
       'budgetLimit': budgetLimit,
+      'destinationsCount': destinationsCount,
       'updatedAt': FieldValue.serverTimestamp(),
     };
   }
@@ -117,7 +119,6 @@ class Trip {
     DateTime? endDate,
     String? location,
     String? startingLocation,
-    TripStatus? status,
     int? numberOfTravelers,
     TripBudgetLevel? budgetLevel,
     double? budgetLimit,
@@ -127,6 +128,7 @@ class Trip {
     TripCostEstimate? costEstimate,
     List<WeatherForecast>? weatherForecasts,
     List<AIActivitySuggestion>? aiSuggestions,
+    int? destinationsCount,
   }) {
     return Trip(
       id: id ?? this.id,
@@ -137,7 +139,6 @@ class Trip {
       endDate: endDate ?? this.endDate,
       location: location ?? this.location,
       startingLocation: startingLocation ?? this.startingLocation,
-      status: status ?? this.status,
       numberOfTravelers: numberOfTravelers ?? this.numberOfTravelers,
       budgetLevel: budgetLevel ?? this.budgetLevel,
       budgetLimit: budgetLimit ?? this.budgetLimit,
@@ -147,12 +148,22 @@ class Trip {
       costEstimate: costEstimate ?? this.costEstimate,
       weatherForecasts: weatherForecasts ?? this.weatherForecasts,
       aiSuggestions: aiSuggestions ?? this.aiSuggestions,
+      destinationsCount: destinationsCount ?? this.destinationsCount,
     );
   }
 
   /// Tính số ngày trong trip
   int get daysCount {
     return endDate.difference(startDate).inDays + 1;
+  }
+
+  TripStatus get status => TripStatusExtension.fromDates(startDate, endDate);
+
+  int get previewDestinationsCount {
+    if (destinationsCount > 0) {
+      return destinationsCount;
+    }
+    return items.length;
   }
 
   /// Kiểm tra trip có đang diễn ra không
@@ -174,11 +185,9 @@ class Trip {
 
 /// Enum trạng thái của trip
 enum TripStatus {
-  planning, // Đang lên kế hoạch
   upcoming, // Sắp tới
   ongoing, // Đang diễn ra
   completed, // Đã hoàn thành
-  cancelled, // Đã hủy
 }
 
 /// Enum loại du lịch (budget level)
@@ -192,49 +201,48 @@ enum TripBudgetLevel {
 extension TripStatusExtension on TripStatus {
   String toValue() {
     switch (this) {
-      case TripStatus.planning:
-        return 'planning';
       case TripStatus.upcoming:
         return 'upcoming';
       case TripStatus.ongoing:
         return 'ongoing';
       case TripStatus.completed:
         return 'completed';
-      case TripStatus.cancelled:
-        return 'cancelled';
     }
   }
 
   String get displayName {
     switch (this) {
-      case TripStatus.planning:
-        return 'Đang lên kế hoạch';
       case TripStatus.upcoming:
         return 'Sắp tới';
       case TripStatus.ongoing:
         return 'Đang diễn ra';
       case TripStatus.completed:
         return 'Đã hoàn thành';
-      case TripStatus.cancelled:
-        return 'Đã hủy';
     }
   }
 
   static TripStatus fromString(String value) {
     switch (value) {
-      case 'planning':
-        return TripStatus.planning;
       case 'upcoming':
         return TripStatus.upcoming;
       case 'ongoing':
         return TripStatus.ongoing;
       case 'completed':
         return TripStatus.completed;
-      case 'cancelled':
-        return TripStatus.cancelled;
       default:
-        return TripStatus.planning;
+        return TripStatus.upcoming;
     }
+  }
+
+  static TripStatus fromDates(DateTime startDate, DateTime endDate) {
+    final now = DateTime.now();
+    if (now.isBefore(startDate)) {
+      return TripStatus.upcoming;
+    }
+    if (now.isAfter(endDate)) {
+      return TripStatus.completed;
+    }
+    return TripStatus.ongoing;
   }
 }
 

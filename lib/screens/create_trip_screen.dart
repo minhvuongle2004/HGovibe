@@ -104,7 +104,6 @@ class _CreateTripScreenState extends State<CreateTripScreen> {
       startDate: _startDate!,
       endDate: _endDate!,
       startingLocation: _startingLocationController.text.trim(),
-      status: TripStatus.planning,
       numberOfTravelers: _numberOfTravelers,
       budgetLevel: _budgetLevel,
       budgetLimit: _budgetLimitController.text.trim().isNotEmpty

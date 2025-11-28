@@ -9,6 +9,11 @@ class AIActivitySuggestion {
   final int? estimatedDuration; // Thời gian ước tính (phút)
   final double? estimatedCost; // Chi phí ước tính
   final String? category; // Loại hoạt động
+  final double? latitude; // Tọa độ lat (nếu có)
+  final double? longitude; // Tọa độ lng (nếu có)
+  final String? address; // Địa chỉ cụ thể
+  final String? sourcePlaceId; // ID địa điểm từ Mapbox/nguồn dữ liệu
+  final String? mealType; // breakfast/lunch/dinner/coffee...
   final DateTime suggestedAt; // Thời gian gợi ý
   final bool isAdded; // Đã thêm vào kế hoạch chưa
 
@@ -22,6 +27,11 @@ class AIActivitySuggestion {
     this.estimatedDuration,
     this.estimatedCost,
     this.category,
+    this.latitude,
+    this.longitude,
+    this.address,
+    this.sourcePlaceId,
+    this.mealType,
     required this.suggestedAt,
     this.isAdded = false,
   });
@@ -40,6 +50,15 @@ class AIActivitySuggestion {
           ? (map['estimatedCost'] as num).toDouble()
           : null,
       category: map['category'],
+      latitude: map['latitude'] != null
+          ? (map['latitude'] as num).toDouble()
+          : null,
+      longitude: map['longitude'] != null
+          ? (map['longitude'] as num).toDouble()
+          : null,
+      address: map['address'],
+      sourcePlaceId: map['sourcePlaceId'] ?? map['placeId'],
+      mealType: map['mealType'],
       suggestedAt: map['suggestedAt'] is DateTime
           ? map['suggestedAt'] as DateTime
           : DateTime.parse(map['suggestedAt'] as String? ?? DateTime.now().toIso8601String()),
@@ -59,6 +78,11 @@ class AIActivitySuggestion {
       'estimatedDuration': estimatedDuration,
       'estimatedCost': estimatedCost,
       'category': category,
+      'latitude': latitude,
+      'longitude': longitude,
+      'address': address,
+      'sourcePlaceId': sourcePlaceId,
+      'mealType': mealType,
       'suggestedAt': suggestedAt.toIso8601String(),
       'isAdded': isAdded,
     };
@@ -75,6 +99,11 @@ class AIActivitySuggestion {
     int? estimatedDuration,
     double? estimatedCost,
     String? category,
+    double? latitude,
+    double? longitude,
+    String? address,
+    String? sourcePlaceId,
+    String? mealType,
     DateTime? suggestedAt,
     bool? isAdded,
   }) {
@@ -88,6 +117,11 @@ class AIActivitySuggestion {
       estimatedDuration: estimatedDuration ?? this.estimatedDuration,
       estimatedCost: estimatedCost ?? this.estimatedCost,
       category: category ?? this.category,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
+      address: address ?? this.address,
+      sourcePlaceId: sourcePlaceId ?? this.sourcePlaceId,
+      mealType: mealType ?? this.mealType,
       suggestedAt: suggestedAt ?? this.suggestedAt,
       isAdded: isAdded ?? this.isAdded,
     );

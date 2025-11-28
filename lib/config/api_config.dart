@@ -8,7 +8,7 @@ class ApiConfig {
   static const String weatherBaseUrl = 'https://api.openweathermap.org/data/2.5';
   
   // Google Gemini API Key
-  static const String geminiApiKey = 'AIzaSyDw7DJhigvDTrxR4nJuDp5i1hf8cZXLlEQ';
+  static const String geminiApiKey = 'AIzaSyAzGZ8LNXzbEKwxD08lX7465hKIe9Vu2N4';
   // Thử với v1 thay vì v1beta
   static const String geminiBaseUrl = 'https://generativelanguage.googleapis.com/v1';
   

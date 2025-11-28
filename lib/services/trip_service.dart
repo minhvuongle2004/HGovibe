@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import '../models/trip.dart';
 import '../models/trip_item.dart';
+import '../models/ai_activity_suggestion.dart';
 import '../services/destination_service.dart';
 
 /// Service để quản lý trips của user
@@ -35,6 +36,7 @@ class TripService {
       final tripsRef = _tripsRefForUser(trip.userId);
       final data = trip.toMap();
       data['createdAt'] = FieldValue.serverTimestamp();
+      data['destinationsCount'] = trip.destinationsCount;
       
       final docRef = await tripsRef.add(data);
       debugPrint('✅ Trip created: ${docRef.id}');
@@ -76,6 +78,9 @@ class TripService {
         batch.delete(doc.reference);
       }
       await batch.commit();
+      
+      // Xóa AI suggestions
+      await deleteAISuggestions(userId, tripId);
       
       // Xóa trip
       await tripsRef.doc(tripId).delete();
@@ -163,6 +168,7 @@ class TripService {
       final itemsRef = _itemsRefForTrip(userId, tripId);
       final data = item.toMap();
       final docRef = await itemsRef.add(data);
+      await _incrementDestinationsCount(userId, tripId, 1);
       debugPrint('✅ Trip item added: ${docRef.id}');
       return docRef.id;
     } catch (e, stack) {
@@ -217,6 +223,7 @@ class TripService {
       
       // Cập nhật lại order của các items còn lại
       await _reorderItemsAfterDelete(userId, tripId);
+      await _incrementDestinationsCount(userId, tripId, -1);
       
       debugPrint('✅ Trip item removed: $itemId');
     } catch (e, stack) {
@@ -329,6 +336,141 @@ class TripService {
       await batch.commit();
     } catch (e) {
       debugPrint('⚠️ Error reordering after delete: $e');
+    }
+  }
+
+  Future<int> getTripItemsCount(String userId, String tripId) async {
+    final itemsRef = _itemsRefForTrip(userId, tripId);
+    final snapshot = await itemsRef.get();
+    return snapshot.docs.length;
+  }
+
+  Future<void> _incrementDestinationsCount(
+    String userId,
+    String tripId,
+    int delta,
+  ) async {
+    final tripsRef = _tripsRefForUser(userId);
+    await tripsRef.doc(tripId).update({
+      'destinationsCount': FieldValue.increment(delta),
+      'updatedAt': FieldValue.serverTimestamp(),
+    });
+  }
+
+  /// Collection reference cho AI suggestions của một trip
+  CollectionReference<Map<String, dynamic>> _aiSuggestionsRefForTrip(
+    String userId,
+    String tripId,
+  ) =>
+      _tripsRefForUser(userId).doc(tripId).collection('aiSuggestions');
+
+  /// Lưu AI suggestions vào Firestore
+  Future<void> saveAISuggestions(
+    String userId,
+    String tripId,
+    List<AIActivitySuggestion> suggestions,
+  ) async {
+    try {
+      final suggestionsRef = _aiSuggestionsRefForTrip(userId, tripId);
+      
+      // Xóa suggestions cũ trước (nếu có)
+      final oldSnapshot = await suggestionsRef.get();
+      if (oldSnapshot.docs.isNotEmpty) {
+        final batch = _firestore.batch();
+        for (var doc in oldSnapshot.docs) {
+          batch.delete(doc.reference);
+        }
+        await batch.commit();
+        debugPrint('🗑️ Đã xóa ${oldSnapshot.docs.length} suggestions cũ');
+      }
+      
+      // Lưu suggestions mới
+      if (suggestions.isNotEmpty) {
+        final batch = _firestore.batch();
+        for (var suggestion in suggestions) {
+          final docRef = suggestionsRef.doc(suggestion.id);
+          batch.set(docRef, suggestion.toMap());
+        }
+        await batch.commit();
+        debugPrint('✅ Đã lưu ${suggestions.length} AI suggestions vào Firestore cho trip $tripId');
+      }
+    } catch (e, stack) {
+      debugPrint('❌ Error saving AI suggestions: $e');
+      debugPrint('$stack');
+      rethrow;
+    }
+  }
+
+  /// Load AI suggestions từ Firestore
+  Future<List<AIActivitySuggestion>> getAISuggestions(
+    String userId,
+    String tripId,
+  ) async {
+    try {
+      final suggestionsRef = _aiSuggestionsRefForTrip(userId, tripId);
+      final snapshot = await suggestionsRef.get();
+      
+      final suggestions = <AIActivitySuggestion>[];
+      for (var doc in snapshot.docs) {
+        try {
+          final suggestion = AIActivitySuggestion.fromMap(doc.data());
+          suggestions.add(suggestion);
+        } catch (e) {
+          debugPrint('⚠️ Error parsing AI suggestion ${doc.id}: $e');
+        }
+      }
+      
+      debugPrint('✅ Loaded ${suggestions.length} AI suggestions từ Firestore cho trip $tripId');
+      return suggestions;
+    } catch (e, stack) {
+      debugPrint('❌ Error loading AI suggestions: $e');
+      debugPrint('$stack');
+      return [];
+    }
+  }
+
+  /// Xóa AI suggestions của một trip
+  Future<void> deleteAISuggestions(
+    String userId,
+    String tripId,
+  ) async {
+    try {
+      final suggestionsRef = _aiSuggestionsRefForTrip(userId, tripId);
+      final snapshot = await suggestionsRef.get();
+      
+      if (snapshot.docs.isNotEmpty) {
+        final batch = _firestore.batch();
+        for (var doc in snapshot.docs) {
+          batch.delete(doc.reference);
+        }
+        await batch.commit();
+        debugPrint('✅ Đã xóa ${snapshot.docs.length} AI suggestions cho trip $tripId');
+      }
+    } catch (e, stack) {
+      debugPrint('❌ Error deleting AI suggestions: $e');
+      debugPrint('$stack');
+      rethrow;
+    }
+  }
+
+  /// Cập nhật trạng thái isAdded của AI suggestion
+  Future<void> updateAISuggestionStatus(
+    String userId,
+    String tripId,
+    String suggestionId,
+    bool isAdded,
+  ) async {
+    try {
+      final suggestionRef = _aiSuggestionsRefForTrip(userId, tripId).doc(suggestionId);
+      await suggestionRef.update({
+        'isAdded': isAdded,
+        'updatedAt': FieldValue.serverTimestamp(),
+      });
+      debugPrint('✅ Cập nhật suggestion $suggestionId isAdded=$isAdded');
+    } catch (e, stack) {
+      debugPrint('❌ Error updating AI suggestion status: $e');
+      debugPrint('$stack');
+      rethrow;
     }
   }
 }

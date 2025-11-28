@@ -10,6 +10,11 @@ import '../widgets/weather_forecast_card.dart';
 import '../widgets/cost_breakdown_widget.dart';
 import 'add_destinations_to_trip_screen.dart';
 import 'edit_trip_item_screen.dart';
+import 'edit_trip_screen.dart';
+import '../widgets/ai_suggestion_card.dart';
+import '../models/ai_activity_suggestion.dart';
+import 'map_screen.dart';
+import '../models/destination.dart';
 
 class TripDetailScreen extends StatefulWidget {
   final String tripId;
@@ -25,6 +30,7 @@ class TripDetailScreen extends StatefulWidget {
 
 class _TripDetailScreenState extends State<TripDetailScreen> {
   int _selectedTabIndex = 0; // 0: Lịch trình, 1: Chi phí, 2: Thời tiết, 3: Gợi ý AI
+  bool _hasRequestedAISuggestions = false;
 
   @override
   void initState() {
@@ -87,9 +93,14 @@ class _TripDetailScreenState extends State<TripDetailScreen> {
           IconButton(
             icon: const Icon(Icons.edit),
             onPressed: () {
-              // TODO: Navigate to edit screen
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Tính năng chỉnh sửa sẽ được thêm sau')),
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => EditTripScreen(
+                    tripId: widget.tripId,
+                    trip: trip,
+                  ),
+                ),
               );
             },
           ),
@@ -253,6 +264,9 @@ class _TripDetailScreenState extends State<TripDetailScreen> {
         setState(() {
           _selectedTabIndex = index;
         });
+        if (index == 3) {
+          _fetchAISuggestionsIfNeeded();
+        }
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12),
@@ -290,7 +304,7 @@ class _TripDetailScreenState extends State<TripDetailScreen> {
       case 2:
         return _buildWeatherTab(trip);
       case 3:
-        return _buildAISuggestionsTab(trip);
+        return _buildAISuggestionsTab(tripProvider, userProvider);
       default:
         return _buildTimelineTab(trip, userProvider, tripProvider);
     }
@@ -632,21 +646,485 @@ class _TripDetailScreenState extends State<TripDetailScreen> {
     );
   }
 
-  Widget _buildAISuggestionsTab(Trip trip) {
-    return Center(
+  Future<void> _fetchAISuggestionsIfNeeded({bool force = false}) async {
+    final userProvider = context.read<UserProvider>();
+    final tripProvider = context.read<TripProvider>();
+    if (userProvider.user == null) {
+      return;
+    }
+    if (_hasRequestedAISuggestions && !force) {
+      return;
+    }
+    setState(() {
+      _hasRequestedAISuggestions = true;
+    });
+    await tripProvider.loadAISuggestions(
+      userProvider.user!.uid,
+      widget.tripId,
+    );
+  }
+
+  Widget _buildAISuggestionsTab(
+    TripProvider tripProvider,
+    UserProvider userProvider,
+  ) {
+    final aiSuggestions = tripProvider.aiSuggestions;
+    final isLoading = tripProvider.isLoadingSuggestions;
+    final hasSuggestions = aiSuggestions != null && aiSuggestions.isNotEmpty;
+    final errorMessage = tripProvider.aiSuggestionError;
+
+    if (!_hasRequestedAISuggestions) {
+      return _buildAISuggestionIntro(onRequest: () {
+        _fetchAISuggestionsIfNeeded(force: true);
+      });
+    }
+
+    if (isLoading && !hasSuggestions) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const CircularProgressIndicator(),
+            const SizedBox(height: 16),
+            Text(
+              'Đang gọi Gemini AI...',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey[600],
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              'Vui lòng đợi trong giây lát',
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.grey[500],
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    if (!hasSuggestions) {
+      return _buildAISuggestionEmpty(
+        onRefresh: () {
+          _fetchAISuggestionsIfNeeded(force: true);
+        },
+        message: errorMessage,
+      );
+    }
+
+    return RefreshIndicator(
+      onRefresh: () async {
+        await _fetchAISuggestionsIfNeeded(force: true);
+      },
+      child: ListView.builder(
+        padding: const EdgeInsets.all(16),
+        itemCount: aiSuggestions.length,
+        itemBuilder: (context, index) {
+          final suggestion = aiSuggestions[index];
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: AISuggestionCard(
+              suggestion: suggestion,
+              onViewMap: () => _viewSuggestionOnMap(suggestion),
+              onNavigate: () => _navigateToSuggestion(suggestion),
+              onAddToTrip: () => _addSuggestionToTrip(suggestion),
+              onSaveFavorite: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('Lưu yêu thích sẽ khả dụng sớm!'),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildAISuggestionIntro({required VoidCallback onRequest}) {
+    return Padding(
+      padding: const EdgeInsets.all(24),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.lightbulb_outline, size: 64, color: Colors.grey[400]),
+          Icon(Icons.restaurant_menu, size: 72, color: Colors.orange[300]),
           const SizedBox(height: 16),
-          const Text(
-            'Tính năng gợi ý AI sẽ được thêm sau',
+          Text(
+            'Nhận gợi ý ăn uống từ AI',
+            style: Theme.of(context).textTheme.titleMedium,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14, color: Colors.grey),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            'AI sẽ phân tích lịch trình và đề xuất các quán ăn, cà phê gần từng điểm đến.',
+            style: TextStyle(color: Colors.grey[600]),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 24),
+          ElevatedButton.icon(
+            onPressed: onRequest,
+            icon: const Icon(Icons.auto_awesome),
+            label: const Text('Lấy gợi ý ngay'),
           ),
         ],
       ),
     );
+  }
+
+  Widget _buildAISuggestionEmpty({
+    required VoidCallback onRefresh,
+    String? message,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.no_meals, size: 72, color: Colors.grey[400]),
+          const SizedBox(height: 16),
+          const Text(
+            'Chưa có gợi ý phù hợp',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            message ??
+                'Thử làm mới lại hoặc kiểm tra kết nối trước khi chạy AI.',
+            style: TextStyle(color: Colors.grey[600]),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 24),
+          OutlinedButton.icon(
+            onPressed: onRefresh,
+            icon: const Icon(Icons.refresh),
+            label: const Text('Thử lại'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// Xem suggestion trên bản đồ
+  void _viewSuggestionOnMap(AIActivitySuggestion suggestion) {
+    if (suggestion.latitude == null || suggestion.longitude == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Không có tọa độ để hiển thị trên bản đồ'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
+    // Tạo Destination từ suggestion để hiển thị trên map
+    final destination = Destination(
+      id: suggestion.id,
+      name: suggestion.activityName,
+      nameLowercase: suggestion.activityName.toLowerCase(),
+      slug: suggestion.id,
+      category: suggestion.category ?? 'restaurant',
+      tags: [suggestion.category ?? 'restaurant'],
+      location: Location(
+        latitude: suggestion.latitude!,
+        longitude: suggestion.longitude!,
+        address: suggestion.address ?? '',
+        city: '',
+        district: '',
+        country: 'Vietnam',
+      ),
+      description: suggestion.description,
+      shortDescription: suggestion.reason,
+      images: [],
+      thumbnail: '',
+      rating: 4.0,
+      reviewCount: 0,
+      popularityScore: 50,
+      openingHours: null,
+      bestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonalEvents: [],
+      specialties: [],
+      activities: [],
+      tips: [],
+      nearbyPlaces: [],
+      suggestedDuration: '1-2 giờ',
+      suggestedDurationHours: 2,
+      weatherDependent: false,
+      suitableFor: ['all'],
+      status: 'active',
+      verified: true,
+      visitCount: 0,
+      trendingScore: 50,
+      userPreferenceTags: [],
+    );
+
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (_) => MapScreen(
+          initialDestination: destination,
+          showBackToDetail: true,
+        ),
+      ),
+    );
+  }
+
+  /// Dẫn đường đến suggestion
+  void _navigateToSuggestion(AIActivitySuggestion suggestion) {
+    if (suggestion.latitude == null || suggestion.longitude == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Không có tọa độ để dẫn đường'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+
+    _openMapboxDirections(suggestion);
+  }
+
+  /// Mở Mapbox directions trong browser/app
+  void _openMapboxDirections(AIActivitySuggestion suggestion) {
+    try {
+      final lat = suggestion.latitude!;
+      final lng = suggestion.longitude!;
+      final name = Uri.encodeComponent(suggestion.activityName);
+      
+      // Mapbox directions URL
+      final directionsUrl = 'https://www.mapbox.com/directions/?destination=$lng,$lat#destination=$lng,$lat';
+      
+      // Hoặc Google Maps fallback
+      final googleMapsUrl = 'https://www.google.com/maps/dir/?api=1&destination=$lat,$lng&destination_place_id=${suggestion.sourcePlaceId ?? ''}';
+      
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('🧭 Mở dẫn đường đến ${suggestion.activityName}'),
+          backgroundColor: Colors.blue,
+          action: SnackBarAction(
+            label: 'Mở',
+            textColor: Colors.white,
+            onPressed: () {
+              // TODO: Launch URL using url_launcher
+              // launch(directionsUrl);
+            },
+          ),
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('❌ Không thể mở dẫn đường: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
+  }
+
+  /// Thêm suggestion vào lịch trình
+  void _addSuggestionToTrip(AIActivitySuggestion suggestion) {
+    _showAddToTripDialog(suggestion);
+  }
+
+  /// Hiển thị dialog chọn ngày/giờ để thêm vào lịch trình
+  void _showAddToTripDialog(AIActivitySuggestion suggestion) {
+    final trip = context.read<TripProvider>().currentTrip;
+    if (trip == null) return;
+
+    DateTime selectedDate = trip.startDate;
+    TimeOfDay selectedTime = TimeOfDay.now();
+
+    showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setState) => AlertDialog(
+          title: Text('Thêm "${suggestion.activityName}" vào lịch trình'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Mô tả ngắn
+              Text(
+                suggestion.reason,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Colors.grey[600],
+                ),
+              ),
+              const SizedBox(height: 16),
+              
+              // Chọn ngày
+              ListTile(
+                leading: const Icon(Icons.calendar_today),
+                title: const Text('Ngày'),
+                subtitle: Text(DateFormat('dd/MM/yyyy').format(selectedDate)),
+                onTap: () async {
+                  final picked = await showDatePicker(
+                    context: context,
+                    initialDate: selectedDate,
+                    firstDate: trip.startDate,
+                    lastDate: trip.endDate,
+                  );
+                  if (picked != null) {
+                    setState(() {
+                      selectedDate = picked;
+                    });
+                  }
+                },
+              ),
+              
+              // Chọn giờ
+              ListTile(
+                leading: const Icon(Icons.access_time),
+                title: const Text('Giờ'),
+                subtitle: Text(selectedTime.format(context)),
+                onTap: () async {
+                  final picked = await showTimePicker(
+                    context: context,
+                    initialTime: selectedTime,
+                  );
+                  if (picked != null) {
+                    setState(() {
+                      selectedTime = picked;
+                    });
+                  }
+                },
+              ),
+              
+              // Thời gian ước tính
+              if (suggestion.estimatedDuration != null)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Row(
+                    children: [
+                      const Icon(Icons.schedule, size: 16, color: Colors.grey),
+                      const SizedBox(width: 8),
+                      Text(
+                        'Thời gian ước tính: ${suggestion.estimatedDuration} phút',
+                        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Hủy'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                Navigator.of(context).pop();
+                await _performAddToTrip(suggestion, selectedDate, selectedTime);
+              },
+              child: const Text('Thêm vào lịch trình'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  /// Thực hiện thêm suggestion vào trip
+  Future<void> _performAddToTrip(
+    AIActivitySuggestion suggestion,
+    DateTime selectedDate,
+    TimeOfDay selectedTime,
+  ) async {
+    final tripProvider = context.read<TripProvider>();
+    final userProvider = context.read<UserProvider>();
+    final user = userProvider.user;
+    
+    if (user == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Không thể xác định người dùng'),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    try {
+      // Hiển thị loading
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              const SizedBox(
+                width: 16,
+                height: 16,
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
+              const SizedBox(width: 12),
+              Text('Đang thêm ${suggestion.activityName}...'),
+            ],
+          ),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+
+      await tripProvider.addAISuggestionToTrip(
+        user.uid,
+        widget.tripId,
+        suggestion,
+        plannedDate: selectedDate,
+        plannedTime: selectedTime,
+      );
+
+      // Thành công
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('✅ Đã thêm "${suggestion.activityName}" vào lịch trình'),
+            backgroundColor: Colors.green,
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        String errorMessage = 'Không thể thêm vào lịch trình';
+        
+        // Customize error message based on error type
+        if (e.toString().contains('không hợp lệ')) {
+          errorMessage = 'Thông tin địa điểm không hợp lệ';
+        } else if (e.toString().contains('đã tồn tại')) {
+          errorMessage = 'Địa điểm đã có trong hệ thống';
+        } else if (e.toString().contains('network')) {
+          errorMessage = 'Lỗi kết nối mạng, vui lòng thử lại';
+        }
+        
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('❌ $errorMessage'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 4),
+            action: SnackBarAction(
+              label: 'Chi tiết',
+              textColor: Colors.white,
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    title: const Text('Chi tiết lỗi'),
+                    content: Text(e.toString()),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        child: const Text('Đóng'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      }
+    }
   }
 }
 

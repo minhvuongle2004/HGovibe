@@ -80,10 +80,44 @@ class _EditTripItemScreenState extends State<EditTripItemScreen> {
       return;
     }
 
+    if (_plannedTime == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Vui lòng chọn giờ dự kiến')),
+      );
+      return;
+    }
+
     final userProvider = context.read<UserProvider>();
     final tripProvider = context.read<TripProvider>();
 
     if (!userProvider.isLoggedIn || userProvider.user == null) {
+      return;
+    }
+
+    final conflict = tripProvider.findScheduleConflict(
+      plannedDate: _plannedDate!,
+      plannedTime: _plannedTime!,
+      durationHours: _durationHours,
+      excludeItemId: widget.item.id,
+    );
+
+    if (conflict != null) {
+      final conflictDestination = conflict.destination?.name ?? 'điểm đến khác';
+      final conflictTime = conflict.plannedTime != null
+          ? _formatTime(conflict.plannedTime!)
+          : '';
+      final conflictDuration = conflict.durationHours ?? 2;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Khoảng thời gian đã trùng với "$conflictDestination" '
+            'lúc $conflictTime (dự kiến $conflictDuration giờ). '
+            'Vui lòng chọn thời gian khác.',
+          ),
+          backgroundColor: Colors.orange,
+        ),
+      );
       return;
     }
 
@@ -366,6 +400,12 @@ class _EditTripItemScreenState extends State<EditTripItemScreen> {
         ),
       ),
     );
+  }
+
+  String _formatTime(TimeOfDay time) {
+    final hours = time.hour.toString().padLeft(2, '0');
+    final minutes = time.minute.toString().padLeft(2, '0');
+    return '$hours:$minutes';
   }
 }
 

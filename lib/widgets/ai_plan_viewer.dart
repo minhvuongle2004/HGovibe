@@ -6,10 +6,12 @@ import '../services/ai_plan_service.dart';
 /// Widget hiển thị kế hoạch chi tiết từ AI
 class AIPlanViewer extends StatefulWidget {
   final String tripId;
+  final String userId;
 
   const AIPlanViewer({
     super.key,
     required this.tripId,
+    required this.userId,
   });
 
   @override
@@ -36,7 +38,7 @@ class _AIPlanViewerState extends State<AIPlanViewer> {
     });
 
     try {
-      final plan = await AIPlanService.instance.getCurrentAIPlan(widget.tripId);
+      final plan = await AIPlanService.instance.getCurrentAIPlan(widget.userId, widget.tripId);
       if (mounted) {
         setState(() {
           _currentPlan = plan;
@@ -54,7 +56,7 @@ class _AIPlanViewerState extends State<AIPlanViewer> {
   }
 
   void _subscribeToPlan() {
-    AIPlanService.instance.watchCurrentAIPlan(widget.tripId).listen((plan) {
+    AIPlanService.instance.watchCurrentAIPlan(widget.userId, widget.tripId).listen((plan) {
       if (mounted) {
         setState(() {
           _currentPlan = plan;

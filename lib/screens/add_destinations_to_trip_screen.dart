@@ -27,6 +27,7 @@ class AddDestinationsToTripScreen extends StatefulWidget {
 
 class _AddDestinationsToTripScreenState
     extends State<AddDestinationsToTripScreen> {
+  static const int _defaultDurationHours = 2;
   final Map<String, DateTime?> _selectedDates = {}; // destinationId -> plannedDate
   final Map<String, TimeOfDay?> _selectedTimes = {}; // destinationId -> plannedTime
   final DestinationProvider _destinationProvider = DestinationProvider();
@@ -127,8 +128,11 @@ class _AddDestinationsToTripScreenState
         ? _destinationProvider.searchResults
         : _destinationProvider.recommendedDestinations;
 
+    bool validationDialogShown = false;
+
     // Show loading khi đang validate
     if (mounted && _selectedDates.length > 1) {
+      validationDialogShown = true;
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -138,8 +142,17 @@ class _AddDestinationsToTripScreenState
       );
     }
 
+    void dismissValidationDialog() {
+      if (validationDialogShown && mounted) {
+        Navigator.pop(context);
+        validationDialogShown = false;
+      }
+    }
+
     try {
       // Validate từng destination
+      final pendingSchedules = <_PendingSchedule>[];
+
       for (final entry in _selectedDates.entries) {
         final destinationId = entry.key;
         final plannedDate = entry.value;
@@ -150,6 +163,84 @@ class _AddDestinationsToTripScreenState
       final destination = allDestinations.firstWhere(
         (d) => d.id == destinationId,
         orElse: () => throw Exception('Destination not found: $destinationId'),
+      );
+
+      final plannedTime = _selectedTimes[destinationId];
+      if (plannedTime == null) {
+        dismissValidationDialog();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Vui lòng chọn giờ cho "${destination.name}"'),
+            backgroundColor: Colors.orange,
+          ),
+        );
+        return;
+      }
+
+      // Kiểm tra trùng giờ với các điểm đã có trong trip
+      final existingConflict = tripProvider.findScheduleConflict(
+        plannedDate: plannedDate,
+        plannedTime: plannedTime,
+        durationHours: _defaultDurationHours,
+      );
+
+      if (existingConflict != null) {
+        dismissValidationDialog();
+        final conflictName =
+            existingConflict.destination?.name ?? 'điểm đến khác';
+        final conflictStart = _combineDateTime(
+          existingConflict.plannedDate!,
+          existingConflict.plannedTime!,
+        );
+        final conflictEnd = conflictStart.add(
+          Duration(
+            hours: existingConflict.durationHours ?? _defaultDurationHours,
+          ),
+        );
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              '"${destination.name}" bị trùng với "$conflictName" '
+              'trong khoảng ${_formatRange(conflictStart, conflictEnd)}. '
+              'Vui lòng chọn giờ khác.',
+            ),
+            backgroundColor: Colors.orange,
+          ),
+        );
+        return;
+      }
+
+      final newStart = _combineDateTime(plannedDate, plannedTime);
+      final newEnd = newStart.add(
+        const Duration(hours: _defaultDurationHours),
+      );
+
+      for (final pending in pendingSchedules) {
+        final sameDay = _isSameDay(pending.start, newStart);
+        final overlap = newStart.isBefore(pending.end) &&
+            newEnd.isAfter(pending.start);
+        if (sameDay && overlap) {
+          dismissValidationDialog();
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                '"${destination.name}" đang trùng giờ với '
+                '"${pending.destinationName}" '
+                '(${_formatRange(pending.start, pending.end)}).',
+              ),
+              backgroundColor: Colors.orange,
+            ),
+          );
+          return;
+        }
+      }
+
+      pendingSchedules.add(
+        _PendingSchedule(
+          start: newStart,
+          end: newEnd,
+          destinationName: destination.name,
+        ),
       );
 
       // Validate destination
@@ -182,9 +273,7 @@ class _AddDestinationsToTripScreenState
       }
 
       // Close validation loading
-      if (mounted && _selectedDates.length > 1) {
-        Navigator.pop(context);
-      }
+      dismissValidationDialog();
 
       if (destinationsToAdd.isEmpty) {
         return; // Không có điểm nào để thêm
@@ -304,6 +393,25 @@ class _AddDestinationsToTripScreenState
     );
 
     return result;
+  }
+
+  DateTime _combineDateTime(DateTime date, TimeOfDay time) {
+    return DateTime(
+      date.year,
+      date.month,
+      date.day,
+      time.hour,
+      time.minute,
+    );
+  }
+
+  bool _isSameDay(DateTime a, DateTime b) {
+    return a.year == b.year && a.month == b.month && a.day == b.day;
+  }
+
+  String _formatRange(DateTime start, DateTime end) {
+    final formatter = DateFormat('HH:mm');
+    return '${formatter.format(start)} - ${formatter.format(end)}';
   }
 
   @override
@@ -563,4 +671,16 @@ class _AddDestinationsToTripScreenState
       ),
     );
   }
+}
+
+class _PendingSchedule {
+  final DateTime start;
+  final DateTime end;
+  final String destinationName;
+
+  _PendingSchedule({
+    required this.start,
+    required this.end,
+    required this.destinationName,
+  });
 }

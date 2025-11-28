@@ -12,9 +12,11 @@ class AIPlanService {
   /// Lưu hoặc cập nhật kế hoạch AI cho một trip
   /// Nếu đã có plan, sẽ ghi đè (update)
   /// Nếu chưa có, sẽ tạo mới
-  Future<String?> saveAIPlan(AIPlan plan) async {
+  Future<String?> saveAIPlan(String userId, AIPlan plan) async {
     try {
       final planRef = _firestore
+          .collection('users')
+          .doc(userId)
           .collection('trips')
           .doc(plan.tripId)
           .collection('aiPlans')
@@ -32,9 +34,11 @@ class AIPlanService {
   }
 
   /// Lấy kế hoạch AI hiện tại của trip
-  Future<AIPlan?> getCurrentAIPlan(String tripId) async {
+  Future<AIPlan?> getCurrentAIPlan(String userId, String tripId) async {
     try {
       final doc = await _firestore
+          .collection('users')
+          .doc(userId)
           .collection('trips')
           .doc(tripId)
           .collection('aiPlans')
@@ -53,8 +57,10 @@ class AIPlanService {
   }
 
   /// Stream kế hoạch AI hiện tại của trip (real-time)
-  Stream<AIPlan?> watchCurrentAIPlan(String tripId) {
+  Stream<AIPlan?> watchCurrentAIPlan(String userId, String tripId) {
     return _firestore
+        .collection('users')
+        .doc(userId)
         .collection('trips')
         .doc(tripId)
         .collection('aiPlans')
@@ -64,9 +70,11 @@ class AIPlanService {
   }
 
   /// Xóa kế hoạch AI
-  Future<bool> deleteAIPlan(String tripId) async {
+  Future<bool> deleteAIPlan(String userId, String tripId) async {
     try {
       await _firestore
+          .collection('users')
+          .doc(userId)
           .collection('trips')
           .doc(tripId)
           .collection('aiPlans')

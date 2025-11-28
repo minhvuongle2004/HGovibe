@@ -144,6 +144,30 @@ class RouteResult {
 class MapBoxService {
   MapBoxService._();
   static final MapBoxService instance = MapBoxService._();
+  static const Set<String> _supportedCategories = {
+    'restaurant',
+    'restaurants',
+    'cafe',
+    'coffee-shop',
+    'tea-house',
+    'bakery',
+    'bar',
+    'pub',
+    'wine-bar',
+    'fast-food',
+    'food',
+    'food-truck',
+    'bbq',
+    'seafood',
+    'sushi',
+    'steakhouse',
+    'pizza',
+    'dessert',
+    'ice-cream',
+    'juice-bar',
+    'vegan',
+    'vegetarian',
+  };
 
   // Cache để tránh gọi API nhiều lần
   final Map<String, DistanceResult> _cache = {};
@@ -501,6 +525,154 @@ class MapBoxService {
     return results;
   }
 
+  /// Tính khoảng cách từ một điểm mốc đến tất cả các điểm còn lại
+  /// Trả về danh sách DistanceResult theo đúng thứ tự tọa độ truyền vào.
+  /// Phần tử tại [originIndex] sẽ luôn là null.
+  Future<List<DistanceResult?>> calculateDistancesFromOrigin(
+    List<List<double>> coordinates,
+    int originIndex, {
+    String mode = 'driving',
+  }) async {
+    if (coordinates.length < 2) {
+      return const [];
+    }
+
+    if (originIndex < 0 || originIndex >= coordinates.length) {
+      throw RangeError(
+        'originIndex must be between 0 and ${coordinates.length - 1}',
+      );
+    }
+
+    final coordsString = coordinates
+        .map((coord) => '${coord[1]},${coord[0]}') // lng,lat
+        .join(';');
+
+    final url = Uri.parse(
+      '${ApiConfig.mapboxBaseUrl}/directions-matrix/v1/mapbox/$mode/$coordsString'
+      '?access_token=${ApiConfig.mapboxApiKey}'
+      '&annotations=distance,duration',
+    );
+
+    try {
+      final response = await _requestWithRetry(
+        url,
+        timeout: const Duration(seconds: 12),
+        label: 'distance-matrix-single-source',
+      );
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body) as Map<String, dynamic>;
+        final distances = data['distances'] as List?;
+        final durations = data['durations'] as List?;
+
+        if (distances != null &&
+            durations != null &&
+            distances.length > originIndex &&
+            durations.length > originIndex) {
+          final originDistances = distances[originIndex] as List?;
+          final originDurations = durations[originIndex] as List?;
+          if (originDistances == null || originDurations == null) {
+            return _calculateDistancesWithHaversineFallback(
+              coordinates,
+              originIndex,
+              mode,
+            );
+          }
+
+          final results = <DistanceResult?>[];
+          for (var i = 0; i < coordinates.length; i++) {
+            if (i == originIndex) {
+              results.add(null);
+              continue;
+            }
+
+            final distanceMeters = originDistances[i] as num?;
+            final durationSeconds = originDurations[i] as num?;
+            if (distanceMeters == null || durationSeconds == null) {
+              results.add(null);
+              continue;
+            }
+
+            final distanceResult = DistanceResult(
+              distance: distanceMeters.toDouble() / 1000,
+              duration: durationSeconds.toInt(),
+              mode: mode,
+              fromCache: false,
+            );
+
+            results.add(distanceResult);
+
+            // Lưu cache cho từng cặp điểm
+            final key = _getCacheKey(
+              coordinates[originIndex][0],
+              coordinates[originIndex][1],
+              coordinates[i][0],
+              coordinates[i][1],
+              mode,
+            );
+            _cache[key] = distanceResult;
+            _cacheTimestamps[key] = DateTime.now();
+          }
+
+          debugPrint(
+            '✅ Calculated ${results.whereType<DistanceResult>().length} distances with single-source matrix',
+          );
+          return results;
+        }
+      } else {
+        debugPrint(
+          '⚠️ MapBox API error: ${response.statusCode} - ${response.body}',
+        );
+      }
+    } catch (e) {
+      debugPrint('⚠️ MapBox API error: $e');
+    }
+
+    return _calculateDistancesWithHaversineFallback(
+      coordinates,
+      originIndex,
+      mode,
+    );
+  }
+
+  List<DistanceResult?> _calculateDistancesWithHaversineFallback(
+    List<List<double>> coordinates,
+    int originIndex,
+    String mode,
+  ) {
+    debugPrint('⚠️ Falling back to Haversine for single-source matrix');
+    final results = <DistanceResult?>[];
+
+    for (var i = 0; i < coordinates.length; i++) {
+      if (i == originIndex) {
+        results.add(null);
+        continue;
+      }
+
+      final fallbackResult = _calculateDistanceWithHaversine(
+        coordinates[originIndex][0],
+        coordinates[originIndex][1],
+        coordinates[i][0],
+        coordinates[i][1],
+        mode,
+      );
+
+      results.add(fallbackResult);
+
+      final key = _getCacheKey(
+        coordinates[originIndex][0],
+        coordinates[originIndex][1],
+        coordinates[i][0],
+        coordinates[i][1],
+        mode,
+      );
+      _cache[key] = fallbackResult;
+      _cacheTimestamps[key] = DateTime.now();
+    }
+
+    return results;
+  }
+
   /// Tạo cache key từ tọa độ
   String _getCacheKey(
     double lat1,
@@ -603,6 +775,7 @@ class MapBoxService {
     int limit = 6,
     double? proximityLat,
     double? proximityLng,
+    MapboxBoundingBox? boundingBox,
   }) async {
     final normalized = query.trim().toLowerCase();
     if (normalized.isEmpty) return [];
@@ -626,6 +799,12 @@ class MapBoxService {
 
     if (proximityLat != null && proximityLng != null) {
       buffer.write('&proximity=$proximityLng,$proximityLat');
+    }
+
+    if (boundingBox != null) {
+      buffer.write(
+        '&bbox=${boundingBox.minLng},${boundingBox.minLat},${boundingBox.maxLng},${boundingBox.maxLat}',
+      );
     }
 
     final url = Uri.parse(buffer.toString());
@@ -670,6 +849,10 @@ class MapBoxService {
           ? feature['properties'] as Map<String, dynamic>
           : <String, dynamic>{};
       final category = properties['category'] as String?;
+      final distanceMeters = properties['distance'] is num
+          ? (properties['distance'] as num).toDouble()
+          : null;
+      final externalId = properties['external_id'] as String?;
       final contextRaw = feature['context'];
       final contextList = contextRaw is List
           ? contextRaw
@@ -696,11 +879,167 @@ class MapBoxService {
           placeType: placeType,
           category: category,
           context: contextString,
+          distanceMeters: distanceMeters,
+          externalId: externalId,
         ),
       );
     }
 
     _searchCache[normalized] = _SearchCacheEntry(
+      results: results,
+      timestamp: DateTime.now(),
+    );
+
+    return results;
+  }
+
+  MapboxBoundingBox createBoundingBox({
+    required double latitude,
+    required double longitude,
+    double delta = 0.1,
+  }) {
+    final minLat = (latitude - delta).clamp(-90.0, 90.0);
+    final maxLat = (latitude + delta).clamp(-90.0, 90.0);
+    final minLng = (longitude - delta).clamp(-180.0, 180.0);
+    final maxLng = (longitude + delta).clamp(-180.0, 180.0);
+    return MapboxBoundingBox(
+      minLat: minLat,
+      maxLat: maxLat,
+      minLng: minLng,
+      maxLng: maxLng,
+    );
+  }
+
+  /// Tìm kiếm các địa điểm ăn uống gần một tọa độ cụ thể
+  Future<List<MapboxPlace>> searchNearbyPlaces({
+    required double latitude,
+    required double longitude,
+    int limit = 8,
+    double radiusMeters = 800, // Mapbox chưa hỗ trợ radius trực tiếp (chỉ dùng proximity)
+    String? query,
+    List<String>? categories,
+  }) async {
+    final normalizedQuery =
+        (query != null && query.trim().isNotEmpty) ? query.trim().toLowerCase() : 'food';
+    final normalizedCategories = categories != null && categories.isNotEmpty
+        ? categories
+            .map((cat) => cat.trim().toLowerCase())
+            .where((cat) => cat.isNotEmpty)
+            .join(',')
+        : 'all';
+    final cacheKey =
+        'nearby:$latitude,$longitude:$limit:$radiusMeters:$normalizedQuery:$normalizedCategories';
+
+    final cached = _searchCache[cacheKey];
+    if (cached != null &&
+        DateTime.now().difference(cached.timestamp) <= _searchCacheTTL) {
+      debugPrint('✅ Using cached nearby search result ($cacheKey)');
+      return cached.results;
+    }
+
+    final queryKeyword =
+        (query != null && query.trim().isNotEmpty) ? query.trim() : 'restaurant';
+    final encodedQuery = Uri.encodeComponent(queryKeyword);
+
+    final buffer = StringBuffer(
+      '${ApiConfig.mapboxBaseUrl}/geocoding/v5/mapbox.places/$encodedQuery.json'
+      '?access_token=${ApiConfig.mapboxApiKey}'
+      '&types=poi'
+      '&language=vi'
+      '&autocomplete=false'
+      '&limit=$limit'
+      '&proximity=$longitude,$latitude',
+    );
+
+    if (categories != null && categories.isNotEmpty) {
+      final cleaned = categories
+          .map((cat) => cat.trim().toLowerCase())
+          .where((cat) => cat.isNotEmpty && _supportedCategories.contains(cat))
+          .toList();
+      if (cleaned.isNotEmpty) {
+        buffer.write('&categories=${Uri.encodeComponent(cleaned.join(','))}');
+      }
+    }
+
+    final url = Uri.parse(buffer.toString());
+    debugPrint('🍽️ Mapbox nearby search request: $url (radius≈${radiusMeters.toStringAsFixed(0)}m)');
+
+    final response = await _requestWithRetry(
+      url,
+      timeout: const Duration(seconds: 8),
+      label: 'nearby-poi',
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception(
+        'Mapbox nearby search error: ${response.statusCode} - ${response.body}',
+      );
+    }
+
+    final data = json.decode(response.body) as Map<String, dynamic>;
+    final features = List<Map<String, dynamic>>.from(data['features'] ?? []);
+
+    final results = <MapboxPlace>[];
+    for (final feature in features) {
+      final id = feature['id'] as String? ?? '';
+      final text =
+          feature['text'] as String? ?? feature['place_name'] as String? ?? '';
+      final placeName = feature['place_name'] as String? ?? text;
+      final placeTypeList = feature['place_type'] is List
+          ? feature['place_type'] as List
+          : null;
+      final placeType = placeTypeList != null && placeTypeList.isNotEmpty
+          ? placeTypeList.first as String
+          : 'poi';
+
+      final geometry = feature['geometry'] as Map<String, dynamic>?;
+      final coordinates = geometry?['coordinates'] as List?;
+      if (coordinates == null || coordinates.length < 2) continue;
+
+      final longitudeResult = (coordinates[0] as num).toDouble();
+      final latitudeResult = (coordinates[1] as num).toDouble();
+
+      final properties = feature['properties'] is Map<String, dynamic>
+          ? feature['properties'] as Map<String, dynamic>
+          : <String, dynamic>{};
+      final category = properties['category'] as String?;
+      final distanceMeters = properties['distance'] is num
+          ? (properties['distance'] as num).toDouble()
+          : null;
+      final externalId = properties['external_id'] as String?;
+      final contextRaw = feature['context'];
+      final contextList = contextRaw is List
+          ? contextRaw
+              .whereType<Map<String, dynamic>>()
+              .map((ctx) => Map<String, dynamic>.from(ctx))
+              .toList()
+          : <Map<String, dynamic>>[];
+      final contextNames = contextList
+          .map((ctx) => ctx['text'] as String?)
+          .where((value) => value != null && value.trim().isNotEmpty)
+          .cast<String>()
+          .toList();
+      final contextString = contextNames.isNotEmpty
+          ? contextNames.join(' • ')
+          : null;
+
+      results.add(
+        MapboxPlace(
+          id: id,
+          name: text,
+          fullAddress: placeName,
+          latitude: latitudeResult,
+          longitude: longitudeResult,
+          placeType: placeType,
+          category: category,
+          context: contextString,
+          distanceMeters: distanceMeters,
+          externalId: externalId,
+        ),
+      );
+    }
+
+    _searchCache[cacheKey] = _SearchCacheEntry(
       results: results,
       timestamp: DateTime.now(),
     );
