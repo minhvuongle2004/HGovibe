@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_travel_app/services/destination_suggestion_service.dart';
-import 'package:smart_travel_app/models/destination.dart';
-import 'package:smart_travel_app/models/location.dart';
+import 'package:smart_travel_app/services/destinations/destination_suggestion_service.dart';
+import 'package:smart_travel_app/models/destinations/destination.dart';
 
 void main() {
   group('DestinationSuggestionService', () {

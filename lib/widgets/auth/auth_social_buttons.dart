@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/auth_form_provider.dart';
-import '../../services/exceptions/auth_exceptions.dart';
+import 'package:smart_travel_app/providers/auth/auth_form_provider.dart';
+import 'package:smart_travel_app/services/auth/exceptions/auth_exceptions.dart';
 import 'auth_snackbar.dart' show showAuthSnackBar;
 
 class AuthSocialButtons extends StatelessWidget {
@@ -42,14 +42,10 @@ class AuthSocialButtons extends StatelessWidget {
                   if (context.mounted) {
                     // Hiển thị error message trong form
                     // AuthFormProvider đã set errorMessage
-                    // Nếu là AccountExistsWithDifferentCredentialException, 
+                    // Nếu là AccountExistsWithDifferentCredentialException,
                     // hiển thị snackbar để user dễ thấy hơn
                     if (e is AccountExistsWithDifferentCredentialException) {
-                      showAuthSnackBar(
-                        context,
-                        e.toString(),
-                        isError: true,
-                      );
+                      showAuthSnackBar(context, e.toString(), isError: true);
                     }
                   }
                 }
@@ -66,11 +62,7 @@ class AuthSocialButtons extends StatelessWidget {
                 } catch (e) {
                   if (context.mounted) {
                     if (e is AccountExistsWithDifferentCredentialException) {
-                      showAuthSnackBar(
-                        context,
-                        e.toString(),
-                        isError: true,
-                      );
+                      showAuthSnackBar(context, e.toString(), isError: true);
                     }
                   }
                 }
@@ -121,5 +113,3 @@ class _SocialButton extends StatelessWidget {
     );
   }
 }
-
-

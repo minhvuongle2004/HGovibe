@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'dart:math' as math;
-import '../models/ai_activity_suggestion.dart';
+import 'package:smart_travel_app/models/ai/ai_activity_suggestion.dart';
 
 /// Validation result cho AI suggestions
 class ValidationResult {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/user_provider.dart';
+import 'package:smart_travel_app/providers/auth/user_provider.dart';
 
 /// Wrapper để đảm bảo người dùng đã đăng nhập trước khi xem nội dung.
 /// Nếu chưa đăng nhập, tự động điều hướng về route `/` (AuthGate + SignIn).
@@ -15,9 +15,7 @@ class AuthGuard extends StatelessWidget {
     final userProvider = context.watch<UserProvider>();
 
     if (userProvider.isLoading) {
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
     if (!userProvider.isLoggedIn) {
@@ -25,13 +23,9 @@ class AuthGuard extends StatelessWidget {
         if (!Navigator.of(context).mounted) return;
         Navigator.of(context).pushNamedAndRemoveUntil('/', (route) => false);
       });
-      return const Scaffold(
-        body: Center(child: CircularProgressIndicator()),
-      );
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
     return child;
   }
 }
-
-

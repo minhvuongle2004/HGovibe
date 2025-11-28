@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:math' as math;
-import '../models/destination.dart';
-import '../models/ai_activity_suggestion.dart';
+import 'package:smart_travel_app/models/ai/ai_activity_suggestion.dart';
+import 'package:smart_travel_app/models/destinations/destination.dart';
 import 'ai_destination_builder.dart';
 import 'ai_destination_validator.dart';
 

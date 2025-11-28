@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:smart_travel_app/models/destination.dart';
-import 'package:smart_travel_app/screens/destination_detail_screen.dart';
+import 'package:smart_travel_app/models/destinations/destination.dart';
+import 'package:smart_travel_app/screens/destinations/destination_detail_screen.dart';
 
 void main() {
   Destination _buildDestination() {
@@ -66,12 +66,4 @@ void main() {
     expect(find.text('Fake Map Screen'), findsOneWidget);
   });
 }
-
-
-
-
-
-
-
-
 

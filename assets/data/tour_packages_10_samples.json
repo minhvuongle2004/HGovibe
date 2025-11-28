@@ -1,0 +1,428 @@
+[
+  {
+    "id": "tour-dn-hoi-an-001",
+    "title": "Tour Đà Nẵng - Hội An 3N2Đ",
+    "description": "Khám phá vẻ đẹp của Đà Nẵng và phố cổ Hội An trong 3 ngày 2 đêm. Tour bao gồm tham quan các điểm du lịch nổi tiếng, trải nghiệm văn hóa địa phương và thưởng thức ẩm thực đặc sắc.",
+    "shortDescription": "Tour Đà Nẵng - Hội An 3N2Đ với lịch trình đầy đủ, giá cả hợp lý",
+    "images": [
+      "https://images.unsplash.com/photo-1559827260-dc66d52bef19",
+      "https://images.unsplash.com/photo-1528127269322-539801943592",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1559827260-dc66d52bef19",
+    "destination": "Đà Nẵng - Hội An",
+    "destinations": ["Đà Nẵng", "Hội An"],
+    "durationDays": 3,
+    "durationNights": 2,
+    "availableDates": [
+      "2024-02-15T00:00:00Z",
+      "2024-02-20T00:00:00Z",
+      "2024-02-25T00:00:00Z",
+      "2024-03-01T00:00:00Z",
+      "2024-03-05T00:00:00Z"
+    ],
+    "basePrice": 5000000,
+    "childPrice": 3500000,
+    "infantPrice": 0,
+    "priceType": "per_person",
+    "priceTiers": [
+      {
+        "minPeople": 1,
+        "maxPeople": 2,
+        "pricePerPerson": 5000000
+      },
+      {
+        "minPeople": 3,
+        "maxPeople": 4,
+        "pricePerPerson": 4500000
+      },
+      {
+        "minPeople": 5,
+        "maxPeople": null,
+        "pricePerPerson": 4000000
+      }
+    ],
+    "itinerary": [
+      {
+        "dayNumber": 1,
+        "title": "Ngày 1: Khám phá Đà Nẵng",
+        "description": "Đón khách tại sân bay/ga tàu. Tham quan Bà Nà Hills, cầu Vàng, chùa Linh Ứng. Nghỉ đêm tại Đà Nẵng.",
+        "activities": [
+          {
+            "time": "08:00",
+            "name": "Đón khách tại sân bay/ga tàu",
+            "description": "Hướng dẫn viên đón khách và đưa về khách sạn"
+          },
+          {
+            "time": "09:00",
+            "name": "Tham quan Bà Nà Hills",
+            "description": "Cáp treo, cầu Vàng, vườn hoa Le Jardin"
+          },
+          {
+            "time": "14:00",
+            "name": "Tham quan chùa Linh Ứng",
+            "description": "Chùa Linh Ứng Bãi Bắc với tượng Phật Quan Âm cao 67m"
+          },
+          {
+            "time": "18:00",
+            "name": "Ăn tối và nghỉ đêm",
+            "description": "Nghỉ đêm tại khách sạn 3-4 sao ở Đà Nẵng"
+          }
+        ],
+        "meals": ["Bữa trưa", "Bữa tối"],
+        "accommodation": "Khách sạn 3-4 sao tại Đà Nẵng"
+      },
+      {
+        "dayNumber": 2,
+        "title": "Ngày 2: Đà Nẵng - Hội An",
+        "description": "Tham quan Bảo tàng Điêu khắc Chăm, bãi biển Mỹ Khê. Di chuyển đến Hội An, tham quan phố cổ Hội An về đêm.",
+        "activities": [
+          {
+            "time": "08:00",
+            "name": "Ăn sáng tại khách sạn",
+            "description": ""
+          },
+          {
+            "time": "09:00",
+            "name": "Tham quan Bảo tàng Điêu khắc Chăm",
+            "description": "Bảo tàng trưng bày các tác phẩm điêu khắc Chăm cổ"
+          },
+          {
+            "time": "11:00",
+            "name": "Tham quan bãi biển Mỹ Khê",
+            "description": "Một trong những bãi biển đẹp nhất thế giới"
+          },
+          {
+            "time": "14:00",
+            "name": "Di chuyển đến Hội An",
+            "description": "Khoảng 30km từ Đà Nẵng"
+          },
+          {
+            "time": "16:00",
+            "name": "Tham quan phố cổ Hội An",
+            "description": "Chùa Cầu, nhà cổ, hội quán"
+          },
+          {
+            "time": "19:00",
+            "name": "Thả đèn hoa đăng trên sông",
+            "description": "Trải nghiệm văn hóa địa phương"
+          }
+        ],
+        "meals": ["Bữa sáng", "Bữa trưa", "Bữa tối"],
+        "accommodation": "Khách sạn tại Hội An"
+      },
+      {
+        "dayNumber": 3,
+        "title": "Ngày 3: Hội An - Tiễn khách",
+        "description": "Tham quan làng gốm Thanh Hà, làng rau Trà Quế. Mua sắm tại chợ Hội An. Tiễn khách về sân bay/ga tàu.",
+        "activities": [
+          {
+            "time": "08:00",
+            "name": "Ăn sáng tại khách sạn",
+            "description": ""
+          },
+          {
+            "time": "09:00",
+            "name": "Tham quan làng gốm Thanh Hà",
+            "description": "Trải nghiệm làm gốm truyền thống"
+          },
+          {
+            "time": "11:00",
+            "name": "Tham quan làng rau Trà Quế",
+            "description": "Làng rau hữu cơ nổi tiếng"
+          },
+          {
+            "time": "14:00",
+            "name": "Mua sắm tại chợ Hội An",
+            "description": "Mua quà lưu niệm, đặc sản"
+          },
+          {
+            "time": "16:00",
+            "name": "Tiễn khách về sân bay/ga tàu",
+            "description": "Kết thúc tour"
+          }
+        ],
+        "meals": ["Bữa sáng", "Bữa trưa"],
+        "accommodation": null
+      }
+    ],
+    "inclusions": {
+      "transportation": [
+        "Xe đưa đón sân bay/ga tàu",
+        "Xe du lịch đời mới, máy lạnh"
+      ],
+      "accommodation": [
+        "2 đêm khách sạn 3-4 sao",
+        "Phòng đôi/twin, đầy đủ tiện nghi"
+      ],
+      "meals": [
+        "2 bữa sáng",
+        "3 bữa trưa",
+        "2 bữa tối"
+      ],
+      "activities": [
+        "Vé tham quan tất cả điểm du lịch",
+        "Hướng dẫn viên tiếng Việt",
+        "Bảo hiểm du lịch"
+      ],
+      "other": [
+        "Nước uống trên xe",
+        "Khăn lạnh"
+      ]
+    },
+    "exclusions": {
+      "meals": [
+        "Các bữa ăn không nêu trong chương trình"
+      ],
+      "activities": [
+        "Chi phí cá nhân",
+        "Đồ uống có cồn",
+        "Tips cho hướng dẫn viên và tài xế"
+      ],
+      "other": [
+        "Vé máy bay/tàu",
+        "Phí visa (nếu có)",
+        "Các chi phí phát sinh ngoài chương trình"
+      ]
+    },
+    "cancellationPolicy": {
+      "type": "flexible",
+      "rules": [
+        {
+          "daysBeforeDeparture": 15,
+          "refundPercentage": 100,
+          "description": "Hủy trước 15 ngày: Hoàn 100% tiền"
+        },
+        {
+          "daysBeforeDeparture": 7,
+          "refundPercentage": 50,
+          "description": "Hủy trước 7-14 ngày: Hoàn 50% tiền"
+        },
+        {
+          "daysBeforeDeparture": 0,
+          "refundPercentage": 0,
+          "description": "Hủy trong vòng 7 ngày: Không hoàn tiền"
+        }
+      ],
+      "notes": "Thời gian tính từ ngày khởi hành. Phí hủy sẽ được xử lý trong vòng 7-14 ngày làm việc."
+    },
+    "termsAndConditions": "Tour áp dụng cho công dân Việt Nam. Trẻ em dưới 2 tuổi miễn phí (ngủ chung giường với bố mẹ). Trẻ em từ 2-11 tuổi tính 70% giá người lớn. Trẻ em từ 12 tuổi trở lên tính như người lớn.",
+    "type": "group",
+    "maxGroupSize": 30,
+    "minGroupSize": 2,
+    "language": "Tiếng Việt",
+    "pickupLocation": "Sân bay/ga tàu Đà Nẵng hoặc khách sạn tại Đà Nẵng",
+    "dropoffLocation": "Sân bay/ga tàu Đà Nẵng hoặc khách sạn tại Đà Nẵng",
+    "rating": 4.8,
+    "reviewCount": 125,
+    "bookingCount": 342,
+    "viewCount": 1250,
+    "status": "active",
+    "featured": true,
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-15T00:00:00Z",
+    "providerId": "provider-app",
+    "providerName": "Smart Travel App",
+    "providerType": "app"
+  },
+  {
+    "id": "tour-ha-long-002",
+    "title": "Tour Hạ Long 2N1Đ - Du thuyền 5 sao",
+    "description": "Trải nghiệm vịnh Hạ Long trên du thuyền 5 sao với dịch vụ cao cấp. Tham quan hang Sửng Sốt, đảo Titop, kayaking, thưởng thức hải sản tươi sống.",
+    "shortDescription": "Tour Hạ Long 2N1Đ trên du thuyền 5 sao, dịch vụ cao cấp",
+    "images": [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+    ],
+    "thumbnail": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64",
+    "destination": "Hạ Long",
+    "destinations": ["Hạ Long"],
+    "durationDays": 2,
+    "durationNights": 1,
+    "availableDates": [
+      "2024-02-10T00:00:00Z",
+      "2024-02-17T00:00:00Z",
+      "2024-02-24T00:00:00Z",
+      "2024-03-03T00:00:00Z"
+    ],
+    "basePrice": 8000000,
+    "childPrice": 5600000,
+    "infantPrice": 0,
+    "priceType": "per_person",
+    "priceTiers": [
+      {
+        "minPeople": 1,
+        "maxPeople": null,
+        "pricePerPerson": 8000000
+      }
+    ],
+    "itinerary": [
+      {
+        "dayNumber": 1,
+        "title": "Ngày 1: Hà Nội - Hạ Long",
+        "description": "Khởi hành từ Hà Nội, lên du thuyền, tham quan hang Sửng Sốt, đảo Titop, kayaking.",
+        "activities": [
+          {
+            "time": "08:00",
+            "name": "Đón khách tại Hà Nội",
+            "description": "Đón tại khách sạn hoặc điểm hẹn"
+          },
+          {
+            "time": "12:00",
+            "name": "Lên du thuyền, check-in",
+            "description": "Du thuyền 5 sao với đầy đủ tiện nghi"
+          },
+          {
+            "time": "13:00",
+            "name": "Ăn trưa trên du thuyền",
+            "description": "Buffet hải sản"
+          },
+          {
+            "time": "14:30",
+            "name": "Tham quan hang Sửng Sốt",
+            "description": "Hang động lớn và đẹp nhất vịnh Hạ Long"
+          },
+          {
+            "time": "16:00",
+            "name": "Tham quan đảo Titop",
+            "description": "Leo núi, tắm biển"
+          },
+          {
+            "time": "17:00",
+            "name": "Kayaking hoặc thuyền nan",
+            "description": "Khám phá vịnh bằng kayak"
+          },
+          {
+            "time": "19:00",
+            "name": "Ăn tối và nghỉ đêm trên du thuyền",
+            "description": "Buffet tối, bar, karaoke"
+          }
+        ],
+        "meals": ["Bữa trưa", "Bữa tối"],
+        "accommodation": "Du thuyền 5 sao"
+      },
+      {
+        "dayNumber": 2,
+        "title": "Ngày 2: Hạ Long - Hà Nội",
+        "description": "Tham quan hang Luồn, trở về Hà Nội.",
+        "activities": [
+          {
+            "time": "07:00",
+            "name": "Tập thể dục buổi sáng trên boong",
+            "description": "Yoga, thái cực quyền"
+          },
+          {
+            "time": "08:00",
+            "name": "Ăn sáng buffet",
+            "description": ""
+          },
+          {
+            "time": "09:00",
+            "name": "Tham quan hang Luồn",
+            "description": "Hang động bằng thuyền nan"
+          },
+          {
+            "time": "10:30",
+            "name": "Nấu lớp học nấu ăn",
+            "description": "Học làm nem cuốn"
+          },
+          {
+            "time": "12:00",
+            "name": "Ăn trưa và trả phòng",
+            "description": ""
+          },
+          {
+            "time": "13:00",
+            "name": "Trở về Hà Nội",
+            "description": "Kết thúc tour"
+          }
+        ],
+        "meals": ["Bữa sáng", "Bữa trưa"],
+        "accommodation": null
+      }
+    ],
+    "inclusions": {
+      "transportation": [
+        "Xe đưa đón Hà Nội - Hạ Long",
+        "Du thuyền 5 sao"
+      ],
+      "accommodation": [
+        "1 đêm trên du thuyền 5 sao",
+        "Phòng đôi/twin, view biển"
+      ],
+      "meals": [
+        "1 bữa sáng",
+        "2 bữa trưa",
+        "1 bữa tối"
+      ],
+      "activities": [
+        "Vé tham quan tất cả điểm du lịch",
+        "Kayaking",
+        "Hướng dẫn viên tiếng Việt/Anh",
+        "Bảo hiểm du lịch"
+      ],
+      "other": [
+        "Nước uống, trà, cà phê",
+        "Lớp học nấu ăn"
+      ]
+    },
+    "exclusions": {
+      "meals": [
+        "Đồ uống có cồn (có bán trên du thuyền)"
+      ],
+      "activities": [
+        "Chi phí cá nhân",
+        "Tips",
+        "Massage, spa (có dịch vụ trên du thuyền)"
+      ],
+      "other": [
+        "Vé máy bay/tàu đến Hà Nội",
+        "Phí visa (nếu có)"
+      ]
+    },
+    "cancellationPolicy": {
+      "type": "moderate",
+      "rules": [
+        {
+          "daysBeforeDeparture": 30,
+          "refundPercentage": 100,
+          "description": "Hủy trước 30 ngày: Hoàn 100% tiền"
+        },
+        {
+          "daysBeforeDeparture": 14,
+          "refundPercentage": 70,
+          "description": "Hủy trước 14-29 ngày: Hoàn 70% tiền"
+        },
+        {
+          "daysBeforeDeparture": 7,
+          "refundPercentage": 50,
+          "description": "Hủy trước 7-13 ngày: Hoàn 50% tiền"
+        },
+        {
+          "daysBeforeDeparture": 0,
+          "refundPercentage": 0,
+          "description": "Hủy trong vòng 7 ngày: Không hoàn tiền"
+        }
+      ],
+      "notes": "Thời gian tính từ ngày khởi hành. Phí hủy sẽ được xử lý trong vòng 14-21 ngày làm việc."
+    },
+    "termsAndConditions": "Tour áp dụng cho công dân Việt Nam và quốc tế. Trẻ em dưới 2 tuổi miễn phí. Trẻ em từ 2-11 tuổi tính 70% giá người lớn. Trẻ em từ 12 tuổi trở lên tính như người lớn. Du thuyền có thể thay đổi tùy theo tình trạng đặt chỗ.",
+    "type": "group",
+    "maxGroupSize": 40,
+    "minGroupSize": 2,
+    "language": "Tiếng Việt, Tiếng Anh",
+    "pickupLocation": "Khách sạn tại Hà Nội hoặc điểm hẹn",
+    "dropoffLocation": "Khách sạn tại Hà Nội hoặc điểm hẹn",
+    "rating": 4.9,
+    "reviewCount": 89,
+    "bookingCount": 156,
+    "viewCount": 890,
+    "status": "active",
+    "featured": true,
+    "createdAt": "2024-01-05T00:00:00Z",
+    "updatedAt": "2024-01-20T00:00:00Z",
+    "providerId": "provider-partner-001",
+    "providerName": "Hạ Long Cruise Tours",
+    "providerType": "partner"
+  }
+]

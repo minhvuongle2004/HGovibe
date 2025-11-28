@@ -1,5 +1,5 @@
-import '../models/destination.dart';
-import '../models/ai_activity_suggestion.dart';
+import 'package:smart_travel_app/models/ai/ai_activity_suggestion.dart';
+import 'package:smart_travel_app/models/destinations/destination.dart';
 
 /// Builder để tạo Destination từ AI suggestion với template đầy đủ
 class AIDestinationBuilder {

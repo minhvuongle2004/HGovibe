@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/user_provider.dart';
-import '../home_screen.dart';
+import 'package:smart_travel_app/providers/auth/user_provider.dart';
+import 'package:smart_travel_app/screens/home/home_screen.dart';
 import 'sign_in_screen.dart';
 
 /// AuthGate chịu trách nhiệm:
@@ -22,14 +22,11 @@ class AuthGate extends StatelessWidget {
       child: userProvider.isLoading
           ? const Scaffold(
               key: ValueKey('loading'),
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
+              body: Center(child: CircularProgressIndicator()),
             )
           : userProvider.isLoggedIn
-              ? const HomeScreen(key: ValueKey('home'))
-              : const SignInScreen(key: ValueKey('signin')),
+          ? const HomeScreen(key: ValueKey('home'))
+          : const SignInScreen(key: ValueKey('signin')),
     );
   }
 }
-

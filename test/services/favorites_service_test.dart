@@ -1,7 +1,7 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:smart_travel_app/services/favorites_service.dart';
+import 'package:smart_travel_app/services/destinations/favorites_service.dart';
 
 void main() {
   late FakeFirebaseFirestore fakeFirestore;

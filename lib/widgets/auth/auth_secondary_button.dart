@@ -30,5 +30,3 @@ class AuthSecondaryButton extends StatelessWidget {
     );
   }
 }
-
-

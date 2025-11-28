@@ -123,25 +123,23 @@ class _AuthFormFieldState extends State<AuthFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
-      initialValue:
-          widget.controller == null ? widget.initialValue : null,
-      onSaved:
-          widget.onSaved != null ? (value) => widget.onSaved!(value ?? '') : null,
+      initialValue: widget.controller == null ? widget.initialValue : null,
+      onSaved: widget.onSaved != null
+          ? (value) => widget.onSaved!(value ?? '')
+          : null,
       validator: widget.validator,
       onChanged: widget.onChanged,
-      obscureText: widget.enableVisibilityToggle ? _obscure : widget.obscureText,
+      obscureText: widget.enableVisibilityToggle
+          ? _obscure
+          : widget.obscureText,
       keyboardType: widget.keyboardType,
       autofocus: widget.autofocus,
       decoration: InputDecoration(
         labelText: widget.label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         suffixIcon: widget.enableVisibilityToggle
             ? IconButton(
-                icon: Icon(
-                  _obscure ? Icons.visibility_off : Icons.visibility,
-                ),
+                icon: Icon(_obscure ? Icons.visibility_off : Icons.visibility),
                 onPressed: () {
                   setState(() {
                     _obscure = !_obscure;
@@ -153,5 +151,3 @@ class _AuthFormFieldState extends State<AuthFormField> {
     );
   }
 }
-
-

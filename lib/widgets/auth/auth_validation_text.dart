@@ -10,11 +10,6 @@ class AuthValidationText extends StatelessWidget {
     if (message == null || message!.isEmpty) {
       return const SizedBox.shrink();
     }
-    return Text(
-      message!,
-      style: const TextStyle(color: Colors.redAccent),
-    );
+    return Text(message!, style: const TextStyle(color: Colors.redAccent));
   }
 }
-
-

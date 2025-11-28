@@ -1,8 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_travel_app/services/trip_validation_service.dart';
-import 'package:smart_travel_app/models/destination.dart';
-import 'package:smart_travel_app/models/trip_item.dart';
-import 'package:smart_travel_app/models/location.dart';
+import 'package:smart_travel_app/services/trips/trip_validation_service.dart';
+import 'package:smart_travel_app/models/destinations/destination.dart';
+import 'package:smart_travel_app/models/trips/trip_item.dart';
 
 void main() {
   group('TripValidationService', () {
@@ -12,7 +11,7 @@ void main() {
     late Destination destination3;
 
     setUp(() {
-      service = TripValidationService.instance;
+      service = TripValidationService.testing();
       
       // Tạo test destinations
       destination1 = Destination(

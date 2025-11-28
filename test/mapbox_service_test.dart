@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
 
-import 'package:smart_travel_app/services/mapbox_service.dart';
+import 'package:smart_travel_app/services/maps/mapbox_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +28,7 @@ void main() {
       10.776889, // HCMC
       106.700897,
       21.027763, // Ha Noi
-      105.834160,
+      105.83416,
     );
 
     expect(result, isNotNull);

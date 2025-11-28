@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_travel_app/models/ai_activity_suggestion.dart';
-import 'package:smart_travel_app/services/ai_destination_validator.dart';
+import 'package:smart_travel_app/models/ai/ai_activity_suggestion.dart';
+import 'package:smart_travel_app/services/ai/ai_destination_validator.dart';
 
 void main() {
   group('AIDestinationValidator', () {

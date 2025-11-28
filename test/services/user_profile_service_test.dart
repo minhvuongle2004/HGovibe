@@ -1,7 +1,7 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:smart_travel_app/services/user_profile_service.dart';
+import 'package:smart_travel_app/services/users/user_profile_service.dart';
 
 void main() {
   test('createProfile tạo document mới trong Firestore', () async {

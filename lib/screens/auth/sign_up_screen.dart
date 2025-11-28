@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/auth_form_provider.dart';
-import '../../widgets/auth/auth_form_field.dart';
-import '../../widgets/auth/auth_primary_button.dart';
-import '../../widgets/auth/auth_secondary_button.dart';
-import '../../widgets/auth/auth_header.dart';
-import '../../widgets/auth/auth_snackbar.dart';
-import '../../widgets/auth/auth_validation_text.dart';
+import 'package:smart_travel_app/providers/auth/auth_form_provider.dart';
+import 'package:smart_travel_app/widgets/auth/auth_form_field.dart';
+import 'package:smart_travel_app/widgets/auth/auth_primary_button.dart';
+import 'package:smart_travel_app/widgets/auth/auth_secondary_button.dart';
+import 'package:smart_travel_app/widgets/auth/auth_header.dart';
+import 'package:smart_travel_app/widgets/auth/auth_snackbar.dart';
+import 'package:smart_travel_app/widgets/auth/auth_validation_text.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -112,7 +112,8 @@ class _SignUpViewState extends State<_SignUpView> {
                               });
                             },
                             title: const Text(
-                                'Tôi đồng ý với Điều khoản & Chính sách'),
+                              'Tôi đồng ý với Điều khoản & Chính sách',
+                            ),
                             controlAffinity: ListTileControlAffinity.leading,
                           ),
                           Align(
@@ -167,5 +168,3 @@ class _SignUpViewState extends State<_SignUpView> {
     );
   }
 }
-
-

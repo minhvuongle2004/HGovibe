@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/auth_form_provider.dart';
-import '../../widgets/auth/auth_form_field.dart';
-import '../../widgets/auth/auth_primary_button.dart';
-import '../../widgets/auth/auth_secondary_button.dart';
-import '../../widgets/auth/auth_header.dart';
-import '../../widgets/auth/auth_social_buttons.dart';
-import '../../widgets/auth/auth_snackbar.dart';
-import '../../widgets/auth/auth_validation_text.dart';
+import 'package:smart_travel_app/providers/auth/auth_form_provider.dart';
+import 'package:smart_travel_app/widgets/auth/auth_form_field.dart';
+import 'package:smart_travel_app/widgets/auth/auth_primary_button.dart';
+import 'package:smart_travel_app/widgets/auth/auth_secondary_button.dart';
+import 'package:smart_travel_app/widgets/auth/auth_header.dart';
+import 'package:smart_travel_app/widgets/auth/auth_social_buttons.dart';
+import 'package:smart_travel_app/widgets/auth/auth_snackbar.dart';
+import 'package:smart_travel_app/widgets/auth/auth_validation_text.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -55,7 +55,8 @@ class _SignInViewState extends State<_SignInView> {
                   children: [
                     AuthHeader(
                       title: 'Chào mừng trở lại 👋',
-                      subtitle: 'Đăng nhập để tiếp tục khám phá những chuyến đi thông minh',
+                      subtitle:
+                          'Đăng nhập để tiếp tục khám phá những chuyến đi thông minh',
                     ),
                     const SizedBox(height: 24),
                     Form(
@@ -102,7 +103,9 @@ class _SignInViewState extends State<_SignInView> {
                             ],
                           ),
                           const SizedBox(height: 8),
-                          AuthValidationText(message: formProvider.errorMessage),
+                          AuthValidationText(
+                            message: formProvider.errorMessage,
+                          ),
                           const SizedBox(height: 16),
                           AuthPrimaryButton(
                             label: 'Đăng nhập',
@@ -130,7 +133,8 @@ class _SignInViewState extends State<_SignInView> {
                             actionLabel: 'Đăng ký ngay',
                             onPressed: formProvider.isLoading
                                 ? null
-                                : () => Navigator.pushNamed(context, '/sign-up'),
+                                : () =>
+                                      Navigator.pushNamed(context, '/sign-up'),
                           ),
                         ],
                       ),
@@ -189,5 +193,3 @@ class _SignInViewState extends State<_SignInView> {
     );
   }
 }
-
-

@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import 'package:smart_travel_app/models/app_user.dart';
-import 'package:smart_travel_app/services/auth_service.dart';
-import 'package:smart_travel_app/services/user_profile_service.dart';
+import 'package:smart_travel_app/models/users/app_user.dart';
+import 'package:smart_travel_app/services/auth/auth_service.dart';
+import 'package:smart_travel_app/services/users/user_profile_service.dart';
 
 class MockFirebaseAuth extends Mock implements FirebaseAuth {}
 

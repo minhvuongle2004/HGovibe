@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:smart_travel_app/services/mapbox_service.dart';
+import 'package:smart_travel_app/services/maps/mapbox_service.dart';
 
 void main() {
   group('MapBoxService', () {
@@ -47,7 +47,7 @@ void main() {
 
     test('DistanceResult should format distance correctly', () {
       final result = DistanceResult(
-        distance: 1500, // 1.5 km
+        distance: 1.5, // 1.5 km
         duration: 3600, // 1 hour
         mode: 'driving',
       );
