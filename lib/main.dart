@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -7,6 +8,8 @@ import 'package:smart_travel_app/firebase_options.dart';
 import 'package:smart_travel_app/providers/auth/user_provider.dart';
 import 'package:smart_travel_app/providers/favorites/favorites_provider.dart';
 import 'package:smart_travel_app/providers/trips/trip_provider.dart';
+import 'package:smart_travel_app/providers/tours/tour_package_provider.dart';
+import 'package:smart_travel_app/providers/tours/tour_booking_provider.dart';
 import 'package:smart_travel_app/screens/account/account_screen.dart';
 import 'package:smart_travel_app/screens/auth/auth_gate.dart';
 import 'package:smart_travel_app/screens/auth/sign_up_screen.dart';
@@ -19,6 +22,7 @@ import 'package:smart_travel_app/widgets/auth/auth_guard.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  FirebaseFirestore.instance.settings = const Settings(persistenceEnabled: false);
   // Khởi tạo locale data cho intl (tiếng Việt)
   await initializeDateFormatting('vi', null);
   runApp(
@@ -27,6 +31,8 @@ void main() async {
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => FavoritesProvider()),
         ChangeNotifierProvider(create: (_) => TripProvider()),
+        ChangeNotifierProvider(create: (_) => TourPackageProvider()),
+        ChangeNotifierProvider(create: (_) => TourBookingProvider()),
       ],
       child: const MyApp(),
     ),

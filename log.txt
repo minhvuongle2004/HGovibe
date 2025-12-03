@@ -1,30 +1,174 @@
-I/flutter ( 5426): 🔄 Creating destination from AI suggestion: Bánh Tôm Hồ Tây
-D/EGL_emulation( 5426): app_time_stats: avg=90.82ms min=6.12ms max=801.68ms count=11
-I/flutter ( 5426): 🔍 Found 2 destinations within 0.5km
-I/flutter ( 5426): ! Validation warnings for "Bánh Tôm Hồ Tây":
-I/flutter ( 5426):   - Latitude precision thấp (nên có ít nhất 4 chữ số thập phân)
-I/flutter ( 5426):   - Longitude precision thấp (nên có ít nhất 4 chữ số thập phân)
-I/flutter ( 5426): 🔍 Found 0 destinations within 0.1km
-I/flutter ( 5426): ✅ Created destination from AI suggestion: Bánh Tôm Hồ Tây
-I/flutter ( 5426): ✅ AI destination saved to Firestore: 6CLJxn0Ks977vnaPFD5Z
-I/flutter ( 5426): ✅ Created new destination from AI: Bánh Tôm Hồ Tây (ID: 6CLJxn0Ks977vnaPFD5Z)
-I/flutter ( 5426): ✅ Parsed costEstimate from Firestore for trip jKYxEeJIDjMdVmb9JC9N (total: 10923000.0 VND)
-I/flutter ( 5426): ! Error parsing trip jKYxEeJIDjMdVmb9JC9N: type 'Null' is not a subtype of type 'Timestamp' in type cast
-I/flutter ( 5426): ✅ Parsed costEstimate from Firestore for trip f1SfLuEbRXVppL3FVFWX (total: 5307000.0 VND)
-I/flutter ( 5426): ✅ Parsed costEstimate from Firestore for trip o615KvEAEbTtnPQSZIk5 (total: 8151000.0 VND)
-I/flutter ( 5426): ✅ Trips updated: 2 items
-I/flutter ( 5426): ✅ Trip item added: S8948uYEHMAkwkduIpYM
-I/flutter ( 5426): 🔄 Loading trip: jKYxEeJIDjMdVmb9JC9N
-I/flutter ( 5426): ✅ Parsed costEstimate from Firestore for trip jKYxEeJIDjMdVmb9JC9N (total: 10923000.0 VND)
-I/flutter ( 5426): ✅ Parsed costEstimate from Firestore for trip f1SfLuEbRXVppL3FVFWX (total: 5307000.0 VND)
-I/flutter ( 5426): ✅ Parsed costEstimate from Firestore for trip o615KvEAEbTtnPQSZIk5 (total: 8151000.0 VND)
-I/flutter ( 5426): ✅ Trips updated: 3 items
-D/EGL_emulation( 5426): app_time_stats: avg=14.21ms min=2.60ms max=99.42ms count=46
-I/flutter ( 5426): ✅ Parsed costEstimate from Firestore for trip jKYxEeJIDjMdVmb9JC9N (total: 10923000.0 VND)
-I/flutter ( 5426): 🗑️ Đã invalidate AI suggestions cache cho trip jKYxEeJIDjMdVmb9JC9N (items thay đổi)
-I/flutter ( 5426): ✅ Loaded costEstimate from Firestore for trip jKYxEeJIDjMdVmb9JC9N (total: 10923000.0 VND)
-I/flutter ( 5426): ✅ Loaded 6 AI suggestions từ Firestore cho trip jKYxEeJIDjMdVmb9JC9N
-I/flutter ( 5426): ✅ Loaded 6 AI suggestions từ Firestore
-I/flutter ( 5426): 🗑️ Đã invalidate AI suggestions cache cho trip jKYxEeJIDjMdVmb9JC9N (items thay đổi)
-I/flutter ( 5426): ✅ Cập nhật suggestion reco-hanoi-dinner-1 isAdded=true
-I/flutter ( 5426): ✅ Successfully added AI suggestion "Bánh Tôm Hồ Tây" to trip
+js_primitives.dart:28 ══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+js_primitives.dart:28 The following assertion was thrown during performLayout():
+js_primitives.dart:28 BoxConstraints forces an infinite width.
+js_primitives.dart:28 The offending constraints were:
+js_primitives.dart:28   BoxConstraints(w=Infinity, 0.0<=h<=Infinity)
+js_primitives.dart:28 
+js_primitives.dart:28 The relevant error-causing widget was:
+js_primitives.dart:28   SwitchListTile
+js_primitives.dart:28   SwitchListTile:file:///D:/voghidaihoc/KhoaLuanTotNghiep/smart_travel_app/admin_web/lib/screens/tours/tour_form_screen.dart:770:15
+js_primitives.dart:28 
+js_primitives.dart:28 When the exception was thrown, this was the stack:
+js_primitives.dart:28 dart-sdk/lib/_internal/js_dev_runtime/private/ddc_runtime/errors.dart 274:3       throw_
+js_primitives.dart:28 package:flutter/src/rendering/box.dart 549:9                                      throwError
+js_primitives.dart:28 package:flutter/src/rendering/box.dart 611:11                                     <fn>
+js_primitives.dart:28 package:flutter/src/rendering/box.dart 618:14                                     debugAssertIsValid
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2675:18                                 layout
+js_primitives.dart:28 package:flutter/src/rendering/layout_helper.dart 62:10                            layoutChild
+js_primitives.dart:28 dart-sdk/lib/_internal/js_dev_runtime/private/ddc_runtime/operations.dart 118:77  tear
+js_primitives.dart:28 package:flutter/src/material/list_tile.dart 1549:64                               [_computeSizes]
+js_primitives.dart:28 package:flutter/src/material/list_tile.dart 1659:7                                performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/shifted_box.dart 243:5                              performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/shifted_box.dart 243:5                              performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/layout_helper.dart 62:10                            layoutChild
+js_primitives.dart:28 dart-sdk/lib/_internal/js_dev_runtime/private/ddc_runtime/operations.dart 118:77  tear
+js_primitives.dart:28 package:flutter/src/rendering/flex.dart 1161:28                                   [_computeSizes]
+js_primitives.dart:28 package:flutter/src/rendering/flex.dart 1257:32                                   performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/layout_helper.dart 62:10                            layoutChild
+js_primitives.dart:28 dart-sdk/lib/_internal/js_dev_runtime/private/ddc_runtime/operations.dart 118:77  tear
+js_primitives.dart:28 package:flutter/src/rendering/flex.dart 1161:28                                   [_computeSizes]
+js_primitives.dart:28 package:flutter/src/rendering/flex.dart 1257:32                                   performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/shifted_box.dart 243:5                              performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/widgets/single_child_scroll_view.dart 502:7                   performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/custom_paint.dart 574:11                            performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/sliver_fixed_extent_list.dart 354:7                 performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/sliver_padding.dart 133:5                           performLayout
+js_primitives.dart:28 package:flutter/src/widgets/sliver_fill.dart 162:11                               performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/viewport.dart 673:12                                layoutChildSequence
+js_primitives.dart:28 package:flutter/src/rendering/viewport.dart 1684:12                               [_attemptLayout]
+js_primitives.dart:28 package:flutter/src/rendering/viewport.dart 1575:20                               performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/proxy_box.dart 115:10                               <fn>
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2775:7                                  layout
+js_primitives.dart:28 package:flutter/src/rendering/custom_layout.dart 180:10                           layoutChild
+js_primitives.dart:28 package:flutter/src/material/scaffold.dart 1112:7                                 performLayout
+js_primitives.dart:28 package:flutter/src/rendering/custom_layout.dart 249:7                            [_callPerformLayout]
+js_primitives.dart:28 package:flutter/src/rendering/custom_layout.dart 420:5                            performLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 2623:7                                  [_layoutWithoutResize]
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 1170:17                                 flushLayout
+js_primitives.dart:28 package:flutter/src/rendering/object.dart 1183:14                                 flushLayout
+js_primitives.dart:28 package:flutter/src/rendering/binding.dart 629:5                                  drawFrame
+js_primitives.dart:28 package:flutter/src/widgets/binding.dart 1264:13                                  drawFrame
+js_primitives.dart:28 package:flutter/src/rendering/binding.dart 495:5                                  [_handlePersistentFrameCallback]
+js_primitives.dart:28 dart-sdk/lib/_internal/js_dev_runtime/private/ddc_runtime/operations.dart 118:77  tear
+js_primitives.dart:28 package:flutter/src/scheduler/binding.dart 1434:7                                 [_invokeFrameCallback]
+js_primitives.dart:28 package:flutter/src/scheduler/binding.dart 1347:9                                 handleDrawFrame
+js_primitives.dart:28 package:flutter/src/scheduler/binding.dart 1200:5                                 [_handleDrawFrame]
+js_primitives.dart:28 dart-sdk/lib/_internal/js_dev_runtime/private/ddc_runtime/operations.dart 118:77  tear
+js_primitives.dart:28 lib/_engine/engine/platform_dispatcher.dart 1538:5                                invoke
+js_primitives.dart:28 lib/_engine/engine/platform_dispatcher.dart 265:5                                 invokeOnDrawFrame
+js_primitives.dart:28 lib/_engine/engine/frame_service.dart 209:32                                      [_renderFrame]
+js_primitives.dart:28 lib/_engine/engine/frame_service.dart 117:9                                       <fn>
+js_primitives.dart:28 dart-sdk/lib/async/zone.dart 1849:54                                              runUnary
+js_primitives.dart:28 dart-sdk/lib/async/zone.dart 1804:26                                              <fn>
+js_primitives.dart:28 dart-sdk/lib/_internal/js_dev_runtime/patch/js_allow_interop_patch.dart 224:27    _callDartFunctionFast1
+js_primitives.dart:28 
+js_primitives.dart:28 The following RenderObject was being processed when the exception was fired: _RenderListTile#45150 relayoutBoundary=up12 NEEDS-LAYOUT NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE:
+js_primitives.dart:28   creator: _ListTile ← IconButtonTheme ← IconTheme ← Builder ← MediaQuery ← Padding ← SafeArea ←
+js_primitives.dart:28     Builder ← Padding-[GlobalKey#9a85f] ← Ink ← Semantics ← Listener ← ⋯
+js_primitives.dart:28   parentData: offset=Offset(0.0, 0.0) (can use size)
+js_primitives.dart:28   constraints: BoxConstraints(unconstrained)
+js_primitives.dart:28   size: MISSING
+js_primitives.dart:28 This RenderObject had the following descendants (showing up to depth 5):
+js_primitives.dart:28     title: RenderParagraph#bd6d6 NEEDS-LAYOUT NEEDS-PAINT
+js_primitives.dart:28       text: TextSpan
+js_primitives.dart:28     trailing: RenderSemanticsAnnotations#599b4 relayoutBoundary=up13 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+js_primitives.dart:28       child: RenderPointerListener#490a6 relayoutBoundary=up14 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+js_primitives.dart:28         child: RenderOpacity#c45e6 relayoutBoundary=up15 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+js_primitives.dart:28           child: RenderMouseRegion#9601d relayoutBoundary=up16 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+js_primitives.dart:28             child: RenderSemanticsAnnotations#99a58 relayoutBoundary=up17 NEEDS-PAINT NEEDS-COMPOSITING-BITS-UPDATE
+js_primitives.dart:28 ════════════════════════════════════════════════════════════════════════════════════════════════════
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12
+js_primitives.dart:28 Another exception was thrown: Assertion failed: file:///D:/flutter/flutter/packages/flutter/lib/src/rendering/box.dart:2251:12

@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:smart_travel_app/providers/auth/user_provider.dart';
 import 'package:smart_travel_app/services/auth/auth_service.dart';
 import 'package:smart_travel_app/widgets/common/main_bottom_nav.dart';
+import 'package:smart_travel_app/utils/import_tour_packages_script.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -39,6 +40,8 @@ class AccountScreen extends StatelessWidget {
             if (!(user.emailVerified))
               _buildVerifyEmailCard(context, userProvider),
             _buildAccountActions(context, userProvider),
+            const SizedBox(height: 16),
+            _buildAdminSection(context),
             const SizedBox(height: 32),
             _buildDangerZone(context),
           ],
@@ -255,6 +258,29 @@ class AccountScreen extends StatelessWidget {
                     )
                   : null,
             ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAdminSection(BuildContext context) {
+    return Card(
+      child: Column(
+        children: [
+          ListTile(
+            leading: const Icon(Icons.upload_file, color: Colors.orange),
+            title: const Text('Import Tour Packages'),
+            subtitle: const Text('Import tour packages từ JSON vào Firestore'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ImportTourPackagesScreen(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );

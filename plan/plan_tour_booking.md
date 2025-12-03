@@ -1,4 +1,4 @@
-# 📋 KẾ HOẠCH TRIỂN KHAI: ĐẶT TOUR CÓ SẴN
+image.png# 📋 KẾ HOẠCH TRIỂN KHAI: ĐẶT TOUR CÓ SẴN
 
 ## 🎯 TỔNG QUAN
 
@@ -559,11 +559,16 @@ lib/
   - [ ] Xác nhận/hủy bookings
 - [ ] Admin duyệt tour từ đối tác (nếu cần)
 
-### **Phase 8: Admin Panel** (Tuần 13-14)
-- [ ] Admin screen để tạo/sửa tour packages
-- [ ] Admin screen quản lý bookings
-- [ ] Admin quản lý đối tác
-- [ ] Dashboard thống kê
+### **Phase 8: Admin Web Interface** (Tuần 13-20)
+- [ ] **Xem chi tiết:** `plan/plan_admin_web_interface.md`
+- [ ] Flutter Web project setup
+- [ ] Admin authentication & authorization
+- [ ] Dashboard với thống kê
+- [ ] Users Management (CRUD, Ban/Unban)
+- [ ] Destinations Management (CRUD)
+- [ ] Tours Management (CRUD, Activate/Deactivate)
+- [ ] Bookings Management (Xác nhận, Hủy, Export)
+- [ ] Deploy lên Firebase Hosting
 
 ---
 
