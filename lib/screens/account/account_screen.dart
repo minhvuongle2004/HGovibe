@@ -6,6 +6,7 @@ import 'package:smart_travel_app/providers/auth/user_provider.dart';
 import 'package:smart_travel_app/services/auth/auth_service.dart';
 import 'package:smart_travel_app/widgets/common/main_bottom_nav.dart';
 import 'package:smart_travel_app/utils/import_tour_packages_script.dart';
+import 'package:smart_travel_app/screens/bookings/my_bookings_screen.dart';
 
 class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
@@ -203,6 +204,21 @@ class AccountScreen extends StatelessWidget {
               showModalBottomSheet(
                 context: context,
                 builder: (_) => _buildProvidersSheet(providersInfo),
+              );
+            },
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.book_online, color: Colors.orange),
+            title: const Text('Đặt tour của tôi'),
+            subtitle: const Text('Xem và quản lý các tour đã đặt'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MyBookingsScreen(),
+                ),
               );
             },
           ),

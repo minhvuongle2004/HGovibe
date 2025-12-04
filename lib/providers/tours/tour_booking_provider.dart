@@ -111,8 +111,10 @@ class TourBookingProvider with ChangeNotifier {
     String bookingId,
     PaymentStatus paymentStatus, {
     PaymentMethod? paymentMethod,
-    DateTime? paidAt,
+    DateTime? paymentAt,
     String? paymentTransactionId,
+    String? paymentRequestId,
+    Map<String, dynamic>? paymentGatewayRawData,
   }) async {
     _isLoading = true;
     _error = null;
@@ -123,8 +125,10 @@ class TourBookingProvider with ChangeNotifier {
         bookingId,
         paymentStatus,
         paymentMethod: paymentMethod,
-        paidAt: paidAt,
+        paymentAt: paymentAt,
         paymentTransactionId: paymentTransactionId,
+        paymentRequestId: paymentRequestId,
+        paymentGatewayRawData: paymentGatewayRawData,
       );
       
       // Reload bookings

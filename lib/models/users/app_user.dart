@@ -124,6 +124,7 @@ class AppUser {
 /// Profile mở rộng lưu ở Firestore collection `users`
 class UserProfile {
   final String uid;
+  final String? email; // Email của user
   final String? fullName;
   final String? avatarUrl;
   final String? bio;
@@ -136,9 +137,11 @@ class UserProfile {
   final Map<String, dynamic> preferences;
   final DateTime? createdAt;
   final DateTime? updatedAt;
+  final bool? banned; // Trạng thái ban
 
   const UserProfile({
     required this.uid,
+    this.email,
     this.fullName,
     this.avatarUrl,
     this.bio,
@@ -151,11 +154,13 @@ class UserProfile {
     this.preferences = const {},
     this.createdAt,
     this.updatedAt,
+    this.banned,
   });
 
   factory UserProfile.empty(String uid, {String? fullName, String? email}) {
     return UserProfile(
       uid: uid,
+      email: email,
       fullName: fullName ?? email,
       createdAt: DateTime.now(),
       updatedAt: DateTime.now(),
@@ -165,6 +170,7 @@ class UserProfile {
   factory UserProfile.fromMap(Map<String, dynamic> map) {
     return UserProfile(
       uid: map['uid'] ?? '',
+      email: map['email'],
       fullName: map['fullName'],
       avatarUrl: map['avatarUrl'],
       bio: map['bio'],
@@ -179,12 +185,14 @@ class UserProfile {
       preferences: Map<String, dynamic>.from(map['preferences'] ?? {}),
       createdAt: AppUser._fromTimestamp(map['createdAt']),
       updatedAt: AppUser._fromTimestamp(map['updatedAt']),
+      banned: map['banned'] as bool?,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
       'uid': uid,
+      if (email != null) 'email': email,
       'fullName': fullName,
       'avatarUrl': avatarUrl,
       'bio': bio,
@@ -197,10 +205,12 @@ class UserProfile {
       'preferences': preferences,
       'createdAt': createdAt,
       'updatedAt': updatedAt ?? DateTime.now(),
+      if (banned != null) 'banned': banned,
     };
   }
 
   UserProfile copyWith({
+    String? email,
     String? fullName,
     String? avatarUrl,
     String? bio,
@@ -212,9 +222,11 @@ class UserProfile {
     List<String>? savedDestinations,
     Map<String, dynamic>? preferences,
     DateTime? updatedAt,
+    bool? banned,
   }) {
     return UserProfile(
       uid: uid,
+      email: email ?? this.email,
       fullName: fullName ?? this.fullName,
       avatarUrl: avatarUrl ?? this.avatarUrl,
       bio: bio ?? this.bio,
@@ -227,6 +239,7 @@ class UserProfile {
       preferences: preferences ?? this.preferences,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt ?? DateTime.now(),
+      banned: banned ?? this.banned,
     );
   }
 }

@@ -384,8 +384,42 @@ class AuthService {
     String? fallbackEmail,
   }) async {
     final existing = await _profileService.fetchProfile(firebaseUser.uid);
-    if (existing != null) return existing;
+    
+    // Nếu đã tồn tại, cập nhật email và fullName nếu có thay đổi
+    if (existing != null) {
+      final currentEmail = firebaseUser.email ?? fallbackEmail;
+      final currentDisplayName = fallbackFullName ?? firebaseUser.displayName;
+      
+      bool needsUpdate = false;
+      final updateData = <String, dynamic>{};
+      
+      // Cập nhật email nếu có thay đổi
+      if (currentEmail != null && existing.email != currentEmail) {
+        updateData['email'] = currentEmail;
+        needsUpdate = true;
+      }
+      
+      // Cập nhật fullName nếu Firebase Auth có displayName mới hoặc Google trả về displayName
+      // và nó khác với fullName hiện tại
+      if (currentDisplayName != null && 
+          currentDisplayName.isNotEmpty && 
+          existing.fullName != currentDisplayName) {
+        updateData['fullName'] = currentDisplayName;
+        needsUpdate = true;
+      }
+      
+      if (needsUpdate) {
+        await _profileService.updateProfileFields(firebaseUser.uid, updateData);
+        return existing.copyWith(
+          email: updateData['email'] as String? ?? existing.email,
+          fullName: updateData['fullName'] as String? ?? existing.fullName,
+        );
+      }
+      
+      return existing;
+    }
 
+    // Tạo profile mới
     return _profileService.createProfile(
       uid: firebaseUser.uid,
       fullName:

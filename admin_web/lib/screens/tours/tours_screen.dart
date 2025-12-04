@@ -377,19 +377,23 @@ class _ToursScreenState extends State<ToursScreen> {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Row(
                     children: [
-                      Expanded(
+                      Flexible(
                         child: Text(
                           tour.title,
                           style: const TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w600,
                           ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
                       ),
-                      if (tour.featured)
+                      if (tour.featured) ...[
+                        const SizedBox(width: 8),
                         Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 10,
@@ -404,15 +408,19 @@ class _ToursScreenState extends State<ToursScreen> {
                             style: TextStyle(
                               color: Colors.orange,
                               fontWeight: FontWeight.w600,
+                              fontSize: 12,
                             ),
                           ),
                         ),
+                      ],
                     ],
                   ),
                   const SizedBox(height: 4),
                   Text(
                     'Điểm đến: ${tour.destination}',
                     style: const TextStyle(color: Colors.grey),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                   ),
                   const SizedBox(height: 8),
                   Wrap(
@@ -423,17 +431,25 @@ class _ToursScreenState extends State<ToursScreen> {
                       Chip(
                         label: Text(
                           'Giá từ ${_formatPrice(tour.basePrice)}',
+                          style: const TextStyle(fontSize: 12),
                         ),
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 8),
                       ),
                       Chip(
-                        avatar: const Icon(Icons.star, size: 18, color: Colors.amber),
+                        avatar: const Icon(Icons.star, size: 16, color: Colors.amber),
                         label: Text(
                           '${tour.rating.toStringAsFixed(1)} / 5 • ${tour.reviewCount} đánh giá',
+                          style: const TextStyle(fontSize: 12),
                         ),
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 8),
                       ),
                       Chip(
-                        avatar: const Icon(Icons.people, size: 18),
-                        label: Text('${tour.bookingCount} lượt đặt'),
+                        avatar: const Icon(Icons.people, size: 16),
+                        label: Text(
+                          '${tour.bookingCount} lượt đặt',
+                          style: const TextStyle(fontSize: 12),
+                        ),
+                        labelPadding: const EdgeInsets.symmetric(horizontal: 8),
                       ),
                     ],
                   ),

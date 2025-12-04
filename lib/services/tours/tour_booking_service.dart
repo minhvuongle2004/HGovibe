@@ -42,21 +42,40 @@ class TourBookingService {
     BookingStatus? status,
   }) async {
     try {
+      // Để tránh cần composite index, ta sẽ:
+      // 1. Không dùng orderBy cùng với where (tránh cần composite index)
+      // 2. Filter và sort ở client-side
       Query query = _firestore
           .collection(_collection)
           .where('userId', isEqualTo: userId);
 
+      // Nếu có status filter, thêm where cho status
+      // Nhưng không orderBy để tránh cần composite index
       if (status != null) {
         query = query.where('status', isEqualTo: _statusToString(status));
       }
 
-      query = query.orderBy('departureDate', descending: false);
-      query = query.orderBy('bookingDate', descending: true);
+      // KHÔNG orderBy ở đây để tránh cần composite index
+      // Sẽ sort ở client-side
 
       final snapshot = await query.get();
-      return snapshot.docs
+      var bookings = snapshot.docs
           .map((doc) => TourBooking.fromFirestore(doc))
           .toList();
+
+      // Filter status ở client-side nếu chưa filter ở query
+      if (status != null) {
+        bookings = bookings.where((b) => b.status == status).toList();
+      }
+
+      // Sort by departureDate ascending, then bookingDate descending
+      bookings.sort((a, b) {
+        final dateCompare = a.departureDate.compareTo(b.departureDate);
+        if (dateCompare != 0) return dateCompare;
+        return b.bookingDate.compareTo(a.bookingDate);
+      });
+
+      return bookings;
     } catch (e) {
       print('Error getting user bookings: $e');
       rethrow;
@@ -130,8 +149,10 @@ class TourBookingService {
     String bookingId,
     PaymentStatus paymentStatus, {
     PaymentMethod? paymentMethod,
-    DateTime? paidAt,
+    DateTime? paymentAt,
     String? paymentTransactionId,
+    String? paymentRequestId,
+    Map<String, dynamic>? paymentGatewayRawData,
   }) async {
     try {
       final updateData = <String, dynamic>{
@@ -141,11 +162,17 @@ class TourBookingService {
       if (paymentMethod != null) {
         updateData['paymentMethod'] = _paymentMethodToString(paymentMethod);
       }
-      if (paidAt != null) {
-        updateData['paidAt'] = Timestamp.fromDate(paidAt);
+      if (paymentAt != null) {
+        updateData['paymentAt'] = Timestamp.fromDate(paymentAt);
       }
       if (paymentTransactionId != null) {
         updateData['paymentTransactionId'] = paymentTransactionId;
+      }
+      if (paymentRequestId != null) {
+        updateData['paymentRequestId'] = paymentRequestId;
+      }
+      if (paymentGatewayRawData != null) {
+        updateData['paymentGatewayRawData'] = paymentGatewayRawData;
       }
 
       await _firestore.collection(_collection).doc(bookingId).update(updateData);
@@ -197,6 +224,8 @@ class TourBookingService {
 
   String _paymentStatusToString(PaymentStatus status) {
     switch (status) {
+      case PaymentStatus.unpaid:
+        return 'unpaid';
       case PaymentStatus.pending:
         return 'pending';
       case PaymentStatus.paid:

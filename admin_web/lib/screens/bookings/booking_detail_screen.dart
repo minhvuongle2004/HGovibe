@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -540,13 +542,23 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
             _infoRow('Trạng thái thanh toán', _paymentLabel(booking.paymentStatus)),
             if (booking.paymentMethod != null)
               _infoRow('Phương thức', _paymentMethodLabel(booking.paymentMethod!)),
-            if (booking.paidAt != null)
+            if (booking.paymentAt != null)
               _infoRow(
                 'Thanh toán lúc',
-                DateFormat('dd/MM/yyyy HH:mm').format(booking.paidAt!),
+                DateFormat('dd/MM/yyyy HH:mm').format(booking.paymentAt!),
               ),
             if (booking.paymentTransactionId != null)
               _infoRow('Mã giao dịch', booking.paymentTransactionId!),
+            if (booking.paymentRequestId != null)
+              _infoRow('Request ID', booking.paymentRequestId!),
+            if (booking.paymentGatewayRawData != null &&
+                booking.paymentGatewayRawData!.isNotEmpty)
+              Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: _buildGatewayPayload(
+                  booking.paymentGatewayRawData!,
+                ),
+              ),
           ],
         ),
       ),
@@ -569,7 +581,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
       ),
       _TimelineStep(
         label: 'Thanh toán',
-        time: booking.paidAt,
+        time: booking.paymentAt,
         description: 'Khách hàng thanh toán',
         completed: booking.paymentStatus == PaymentStatus.paid ||
             booking.paymentStatus == PaymentStatus.refunded,
@@ -755,6 +767,10 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
     Color color;
     String label;
     switch (status) {
+      case PaymentStatus.unpaid:
+        color = Colors.grey;
+        label = 'Chưa thanh toán';
+        break;
       case PaymentStatus.pending:
         color = Colors.orange;
         label = 'Chờ thanh toán';
@@ -781,6 +797,8 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
 
   String _paymentLabel(PaymentStatus status) {
     switch (status) {
+      case PaymentStatus.unpaid:
+        return 'Chưa thanh toán';
       case PaymentStatus.pending:
         return 'Chờ thanh toán';
       case PaymentStatus.paid:
@@ -805,6 +823,27 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
       case PaymentMethod.momo:
         return 'MoMo';
     }
+  }
+
+  Widget _buildGatewayPayload(Map<String, dynamic> payload) {
+    final encoder = const JsonEncoder.withIndent('  ');
+    final formatted = encoder.convert(payload);
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.grey[100],
+      ),
+      padding: const EdgeInsets.all(12),
+      child: SelectableText(
+        formatted,
+        style: const TextStyle(
+          fontFamily: 'monospace',
+          fontSize: 12,
+          color: Colors.black87,
+        ),
+      ),
+    );
   }
 }
 

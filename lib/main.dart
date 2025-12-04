@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
@@ -54,6 +55,17 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
+      // Thêm localizations cho DatePicker và các widget Material
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('vi', 'VN'), // Tiếng Việt
+        Locale('en', 'US'), // Tiếng Anh (fallback)
+      ],
+      locale: const Locale('vi', 'VN'), // Mặc định tiếng Việt
       initialRoute: '/',
       routes: {
         '/': (context) => const AuthGate(),

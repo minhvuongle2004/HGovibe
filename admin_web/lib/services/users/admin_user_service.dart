@@ -22,9 +22,15 @@ class AdminUserService {
       // 2. Filter banned ở client-side
       Query query = _firestore.collection(_collection);
 
-      // Nếu không filter banned, chỉ orderBy
+      // Nếu không filter banned, thử orderBy createdAt
+      // Nếu có lỗi (do createdAt không phải Timestamp), sẽ query không orderBy và sort ở client
       if (banned == null) {
-        query = query.orderBy('createdAt', descending: true).limit(limit * 2); // Lấy nhiều hơn để filter
+        try {
+          query = query.orderBy('createdAt', descending: true).limit(limit * 2);
+        } catch (e) {
+          // Nếu orderBy fail, query không orderBy và sẽ sort ở client
+          query = query.limit(limit * 2);
+        }
       } else {
         // Nếu có filter banned, chỉ where (không orderBy để tránh cần index)
         query = query.where('banned', isEqualTo: banned).limit(limit * 2);
@@ -34,7 +40,21 @@ class AdminUserService {
         query = query.startAfterDocument(startAfter);
       }
 
-      final snapshot = await query.get();
+      QuerySnapshot snapshot;
+      try {
+        snapshot = await query.get();
+      } catch (e) {
+        // Nếu query fail (do orderBy với createdAt không phải Timestamp), 
+        // query lại không orderBy
+        print('Query with orderBy failed, retrying without orderBy: $e');
+        query = _firestore.collection(_collection);
+        if (banned != null) {
+          query = query.where('banned', isEqualTo: banned);
+        }
+        query = query.limit(limit * 2);
+        snapshot = await query.get();
+      }
+
       var users = <AppUser>[];
 
       for (var doc in snapshot.docs) {
@@ -51,7 +71,7 @@ class AdminUserService {
           // Create AppUser from profile
           final user = AppUser(
             uid: doc.id,
-            email: data['email'] as String?,
+            email: profile.email ?? data['email'] as String?,
             displayName: profile.fullName,
             photoUrl: profile.avatarUrl,
             phoneNumber: data['phoneNumber'] as String?,
@@ -85,6 +105,15 @@ class AdminUserService {
         }
       }
 
+      // Sort by createdAt descending ở client-side nếu không orderBy được
+      if (banned == null) {
+        users.sort((a, b) {
+          final aDate = a.createdAt ?? DateTime(1970);
+          final bDate = b.createdAt ?? DateTime(1970);
+          return bDate.compareTo(aDate);
+        });
+      }
+
       return users;
     } catch (e) {
       print('Error getting all users: $e');
@@ -104,11 +133,11 @@ class AdminUserService {
       final profile = UserProfile.fromMap(data);
       return AppUser(
         uid: doc.id,
-        email: data['email'],
+        email: profile.email ?? data['email'] as String?,
         displayName: profile.fullName,
         photoUrl: profile.avatarUrl,
-        phoneNumber: data['phoneNumber'],
-        emailVerified: data['emailVerified'] ?? false,
+        phoneNumber: data['phoneNumber'] as String?,
+        emailVerified: (data['emailVerified'] as bool?) ?? false,
         createdAt: profile.createdAt,
         lastLoginAt: profile.updatedAt,
         profile: profile,

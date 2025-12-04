@@ -157,7 +157,7 @@ class AdminBookingService {
 
     if (markAsPaid) {
       updates['paymentStatus'] = _paymentStatusToString(PaymentStatus.paid);
-      updates['paidAt'] = Timestamp.fromDate(DateTime.now());
+      updates['paymentAt'] = Timestamp.fromDate(DateTime.now());
     }
 
     if (note != null) {
@@ -213,8 +213,10 @@ class AdminBookingService {
     String bookingId,
     PaymentStatus paymentStatus, {
     PaymentMethod? paymentMethod,
-    DateTime? paidAt,
+    DateTime? paymentAt,
     String? transactionId,
+    String? paymentRequestId,
+    Map<String, dynamic>? paymentGatewayRawData,
   }) async {
     final data = <String, dynamic>{
       'paymentStatus': _paymentStatusToString(paymentStatus),
@@ -223,11 +225,17 @@ class AdminBookingService {
     if (paymentMethod != null) {
       data['paymentMethod'] = _paymentMethodToString(paymentMethod);
     }
-    if (paidAt != null) {
-      data['paidAt'] = Timestamp.fromDate(paidAt);
+    if (paymentAt != null) {
+      data['paymentAt'] = Timestamp.fromDate(paymentAt);
     }
     if (transactionId != null && transactionId.isNotEmpty) {
       data['paymentTransactionId'] = transactionId;
+    }
+    if (paymentRequestId != null && paymentRequestId.isNotEmpty) {
+      data['paymentRequestId'] = paymentRequestId;
+    }
+    if (paymentGatewayRawData != null) {
+      data['paymentGatewayRawData'] = paymentGatewayRawData;
     }
 
     await _firestore.collection(_bookingCollection).doc(bookingId).update(data);
@@ -331,6 +339,8 @@ class AdminBookingService {
 
   String _paymentStatusToString(PaymentStatus status) {
     switch (status) {
+      case PaymentStatus.unpaid:
+        return 'unpaid';
       case PaymentStatus.pending:
         return 'pending';
       case PaymentStatus.paid:

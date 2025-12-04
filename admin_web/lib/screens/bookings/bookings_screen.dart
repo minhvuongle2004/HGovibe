@@ -325,6 +325,10 @@ class _BookingsScreenState extends State<BookingsScreen>
                     child: Text('Tất cả'),
                   ),
                   DropdownMenuItem(
+                    value: PaymentStatus.unpaid,
+                    child: Text('Chưa thanh toán'),
+                  ),
+                  DropdownMenuItem(
                     value: PaymentStatus.pending,
                     child: Text('Chờ thanh toán'),
                   ),
@@ -417,15 +421,14 @@ class _BookingsScreenState extends State<BookingsScreen>
           Expanded(
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: SizedBox(
-                width: 1200,
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: _bookings.length,
-                  itemBuilder: (context, index) {
-                    final booking = _bookings[index];
-                    return _buildBookingRow(booking);
-                  },
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _buildTableHeader(),
+                    ..._bookings.map((booking) => _buildBookingRow(booking)),
+                  ],
                 ),
               ),
             ),
@@ -450,6 +453,34 @@ class _BookingsScreenState extends State<BookingsScreen>
     );
   }
 
+  Widget _buildTableHeader() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.grey[100],
+        border: const Border(
+          bottom: BorderSide(color: Color(0xFFE0E0E0)),
+        ),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      child: SizedBox(
+        width: 1200,
+        child: Row(
+          children: [
+            SizedBox(width: 120, child: Text('Mã booking', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 200, child: Text('Tour', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 180, child: Text('Khách hàng', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 120, child: Text('Ngày khởi hành', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 80, child: Text('Số người', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 120, child: Text('Tổng tiền', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 120, child: Text('Trạng thái', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 140, child: Text('Thanh toán', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+            SizedBox(width: 120, child: Text('Thao tác', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 13))),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildBookingRow(TourBooking booking) {
     final participantCount = booking.numberOfAdults +
         booking.numberOfChildren +
@@ -461,9 +492,18 @@ class _BookingsScreenState extends State<BookingsScreen>
         ),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-      child: Row(
-        children: [
-          SizedBox(width: 120, child: Text(booking.bookingNumber)),
+      child: SizedBox(
+        width: 1200,
+        child: Row(
+          children: [
+          SizedBox(
+            width: 120,
+            child: Text(
+              booking.bookingNumber,
+              style: const TextStyle(fontSize: 13),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
           SizedBox(
             width: 200,
             child: Text(
@@ -472,55 +512,80 @@ class _BookingsScreenState extends State<BookingsScreen>
                   booking.tourPackageId,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
+              style: const TextStyle(fontSize: 13),
             ),
           ),
           SizedBox(
             width: 180,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Text(booking.contactInfo.fullName),
+                Text(
+                  booking.contactInfo.fullName,
+                  style: const TextStyle(fontSize: 13),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
                 Text(
                   booking.contactInfo.email,
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
+                  style: const TextStyle(fontSize: 11, color: Colors.grey),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                 ),
               ],
             ),
           ),
           SizedBox(
             width: 120,
-            child: Text(DateFormat('dd/MM/yyyy').format(booking.departureDate)),
+            child: Text(
+              DateFormat('dd/MM/yyyy').format(booking.departureDate),
+              style: const TextStyle(fontSize: 13),
+            ),
           ),
           SizedBox(
             width: 80,
-            child: Text('$participantCount người'),
+            child: Text(
+              '$participantCount người',
+              style: const TextStyle(fontSize: 13),
+            ),
           ),
           SizedBox(
             width: 120,
             child: Text(
               _currencyFormat.format(booking.totalAmount),
-              style: const TextStyle(fontWeight: FontWeight.w600),
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 13),
+              overflow: TextOverflow.ellipsis,
             ),
           ),
-          SizedBox(width: 120, child: _buildStatusChip(booking.status)),
+          SizedBox(
+            width: 120,
+            child: _buildStatusChip(booking.status),
+          ),
           SizedBox(
             width: 140,
             child: _buildPaymentChip(booking.paymentStatus),
           ),
           SizedBox(
-            width: 140,
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: TextButton(
-                onPressed: () {
-                  if (booking.id == null) return;
-                  context.push('/bookings/${booking.id}');
-                },
-                child: const Text('Xem chi tiết'),
+            width: 120,
+            child: TextButton(
+              onPressed: () {
+                if (booking.id == null) return;
+                context.push('/bookings/${booking.id}');
+              },
+              style: TextButton.styleFrom(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                minimumSize: Size.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              ),
+              child: const Text(
+                'Xem chi tiết',
+                style: TextStyle(fontSize: 12),
               ),
             ),
           ),
         ],
+      ),
       ),
     );
   }
@@ -547,9 +612,15 @@ class _BookingsScreenState extends State<BookingsScreen>
         break;
     }
     return Chip(
-      label: Text(label),
+      label: Text(
+        label,
+        style: const TextStyle(fontSize: 11),
+      ),
       backgroundColor: color.withOpacity(0.1),
       labelStyle: TextStyle(color: color, fontWeight: FontWeight.w600),
+      labelPadding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: EdgeInsets.zero,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
 
@@ -557,6 +628,10 @@ class _BookingsScreenState extends State<BookingsScreen>
     Color color;
     String label;
     switch (status) {
+      case PaymentStatus.unpaid:
+        color = Colors.grey;
+        label = 'Chưa thanh toán';
+        break;
       case PaymentStatus.pending:
         color = Colors.orange;
         label = 'Chờ thanh toán';
@@ -575,9 +650,15 @@ class _BookingsScreenState extends State<BookingsScreen>
         break;
     }
     return Chip(
-      label: Text(label),
+      label: Text(
+        label,
+        style: const TextStyle(fontSize: 11),
+      ),
       backgroundColor: color.withOpacity(0.1),
       labelStyle: TextStyle(color: color, fontWeight: FontWeight.w600),
+      labelPadding: const EdgeInsets.symmetric(horizontal: 6),
+      padding: EdgeInsets.zero,
+      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     );
   }
 }
@@ -591,4 +672,5 @@ class _BookingTab {
     required this.status,
   });
 }
+
 

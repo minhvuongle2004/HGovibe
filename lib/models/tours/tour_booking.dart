@@ -5,7 +5,8 @@ import 'package:smart_travel_app/models/tours/contact_info.dart';
 
 /// Trạng thái thanh toán
 enum PaymentStatus {
-  pending, // Chờ thanh toán
+  unpaid, // Chưa tạo giao dịch
+  pending, // Đang xử lý giao dịch
   paid, // Đã thanh toán
   refunded, // Đã hoàn tiền
   failed, // Thanh toán thất bại
@@ -56,8 +57,10 @@ class TourBooking {
   // Thanh toán
   final PaymentStatus paymentStatus; // Trạng thái thanh toán
   final PaymentMethod? paymentMethod; // Phương thức thanh toán
-  final DateTime? paidAt; // Ngày thanh toán
+  final DateTime? paymentAt; // Thời điểm gateway xác nhận thanh toán
   final String? paymentTransactionId; // ID giao dịch
+  final String? paymentRequestId; // ID yêu cầu gửi lên gateway
+  final Map<String, dynamic>? paymentGatewayRawData; // Payload gateway trả về
 
   // Trạng thái
   final BookingStatus status; // Trạng thái booking
@@ -88,8 +91,10 @@ class TourBooking {
     this.currency = 'VND',
     required this.paymentStatus,
     this.paymentMethod,
-    this.paidAt,
+    this.paymentAt,
     this.paymentTransactionId,
+    this.paymentRequestId,
+    this.paymentGatewayRawData,
     required this.status,
     this.confirmedAt,
     this.cancelledAt,
@@ -109,6 +114,9 @@ class TourBooking {
     // Parse paymentStatus
     PaymentStatus paymentStatus;
     switch (map['paymentStatus'] as String?) {
+      case 'unpaid':
+        paymentStatus = PaymentStatus.unpaid;
+        break;
       case 'pending':
         paymentStatus = PaymentStatus.pending;
         break;
@@ -122,7 +130,7 @@ class TourBooking {
         paymentStatus = PaymentStatus.failed;
         break;
       default:
-        paymentStatus = PaymentStatus.pending;
+        paymentStatus = PaymentStatus.unpaid;
     }
 
     // Parse paymentMethod
@@ -191,12 +199,14 @@ class TourBooking {
       currency: map['currency'] ?? 'VND',
       paymentStatus: paymentStatus,
       paymentMethod: paymentMethod,
-      paidAt: map['paidAt'] is Timestamp
-          ? (map['paidAt'] as Timestamp).toDate()
-          : map['paidAt'] != null
-              ? DateTime.parse(map['paidAt'])
-              : null,
+      paymentAt: _parsePaymentAt(map),
       paymentTransactionId: map['paymentTransactionId'],
+      paymentRequestId: map['paymentRequestId'],
+      paymentGatewayRawData: map['paymentGatewayRawData'] is Map
+          ? Map<String, dynamic>.from(
+              map['paymentGatewayRawData'] as Map,
+            )
+          : null,
       status: status,
       confirmedAt: map['confirmedAt'] is Timestamp
           ? (map['confirmedAt'] as Timestamp).toDate()
@@ -234,9 +244,12 @@ class TourBooking {
       'paymentStatus': _paymentStatusToString(paymentStatus),
       if (paymentMethod != null)
         'paymentMethod': _paymentMethodToString(paymentMethod!),
-      if (paidAt != null) 'paidAt': Timestamp.fromDate(paidAt!),
+      if (paymentAt != null) 'paymentAt': Timestamp.fromDate(paymentAt!),
       if (paymentTransactionId != null)
         'paymentTransactionId': paymentTransactionId,
+      if (paymentRequestId != null) 'paymentRequestId': paymentRequestId,
+      if (paymentGatewayRawData != null)
+        'paymentGatewayRawData': paymentGatewayRawData,
       'status': _statusToString(status),
       if (confirmedAt != null) 'confirmedAt': Timestamp.fromDate(confirmedAt!),
       if (cancelledAt != null) 'cancelledAt': Timestamp.fromDate(cancelledAt!),
@@ -248,6 +261,8 @@ class TourBooking {
 
   String _paymentStatusToString(PaymentStatus status) {
     switch (status) {
+      case PaymentStatus.unpaid:
+        return 'unpaid';
       case PaymentStatus.pending:
         return 'pending';
       case PaymentStatus.paid:
@@ -285,6 +300,20 @@ class TourBooking {
       case BookingStatus.completed:
         return 'completed';
     }
+  }
+
+  static DateTime? _parsePaymentAt(Map<String, dynamic> map) {
+    final rawPaymentAt = map['paymentAt'] ?? map['paidAt'];
+    if (rawPaymentAt is Timestamp) {
+      return rawPaymentAt.toDate();
+    }
+    if (rawPaymentAt is DateTime) {
+      return rawPaymentAt;
+    }
+    if (rawPaymentAt is String && rawPaymentAt.isNotEmpty) {
+      return DateTime.tryParse(rawPaymentAt);
+    }
+    return null;
   }
 }
 

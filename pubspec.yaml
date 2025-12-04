@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # UI
   cupertino_icons: ^1.0.6
@@ -57,7 +59,7 @@ dependencies:
   provider: ^6.1.2
 
   # Date formatting
-  intl: ^0.19.0
+  intl: ^0.20.2
   flutter_markdown: ^0.6.18
   
   # HTTP client

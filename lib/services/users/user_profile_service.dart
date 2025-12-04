@@ -25,7 +25,15 @@ class UserProfileService {
     String? email,
   }) async {
     final profile = UserProfile.empty(uid, fullName: fullName, email: email);
-    await _usersRef.doc(uid).set(profile.toMap(), SetOptions(merge: true));
+    final data = profile.toMap();
+    // Convert DateTime to Timestamp for Firestore
+    if (data['createdAt'] is DateTime) {
+      data['createdAt'] = Timestamp.fromDate(data['createdAt'] as DateTime);
+    }
+    if (data['updatedAt'] is DateTime) {
+      data['updatedAt'] = Timestamp.fromDate(data['updatedAt'] as DateTime);
+    }
+    await _usersRef.doc(uid).set(data, SetOptions(merge: true));
     return profile;
   }
 
@@ -45,9 +53,17 @@ class UserProfileService {
 
   Future<UserProfile> upsertProfile(UserProfile profile) async {
     try {
+      final data = profile.toMap();
+      // Convert DateTime to Timestamp for Firestore
+      if (data['createdAt'] is DateTime) {
+        data['createdAt'] = Timestamp.fromDate(data['createdAt'] as DateTime);
+      }
+      if (data['updatedAt'] is DateTime) {
+        data['updatedAt'] = Timestamp.fromDate(data['updatedAt'] as DateTime);
+      }
       await _usersRef
           .doc(profile.uid)
-          .set(profile.toMap(), SetOptions(merge: true));
+          .set(data, SetOptions(merge: true));
       return profile;
     } catch (error, stack) {
       debugPrint('❌ upsertProfile error: $error');
@@ -61,8 +77,17 @@ class UserProfileService {
     Map<String, dynamic> data,
   ) async {
     try {
-      data['updatedAt'] = FieldValue.serverTimestamp();
-      await _usersRef.doc(uid).set(data, SetOptions(merge: true));
+      // Convert DateTime to Timestamp if present
+      final processedData = Map<String, dynamic>.from(data);
+      if (processedData['createdAt'] is DateTime) {
+        processedData['createdAt'] = Timestamp.fromDate(processedData['createdAt'] as DateTime);
+      }
+      if (processedData['updatedAt'] is DateTime) {
+        processedData['updatedAt'] = Timestamp.fromDate(processedData['updatedAt'] as DateTime);
+      } else {
+        processedData['updatedAt'] = FieldValue.serverTimestamp();
+      }
+      await _usersRef.doc(uid).set(processedData, SetOptions(merge: true));
     } catch (error, stack) {
       debugPrint('❌ updateProfileFields error: $error');
       debugPrint('$stack');
