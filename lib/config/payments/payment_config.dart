@@ -20,13 +20,13 @@ class PaymentConfig {
   /// Option 2: Backend server riêng (không cần Blaze plan)
   /// 'https://your-backend.railway.app' hoặc URL khác
   static const String cloudFunctionBaseUrl =
-      'https://asia-southeast1-smart-travel-app-a2bfa.cloudfunctions.net';
+      'https://smarttravelbackend-production.up.railway.app';
   static const String createVnPayPaymentPath = '/createVnPayPayment';
 
-  /// URL VNPay sẽ redirect về sau khi thanh toán (web-based, không phải deeplink).
-  /// Có thể là trang web của bạn hoặc một trang thông báo kết quả.
-  static const String vnpayReturnUrl =
-      'https://your-domain.com/payment/return';
+  /// URL VNPay sẽ redirect về sau khi thanh toán.
+  /// Dùng backend endpoint để handle redirect và chuyển về app qua deep link.
+  static String get vnpayReturnUrl =>
+      '$cloudFunctionBaseUrl/payment/return';
 
   /// URL đầy đủ tới Cloud Function tạo yêu cầu thanh toán.
   static String get createVnPayPaymentUrl =>

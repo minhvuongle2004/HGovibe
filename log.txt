@@ -1,17 +1,86 @@
-I/flutter ( 5528): 🔍 Filtering bookings for "Sắp tới" tab
-I/flutter ( 5528): 📅 Today: 2025-12-03 00:00:00.000
-I/flutter ( 5528): 📊 Total bookings: 0
-I/flutter ( 5528): ✅ Filtered bookings: 0
-I/flutter ( 5528): 📥 Loading bookings for user: XA5kamuRMygYYFYgyQVvAyFdL8g2
-D/EGL_emulation( 5528): app_time_stats: avg=275.28ms min=2.72ms max=3659.61ms count=15
-I/flutter ( 5528): 📑 Current tab index: 0
-I/flutter ( 5528): 🔖 Selected status: null
-I/flutter ( 5528): 📥 Loading all bookings (no status filter)
-W/Firestore( 5528): (26.0.2) [Firestore]: Listen for Query(target=Query(tour_bookings where userId==XA5kamuRMygYYFYgyQVvAyFdL8g2 order by departureDate, __name__);limitType=LIMIT_TO_FIRST) failed: Status{code=FAILED_PRECONDITION, description=The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/smart-travel-app-a2bfa/firestore/indexes?create_composite=Clxwcm9qZWN0cy9zbWFydC10cmF2ZWwtYXBwLWEyYmZhL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy90b3VyX2Jvb2tpbmdzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGhEKDWRlcGFydHVyZURhdGUQARoMCghfX25hbWVfXxAB, cause=null}
-I/flutter ( 5528): Error getting user bookings: [cloud_firestore/failed-precondition] The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/smart-travel-app-a2bfa/firestore/indexes?create_composite=Clxwcm9qZWN0cy9zbWFydC10cmF2ZWwtYXBwLWEyYmZhL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy90b3VyX2Jvb2tpbmdzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGhEKDWRlcGFydHVyZURhdGUQARoMCghfX25hbWVfXxAB
-I/flutter ( 5528): Error loading user bookings: [cloud_firestore/failed-precondition] The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/smart-travel-app-a2bfa/firestore/indexes?create_composite=Clxwcm9qZWN0cy9zbWFydC10cmF2ZWwtYXBwLWEyYmZhL2RhdGFiYXNlcy8oZGVmYXVsdCkvY29sbGVjdGlvbkdyb3Vwcy90b3VyX2Jvb2tpbmdzL2luZGV4ZXMvXxABGgoKBnVzZXJJZBABGhEKDWRlcGFydHVyZURhdGUQARoMCghfX25hbWVfXxAB
-I/flutter ( 5528): ✅ Loaded 0 bookings
-I/flutter ( 5528): 🔍 Filtering bookings for "Sắp tới" tab
-I/flutter ( 5528): 📅 Today: 2025-12-03 00:00:00.000
-I/flutter ( 5528): 📊 Total bookings: 0
-I/flutter ( 5528): ✅ Filtered bookings: 0
+D/EGL_emulation( 5478): app_time_stats: avg=9.49ms min=2.60ms max=35.58ms count=57
+D/EGL_emulation( 5478): app_time_stats: avg=13.60ms min=2.92ms max=124.64ms count=42
+D/EGL_emulation( 5478): app_time_stats: avg=23.91ms min=4.33ms max=332.49ms count=40
+D/EGL_emulation( 5478): app_time_stats: avg=37.37ms min=13.21ms max=360.02ms count=27
+D/EGL_emulation( 5478): app_time_stats: avg=30.64ms min=9.80ms max=436.46ms count=33
+I/ImeTracker( 5478): com.example.smart_travel_app:7395d64b: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager( 5478): showSoftInput() view=io.flutter.embedding.android.FlutterView{99f7f98 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController( 5478): show(ime(), fromIme=true)
+D/EGL_emulation( 5478): app_time_stats: avg=891.46ms min=10.87ms max=17507.84ms count=20
+I/ImeTracker( 5478): com.example.smart_travel_app:7395d64b: onShown
+D/EGL_emulation( 5478): app_time_stats: avg=34.45ms min=3.67ms max=271.57ms count=28
+D/EGL_emulation( 5478): app_time_stats: avg=43.50ms min=12.11ms max=213.86ms count=23
+I/ImeTracker( 5478): com.example.smart_travel_app:5d9c1b37: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+W/WindowOnBackDispatcher( 5478): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@100749011 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@ce6d677
+D/EGL_emulation( 5478): app_time_stats: avg=117.50ms min=7.50ms max=1709.43ms count=17
+D/EGL_emulation( 5478): app_time_stats: avg=47.69ms min=14.13ms max=300.26ms count=21
+I/ImeTracker( 5478): com.example.smart_travel_app:41084f0f: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker( 5478): com.example.smart_travel_app:5d9c1b37: onHidden
+D/EGL_emulation( 5478): app_time_stats: avg=53.54ms min=4.48ms max=715.32ms count=18
+D/EGL_emulation( 5478): app_time_stats: avg=37.58ms min=4.69ms max=596.41ms count=31
+I/ImeTracker( 5478): com.example.smart_travel_app:49faede6: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager( 5478): showSoftInput() view=io.flutter.embedding.android.FlutterView{99f7f98 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/EGL_emulation( 5478): app_time_stats: avg=27.29ms min=4.00ms max=353.72ms count=37
+D/InsetsController( 5478): show(ime(), fromIme=true)
+D/EGL_emulation( 5478): app_time_stats: avg=198.72ms min=1.98ms max=3554.83ms count=19
+I/ImeTracker( 5478): com.example.smart_travel_app:49faede6: onShown
+D/EGL_emulation( 5478): app_time_stats: avg=68.21ms min=10.27ms max=360.98ms count=17
+D/EGL_emulation( 5478): app_time_stats: avg=176.07ms min=138.62ms max=222.77ms count=6
+D/EGL_emulation( 5478): app_time_stats: avg=41.79ms min=10.86ms max=298.63ms count=26
+D/EGL_emulation( 5478): app_time_stats: avg=27.56ms min=7.04ms max=315.45ms count=35
+I/ImeTracker( 5478): com.example.smart_travel_app:4cf90357: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+W/WindowOnBackDispatcher( 5478): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@100749011 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@1138aac
+D/EGL_emulation( 5478): app_time_stats: avg=229.32ms min=3.50ms max=4177.21ms count=19
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.example.smart_travel_app>
+I/ImeTracker( 5478): com.example.smart_travel_app:31bd33f5: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker( 5478): com.example.smart_travel_app:4cf90357: onHidden
+D/EGL_emulation( 5478): app_time_stats: avg=50.26ms min=4.32ms max=695.58ms count=28
+I/ImeTracker( 5478): com.example.smart_travel_app:5752a65f: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager( 5478): showSoftInput() view=io.flutter.embedding.android.FlutterView{99f7f98 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController( 5478): show(ime(), fromIme=true)
+D/EGL_emulation( 5478): app_time_stats: avg=102.02ms min=1.73ms max=1780.64ms count=19
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.example.smart_travel_app>
+D/EGL_emulation( 5478): app_time_stats: avg=12.63ms min=3.07ms max=65.02ms count=50
+I/ImeTracker( 5478): com.example.smart_travel_app:5752a65f: onShown
+D/EGL_emulation( 5478): app_time_stats: avg=141.16ms min=12.89ms max=497.22ms count=8
+I/ImeTracker( 5478): com.example.smart_travel_app:245a5057: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+W/WindowOnBackDispatcher( 5478): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@100749011 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@21171d6
+D/EGL_emulation( 5478): app_time_stats: avg=79.39ms min=8.82ms max=1167.13ms count=19
+I/ImeTracker( 5478): com.example.smart_travel_app:3ca9ec43: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker( 5478): com.example.smart_travel_app:245a5057: onHidden
+D/EGL_emulation( 5478): app_time_stats: avg=47.78ms min=11.35ms max=286.41ms count=21
+I/ImeTracker( 5478): com.example.smart_travel_app:d306fbc1: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager( 5478): showSoftInput() view=io.flutter.embedding.android.FlutterView{99f7f98 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController( 5478): show(ime(), fromIme=true)
+D/EGL_emulation( 5478): app_time_stats: avg=80.06ms min=2.03ms max=1304.90ms count=19
+D/EGL_emulation( 5478): app_time_stats: avg=31.04ms min=9.78ms max=358.12ms count=32
+I/ImeTracker( 5478): com.example.smart_travel_app:d306fbc1: onShown
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.example.smart_travel_app>
+D/EGL_emulation( 5478): app_time_stats: avg=117.87ms min=6.36ms max=437.36ms count=9
+I/ImeTracker( 5478): com.example.smart_travel_app:37def73e: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager( 5478): showSoftInput() view=io.flutter.embedding.android.FlutterView{99f7f98 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+W/RemoteInputConnectionImpl( 5478): getSurroundingText on inactive InputConnection
+W/RemoteInputConnectionImpl( 5478): getTextBeforeCursor on inactive InputConnection
+W/RemoteInputConnectionImpl( 5478): getSurroundingText on inactive InputConnection
+D/InsetsController( 5478): show(ime(), fromIme=true)
+I/ImeTracker( 5478): com.example.smart_travel_app:37def73e: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/EGL_emulation( 5478): app_time_stats: avg=30.06ms min=3.88ms max=314.39ms count=33
+D/EGL_emulation( 5478): app_time_stats: avg=209.86ms min=143.05ms max=285.93ms count=6
+D/EGL_emulation( 5478): app_time_stats: avg=57.94ms min=12.99ms max=350.59ms count=20
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.example.smart_travel_app>
+D/EGL_emulation( 5478): app_time_stats: avg=27.05ms min=5.03ms max=415.05ms count=35
+I/ImeTracker( 5478): com.example.smart_travel_app:85140a7d: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+W/WindowOnBackDispatcher( 5478): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@100749011 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@eb2c399
+D/EGL_emulation( 5478): app_time_stats: avg=316.04ms min=2.18ms max=5858.55ms count=19
+I/ImeTracker( 5478): com.example.smart_travel_app:786b97: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker( 5478): com.example.smart_travel_app:85140a7d: onHidden
+D/EGL_emulation( 5478): app_time_stats: avg=33.13ms min=2.77ms max=705.45ms count=35
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.example.smart_travel_app>
+D/EGL_emulation( 5478): app_time_stats: avg=34.61ms min=11.87ms max=536.58ms count=29
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.example.smart_travel_app>
+D/EGL_emulation( 5478): app_time_stats: avg=7.99ms min=2.96ms max=56.17ms count=55
+D/EGL_emulation( 5478): app_time_stats: avg=7.30ms min=2.08ms max=49.15ms count=57
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.example.smart_travel_app>
+D/EGL_emulation( 5478): app_time_stats: avg=3.44ms min=2.49ms max=5.62ms count=60
+D/EGL_emulation( 5478): app_time_stats: avg=4.69ms min=2.02ms max=37.24ms count=57
+E/FrameTracker( 5478): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.example.smart_travel_app>

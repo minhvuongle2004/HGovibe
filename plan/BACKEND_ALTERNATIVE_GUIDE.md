@@ -85,14 +85,21 @@ firebase login
 ```
 Server sẽ tự động dùng credentials từ Firebase CLI.
 
-**Cách 2: Dùng Service Account Key**
-1. Vào Firebase Console → Project Settings → Service Accounts
-2. Click "Generate new private key"
-3. Lưu file JSON (ví dụ: `serviceAccountKey.json`)
-4. Thêm vào `.env`:
+**Cách 2: Dùng Service Account Key (cho local hoặc deploy)**
+1. Vào Firebase Console: https://console.firebase.google.com/
+2. Chọn project: **smart-travel-app**
+3. Click **⚙️ Settings** (góc trên trái) → **Project settings**
+4. Scroll xuống tab **Service accounts**
+5. Click **Generate new private key** → Xác nhận
+6. File JSON sẽ được tải xuống (ví dụ: `smart-travel-app-firebase-adminsdk-xxxxx.json`)
+7. Đổi tên file thành `serviceAccountKey.json` (tùy chọn)
+8. Di chuyển file vào thư mục `smart_travel_backend/`
+9. Thêm vào `.env`:
    ```env
    GOOGLE_APPLICATION_CREDENTIALS=./serviceAccountKey.json
    ```
+   
+   **Lưu ý**: Nếu không thấy tab "Service accounts" trong Firebase Console, xem hướng dẫn chi tiết ở **Bước 5** (phần deploy).
 
 ### 1.4. Test chạy local
 ```bash
@@ -166,23 +173,93 @@ Kiểm tra:
    - **Lưu ý**: `VNPAY_IPNURL` sẽ được set sau khi có URL deploy
 
 5. **Cấu hình Firebase Service Account**
-   - Vào Firebase Console → Service Accounts
-   - Generate new private key
-   - Copy toàn bộ nội dung JSON
-   - Thêm vào Railway Variables:
-     - **Key**: `GOOGLE_APPLICATION_CREDENTIALS`
-     - **Value**: Paste toàn bộ JSON (Railway sẽ tự xử lý)
+   
+   **Cách 1: Từ Firebase Console (Khuyến nghị)**
+   1. Vào Firebase Console: https://console.firebase.google.com/
+   2. Chọn project của bạn: **smart-travel-app**
+   3. Click vào **⚙️ Settings** (biểu tượng bánh răng) ở góc trên bên trái
+   4. Chọn **Project settings**
+   5. Scroll xuống và click vào tab **Service accounts** (ở dưới cùng)
+   6. Bạn sẽ thấy phần "Firebase Admin SDK"
+   7. Click nút **Generate new private key** (màu xanh)
+   8. Xác nhận "Generate key" trong popup
+   9. File JSON sẽ được tải xuống tự động
+   10. Mở file JSON vừa tải, copy **toàn bộ nội dung**
+   
+   **Cách 2: Từ Google Cloud Console (Nếu không thấy trong Firebase)**
+   1. Vào Google Cloud Console: https://console.cloud.google.com/
+   2. Chọn project: **smart-travel-app** (hoặc project ID của bạn)
+   3. Vào menu **☰** → **IAM & Admin** → **Service accounts**
+   4. Click **+ CREATE SERVICE ACCOUNT**
+   5. Điền tên: `railway-backend` (hoặc tên khác)
+   6. Click **CREATE AND CONTINUE**
+   7. Chọn role: **Firebase Admin SDK Administrator Service Agent** (hoặc **Editor**)
+   8. Click **CONTINUE** → **DONE**
+   9. Click vào service account vừa tạo
+   10. Vào tab **KEYS** → **ADD KEY** → **Create new key**
+   11. Chọn **JSON** → **CREATE**
+   12. File JSON sẽ được tải xuống, copy toàn bộ nội dung
+   
+   **Thêm vào Railway:**
+   - Vào Railway → Tab **Variables**
+   - Click **+ New Variable**
+   - **Key**: `GOOGLE_APPLICATION_CREDENTIALS`
+   - **Value**: Paste **toàn bộ nội dung JSON** (bao gồm cả dấu `{` và `}`)
+     - Ví dụ: `{"type":"service_account","project_id":"smart-travel-app-a2bfa",...}`
+     - **Lưu ý quan trọng**: 
+       - Paste JSON trên **1 dòng** hoặc Railway sẽ tự xử lý multi-line
+       - Đảm bảo JSON hợp lệ (có thể test tại jsonlint.com)
+       - Không cần escape quotes, Railway sẽ tự xử lý
+   - Click **Add**
+   - **Code đã được cập nhật** để tự động detect JSON string vs file path
 
-6. **Deploy**
-   - Railway sẽ tự động deploy
-   - Đợi vài phút để deploy xong
-   - Copy URL (ví dụ: `https://smart-travel-backend.railway.app`)
+6. **Deploy và lấy URL**
+   - Railway sẽ tự động deploy khi bạn push code hoặc thay đổi variables
+   - Đợi vài phút để deploy xong (xem progress ở tab **Deployments**)
+   - Sau khi deploy thành công, lấy URL bằng cách:
+     
+     **⚠️ QUAN TRỌNG**: Bạn cần vào **Service Settings**, KHÔNG phải **Project Settings**!
+     
+     **Cách 1: Từ Service Settings (Khuyến nghị)**
+     1. **Thoát khỏi Project Settings** (click X hoặc click vào tên project ở sidebar trái)
+     2. Vào **service** của bạn (ví dụ: `smart-travel-backend`) - click vào tên service trong danh sách services
+     3. Vào tab **Settings** của **service** (KHÔNG phải project settings)
+     4. Scroll xuống phần **Networking** hoặc **Domains**
+     5. Bạn sẽ thấy:
+        - **Public Domain**: Nếu đã có domain
+        - Hoặc nút **Generate Domain**: Nếu chưa có
+     6. Click **Generate Domain** (nếu chưa có)
+     7. Railway sẽ tạo URL dạng: `https://smart-travel-backend-production-xxxx.up.railway.app`
+     8. Copy URL này
+     
+     **Cách 2: Từ trang chính của Service**
+     1. Vào service của bạn (click vào tên service)
+     2. Ở trang chính, bạn sẽ thấy URL hiển thị ở:
+        - **Header** của service (bên cạnh tên service)
+        - Hoặc trong **card** của service với label "Public URL" hoặc "Domain"
+     3. Click vào URL để copy
+     
+     **Cách 3: Từ tab Deployments**
+     1. Vào service của bạn
+     2. Vào tab **Deployments**
+     3. Click vào deployment mới nhất (status = "Active" hoặc "Success")
+     4. Xem phần **Public URL** hoặc **Domains**
+     
+     **Cách 4: Từ tab Metrics**
+     1. Vào service của bạn
+     2. Vào tab **Metrics**
+     3. URL thường hiển thị ở phần trên cùng
+     
+   - **Lưu ý**: 
+     - URL mặc định có dạng: `https://[service-name]-[hash].up.railway.app`
+     - Nếu không thấy URL, có thể service chưa deploy xong hoặc chưa generate domain
+     - Bạn có thể đổi tên domain trong Service Settings → Networking → **Custom Domain** (nếu muốn)
 
 7. **Cập nhật IPN URL**
    - Vào tab "Variables" trên Railway
    - Thêm/update:
      ```
-     VNPAY_IPNURL=https://smart-travel-backend.railway.app/vnpayWebhook
+     VNPAY_IPNURL=https://smarttravelbackend-production.up.railway.app/vnpayWebhook
      ```
    - Redeploy (Railway sẽ tự redeploy khi có thay đổi variables)
 
@@ -241,24 +318,54 @@ Sau khi deploy backend, cập nhật `lib/config/payments/payment_config.dart`:
 
 ```dart
 static const String cloudFunctionBaseUrl =
-    'https://smart-travel-backend.railway.app'; // URL backend của bạn
+    'https://smarttravelbackend-production.up.railway.app'; // URL backend của bạn
 ```
 
-**Lưu ý**: Bỏ `/createVnPayPayment` vì `createVnPayPaymentPath` đã có sẵn.
+**Lưu ý**: 
+- Bỏ `/createVnPayPayment` vì `createVnPayPaymentPath` đã có sẵn.
+- URL đầy đủ sẽ là: `https://smarttravelbackend-production.up.railway.app/createVnPayPayment`
+
+**Test backend trước khi dùng:**
+1. Mở trình duyệt hoặc dùng curl:
+   ```
+   https://smarttravelbackend-production.up.railway.app/health
+   ```
+2. Nếu thấy `{"status":"ok","timestamp":"..."}` là backend đã hoạt động!
 
 ---
 
 ## 🔧 Bước 5: Cấu hình VNPay Portal
 
-1. Đăng nhập VNPay Sandbox Portal: https://sandbox.vnpayment.vn/
-2. Vào phần **Cấu hình** hoặc **Settings**
-3. Tìm mục **IPN URL** hoặc **Callback URL**
-4. Nhập URL webhook:
+1. **Đăng nhập VNPay Sandbox Portal**: https://sandbox.vnpayment.vn/
+
+2. **Tìm phần cấu hình IPN URL** (có thể ở một trong các vị trí sau):
+   
+   **Cách 1: Từ sidebar "CÔNG CỤ" (TOOLS)**
+   - Ở sidebar bên trái, tìm phần **"CÔNG CỤ"** (TOOLS)
+   - Click vào **"Cài đặt thông báo"** (Notification settings)
+   - Tìm mục **"IPN URL"** hoặc **"Callback URL"** hoặc **"Webhook URL"**
+   
+   **Cách 2: Từ menu trên cùng**
+   - Click vào tên merchant của bạn (ví dụ: "smart travel app") ở góc trên bên phải
+   - Tìm menu **"Cài đặt"** (Settings) hoặc **"Thông tin tài khoản"** (Account Info)
+   - Tìm mục **"IPN URL"** hoặc **"Callback URL"**
+   
+   **Cách 3: Từ trang chính**
+   - Ở trang chính (Màn hình chính), tìm icon **⚙️ Settings** hoặc **"Cấu hình"**
+   - Vào phần **"Thông tin merchant"** hoặc **"Cài đặt thanh toán"**
+   - Tìm mục **"IPN URL"** hoặc **"Callback URL"**
+
+3. **Nhập URL webhook**:
    ```
-   https://smart-travel-backend.railway.app/vnpayWebhook
+   https://smarttravelbackend-production.up.railway.app/vnpayWebhook
    ```
-   (Thay bằng URL backend thật của bạn)
-5. Lưu lại
+
+4. **Lưu lại** (click nút "Lưu" hoặc "Save")
+
+**⚠️ Lưu ý**: 
+- Nếu không tìm thấy phần cấu hình IPN URL, có thể VNPay Sandbox tự động dùng URL từ request hoặc không yêu cầu cấu hình trước
+- Trong trường hợp đó, bạn có thể bỏ qua bước này và test trực tiếp
+- VNPay sẽ gọi webhook đến URL bạn đã set trong biến `VNPAY_IPNURL` trên Railway
 
 ---
 
