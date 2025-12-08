@@ -4,6 +4,7 @@ import 'package:smart_travel_app/models/tours/tour_booking.dart';
 import 'package:smart_travel_app/models/tours/tour_package.dart';
 import 'package:smart_travel_app/services/payments/payment_service.dart';
 import 'package:smart_travel_app/services/tours/tour_booking_service.dart';
+import 'package:smart_travel_app/screens/bookings/my_bookings_screen.dart';
 
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({
@@ -27,7 +28,8 @@ class PaymentScreen extends StatefulWidget {
   State<PaymentScreen> createState() => _PaymentScreenState();
 }
 
-class _PaymentScreenState extends State<PaymentScreen> {
+class _PaymentScreenState extends State<PaymentScreen>
+    with WidgetsBindingObserver {
   final PaymentService _paymentService = PaymentService.instance;
   final TourBookingService _bookingService = TourBookingService.instance;
   final NumberFormat _currencyFormat =
@@ -42,7 +44,23 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _loadBooking();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  /// Khi người dùng quay lại app từ trình duyệt, tự động reload booking
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed && !_isLoadingBooking) {
+      _loadBooking();
+    }
   }
 
   Future<void> _loadBooking() async {
@@ -51,12 +69,25 @@ class _PaymentScreenState extends State<PaymentScreen> {
       _errorMessage = null;
     });
     try {
+      final previousStatus = _booking?.paymentStatus;
       final booking = await _bookingService.getBookingById(widget.bookingId);
       if (!mounted) return;
       setState(() {
         _booking = booking;
         _isLoadingBooking = false;
       });
+
+      // Nếu trạng thái thanh toán vừa chuyển sang "paid", hiển thị thông báo
+      if (booking != null &&
+          previousStatus != PaymentStatus.paid &&
+          booking.paymentStatus == PaymentStatus.paid) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Thanh toán VNPay thành công!'),
+          ),
+        );
+      }
+
       if (booking != null &&
           widget.autoLaunchPayment &&
           !_autoLaunchTriggered &&
@@ -260,6 +291,36 @@ class _PaymentScreenState extends State<PaymentScreen> {
   Widget _buildBottomActions() {
     final booking = _booking;
     final canPay = booking != null && _canStartPayment(booking);
+    final isPaid = booking?.paymentStatus == PaymentStatus.paid;
+
+    if (isPaid) {
+      return SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: SizedBox(
+            width: double.infinity,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (_) => const MyBookingsScreen()),
+                  (route) => route.isFirst,
+                );
+              },
+              icon: const Icon(Icons.receipt_long),
+              label: const Text(
+                'Xem tour của tôi',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                backgroundColor: Colors.green,
+              ),
+            ),
+          ),
+        ),
+      );
+    }
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -291,12 +352,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         ),
                       ),
               ),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).maybePop();
-              },
-              child: const Text('Để sau tôi thanh toán'),
             ),
           ],
         ),

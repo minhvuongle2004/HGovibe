@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:smart_travel_app/config/payments/payment_config.dart';
 import 'package:smart_travel_app/models/payments/payment_request.dart';
@@ -54,6 +53,12 @@ class PaymentService {
       },
     };
 
+    // Log request để debug
+    print('🔵 VNPay Payment Request:');
+    print('  URL: $endpoint');
+    print('  Payload: ${jsonEncode(payload)}');
+    print('  ReturnUrl: ${PaymentConfig.vnpayReturnUrl}');
+
     final response = await _httpClient.post(
       uri,
       headers: {
@@ -61,6 +66,10 @@ class PaymentService {
       },
       body: jsonEncode(payload),
     );
+
+    print('🟢 VNPay Payment Response:');
+    print('  Status: ${response.statusCode}');
+    print('  Body: ${response.body}');
 
     if (response.statusCode != 200) {
       throw PaymentException(
