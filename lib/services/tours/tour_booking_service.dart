@@ -245,10 +245,6 @@ class TourBookingService {
         return 'bank_transfer';
       case PaymentMethod.creditCard:
         return 'credit_card';
-      case PaymentMethod.vnpay:
-        return 'vnpay';
-      case PaymentMethod.momo:
-        return 'momo';
     }
   }
 }

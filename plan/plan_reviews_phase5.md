@@ -8,7 +8,7 @@
 
 ## Phạm vi
 - Data model & Firestore structure cho reviews.
-- Upload ảnh lên Firebase Storage; lưu metadata vào Firestore.
+- Upload ảnh review lên **imgBB** (qua backend proxy), lưu URLs vào Firestore.
 - UI/UX: form viết review, gallery ảnh, list reviews.
 - Bỏ hạng mục thông báo email/SMS.
 
@@ -59,9 +59,13 @@
 1) Model & Service
    - Tạo model `TourReview`.
    - Service `TourReviewService`: create/update/delete/getByTour/getByUser/checkExistingByBooking`.
-2) Upload ảnh
-   - Dùng Firebase Storage.
-   - Helper upload nhiều ảnh, trả về danh sách URLs.
+2) Upload ảnh (imgBB)
+   - Thêm endpoint backend (Node) `/reviews/uploadImage`:
+     - Nhận file multipart (tối đa 4–5 ảnh, giới hạn dung lượng).
+     - Gọi imgBB API với API key (lưu trong env backend).
+     - Trả về `imageUrl`.
+   - Flutter: chọn ảnh (gallery/camera), upload tới backend, nhận danh sách URLs.
+   - Lưu URLs vào `photos` khi tạo review.
 3) UI/UX
    - Tour Detail: thêm section Reviews (rating avg, count, list).
    - Nút “Viết đánh giá” (ẩn nếu đã có review cho booking đó).
@@ -88,6 +92,33 @@
 5) (Tùy chọn) Tối ưu: nén ảnh trước upload; cache rating vào tour package.
 
 ## Ghi chú bảo mật
-- Firestore rules cần kiểm tra `request.auth.uid == userId`, match bookingId, và giới hạn 1 review/booking (thực thi logic ở app + validate server nếu có cloud function).
-- Storage rules: chỉ cho phép chủ ảnh upload/xóa trong `reviews/{uid}/...`.
+- Firestore rules: kiểm tra `request.auth.uid == userId`, match bookingId, giới hạn 1 review/booking (logic app + có thể bổ sung cloud function nếu cần).
+- Backend proxy imgBB: API key đặt trong env backend, không nhúng vào app.
+
+## Lộ trình triển khai (phased)
+1) **Model & Service (Firestore)**
+   - Model `TourReview`.
+   - Service `TourReviewService`: create/update/delete/getByTour/getByUser/checkExistingByBooking`.
+   - Firestore indexes (tourId+createdAt, userId, bookingId).
+
+2) **Backend imgBB upload**
+   - Endpoint `/reviews/uploadImage` (multipart).
+   - Env: `IMGBB_API_KEY`.
+   - Giới hạn số file, dung lượng; trả về URLs.
+
+3) **UI/UX Review**
+   - Tour Detail: section Reviews (avg rating, count, list).
+   - Nút “Viết đánh giá” (ẩn nếu đã review booking).
+   - Form: rating, comment, picker ảnh (multi-select), preview/remove, submit.
+
+4) **List & Viewer**
+   - Hiển thị ảnh dạng grid trong review item.
+   - Tap để mở full-screen viewer.
+
+5) **Edit/Delete & Guard**
+   - Cho phép user sửa/xóa review của chính mình.
+   - Guard: chặn nếu đã có review cho booking; kiểm tra điều kiện booking (paid/completed).
+
+6) **Testing**
+   - Tạo review đủ điều kiện, đã review -> chặn, upload nhiều ảnh, xem full-screen, edit/delete.
 

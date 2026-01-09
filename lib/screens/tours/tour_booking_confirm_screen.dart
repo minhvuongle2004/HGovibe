@@ -8,7 +8,6 @@ import 'package:smart_travel_app/models/tours/participant_info.dart';
 import 'package:smart_travel_app/models/tours/contact_info.dart';
 import 'package:smart_travel_app/providers/tours/tour_booking_provider.dart';
 import 'package:smart_travel_app/services/tours/tour_booking_service.dart';
-import 'package:smart_travel_app/screens/payments/payment_screen.dart';
 import 'package:smart_travel_app/screens/tours/tour_booking_success_screen.dart';
 
 /// Screen xác nhận & thanh toán booking
@@ -51,8 +50,8 @@ class _TourBookingConfirmScreenState extends State<TourBookingConfirmScreen> {
   @override
   void initState() {
     super.initState();
-    // Mặc định chọn "Đặt chỗ trước" (chờ xác nhận)
-    _selectedPaymentMethod = null; // null = đặt chỗ trước
+    // Mặc định: không thanh toán online
+    _selectedPaymentMethod = null;
   }
 
   /// Tạo booking
@@ -104,32 +103,16 @@ class _TourBookingConfirmScreenState extends State<TourBookingConfirmScreen> {
       if (bookingId != null) {
         if (!mounted) return;
 
-        if (_selectedPaymentMethod == PaymentMethod.vnpay) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PaymentScreen(
-                bookingId: bookingId,
-                bookingNumber: bookingNumber,
-                amount: widget.totalAmount,
-                currency: widget.tour.currency,
-                tour: widget.tour,
-                autoLaunchPayment: true,
-              ),
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TourBookingSuccessScreen(
+              bookingNumber: bookingNumber,
+              tour: widget.tour,
             ),
-          );
-        } else {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (context) => TourBookingSuccessScreen(
-                bookingNumber: bookingNumber,
-                tour: widget.tour,
-              ),
-            ),
-            (route) => route.isFirst,
-          );
-        }
+          ),
+          (route) => route.isFirst,
+        );
       } else {
         throw Exception('Không thể tạo booking');
       }
@@ -257,18 +240,6 @@ class _TourBookingConfirmScreenState extends State<TourBookingConfirmScreen> {
               child: Column(
                 children: [
                   RadioListTile<PaymentMethod?>(
-                    title: const Text('Đặt chỗ trước'),
-                    subtitle: const Text('Thanh toán sau khi được xác nhận'),
-                    value: null,
-                    groupValue: _selectedPaymentMethod,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedPaymentMethod = value;
-                      });
-                    },
-                  ),
-                  const Divider(height: 1),
-                  RadioListTile<PaymentMethod?>(
                     title: const Text('Chuyển khoản ngân hàng'),
                     subtitle: const Text('Thanh toán qua chuyển khoản'),
                     value: PaymentMethod.bankTransfer,
@@ -284,18 +255,6 @@ class _TourBookingConfirmScreenState extends State<TourBookingConfirmScreen> {
                     title: const Text('Tiền mặt'),
                     subtitle: const Text('Thanh toán khi nhận tour'),
                     value: PaymentMethod.cash,
-                    groupValue: _selectedPaymentMethod,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedPaymentMethod = value;
-                      });
-                    },
-                  ),
-                  const Divider(height: 1),
-                  RadioListTile<PaymentMethod?>(
-                    title: const Text('VNPay (khuyến nghị)'),
-                    subtitle: const Text('Thanh toán online ngay sau khi đặt'),
-                    value: PaymentMethod.vnpay,
                     groupValue: _selectedPaymentMethod,
                     onChanged: (value) {
                       setState(() {

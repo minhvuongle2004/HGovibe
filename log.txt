@@ -1,69 +1,18 @@
-D:\voghidaihoc\KhoaLuanTotNghiep\smart_travel_backend>   railway logs --service smart_travel_backend --environment production
-Starting Container
-npm warn config production Use `--omit=dev` instead.
-
-> smart-travel-payment-backend@1.0.0 start
-> node server.js
-
-📝 Using Firebase credentials from environment variable (JSON)
-✅ Firebase initialized successfully
-🚀 Payment backend server running on port 3000
-📝 Create payment: POST http://localhost:3000/createVnPayPayment
-🔔 Webhook: POST http://localhost:3000/vnpayWebhook
-📥 Received payment request: {
-  body: {
-    bookingId: 'n00QsmHUSdsspP00WvqD',
-      bookingId: 'n00QsmHUSdsspP00WvqD',
-    bookingNumber: 'BK202512040010',
-    orderId: 'n00QsmHUSdsspP00WvqD',
-    amount: 8000000,
-    currency: 'VND',
-    returnUrl: 'https://smarttravelbackend-production.up.railway.app/payment/return',
-    extraData: {
-      bookingNumber: 'BK202512040010',
-      userId: 'XA5kamuRMygYYFYgyQVvAyFdL8g2'
-    }
-  },
-  ip: '::ffff:100.64.0.2',
-  headers: {
-    host: 'smarttravelbackend-production.up.railway.app',
-    'user-agent': 'Dart/3.10 (dart:io)',
-    'content-length': '342',
-    'accept-encoding': 'gzip',
-    'content-type': 'application/json',
-    'x-forwarded-for': '42.115.74.148',
-    'x-forwarded-host': 'smarttravelbackend-production.up.railway.app',
-    'x-forwarded-proto': 'https',
-    'x-railway-edge': 'railway/asia-southeast1-eqsg3a',
-    'x-railway-request-id': 'H1zYWTYcQBa99wjNDcO5xA',
-    'x-real-ip': '42.115.74.148',
-    'x-request-start': '1764835075711'
-  }
-}
-📋 Payment Request Details:
-  - Booking ID: n00QsmHUSdsspP00WvqD
-  - Amount: 8000000 VND
-  - Return URL: https://smarttravelbackend-production.up.railway.app/payment/return
-  - Order Info: Thanh toan tour BK202512040010 - n00QsmHUSdsspP00WvqD
-  - Client IP: 100.64.0.2
-  - Payment URL: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=800000000&vnp_Command=pay&vnp_CreateDate=20251204145757&vnp_CurrCode=VND&vnp_ExpireDate=20251204151257&vnp_IpAddr=100.64.0.2&vnp_Locale=vn&vnp_OrderInfo=Thanh+toan+tour+BK202512040010+-+n00QsmHUSdsspP00WvqD&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Fsmarttravelbackend-production.up.railway.app%2Fpayment%2Freturn&vnp_SecureHash=641fd663ce04edf7811b984c1c32bd795772cbca0407a6e18929a920255b9e262d39882944b36dc404d18edec88c111b095f2bbee981e2603b0d0e46b0d8acfc&vnp_TmnCode=LWG0SW3Z&vnp_TxnRef=n00QsmHUSdsspP00WvqD&vnp_Version=2.1.0
-🔔 vnpayWebhook request: {
-    vnp_TransactionNo: '15319581',
-  method: 'GET',
-    vnp_TransactionStatus: '00',
-  query: {
-    vnp_TxnRef: 'n00QsmHUSdsspP00WvqD',
-    vnp_Amount: '800000000',
-    vnp_SecureHash: '922c094e841f4120e0106ffd461d6ec53a60be92a8868aec78cbdbf7655bb2accf556b2dc54aff73f0ae9cca6ce288c083ae17c04d73c713fc729caa03cdbe75'
-    vnp_BankCode: 'NCB',
-    vnp_BankTranNo: 'VNP15319581',
-  },
-    vnp_CardType: 'ATM',
-  body: {}
-    vnp_OrderInfo: 'Thanh toan tour BK202512040010 - n00QsmHUSdsspP00WvqD',
-    vnp_PayDate: '20251204145832',
-}
-    vnp_ResponseCode: '00',
-vnpayWebhook error ReferenceError: updateData is not defined
-    vnp_TmnCode: 'LWG0SW3Z',
-    at handleVnPayWebhook (/app/server.js:362:76)
+D/EGL_emulation( 5812): app_time_stats: avg=102.08ms min=2.00ms max=1839.54ms count=25
+D/EGL_emulation( 5812): app_time_stats: avg=23.26ms min=12.48ms max=300.71ms count=43
+D/EGL_emulation( 5812): app_time_stats: avg=52.41ms min=13.60ms max=1201.55ms count=33
+I/flutter ( 5812): 🔵 VNPay Payment Request:
+I/flutter ( 5812):   URL: https://smarttravelbackend-production.up.railway.app/createVnPayPayment
+I/flutter ( 5812):   Payload: {"bookingId":"NoN0zBypH3CQyPCiG0LG","bookingNumber":"BK202512080002","orderId":"NoN0zBypH3CQyPCiG0LG","amount":8000000.0,"currency":"VND","returnUrl":"https://smarttravelbackend-production.up.railway.app/payment/return","extraData":{"bookingId":"NoN0zBypH3CQyPCiG0LG","bookingNumber":"BK202512080002","userId":"XA5kamuRMygYYFYgyQVvAyFdL8g2"}}
+I/flutter ( 5812):   ReturnUrl: https://smarttravelbackend-production.up.railway.app/payment/return
+D/EGL_emulation( 5812): app_time_stats: avg=12.88ms min=3.73ms max=27.63ms count=59
+D/EGL_emulation( 5812): app_time_stats: avg=16.64ms min=12.08ms max=21.40ms count=61
+I/flutter ( 5812): 🟢 VNPay Payment Response:
+I/flutter ( 5812):   Status: 200
+I/flutter ( 5812):   Body: {"requestId":"NoN0zBypH3CQyPCiG0LG","orderId":"NoN0zBypH3CQyPCiG0LG","payUrl":"https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=800000000&vnp_Command=pay&vnp_CreateDate=20251208165916&vnp_CurrCode=VND&vnp_ExpireDate=20251208171416&vnp_IpAddr=100.64.0.4&vnp_Locale=vn&vnp_OrderInfo=Thanh+toan+tour+BK202512080002+-+NoN0zBypH3CQyPCiG0LG&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Fsmarttravelbackend-production.up.railway.app%2Fpayment%2Freturn&vnp_SecureHash=1053238ede352fff37f16bfdf0d1447b364be1ee61127423b237d73ef16253ba8c03ca1c28d362d4895322828168fe2b250f8f8d2cb2ef656900d0c596df1da4&vnp_TmnCode=LWG0SW3Z&vnp_TxnRef=NoN0zBypH3CQyPCiG0LG&vnp_Version=2.1.0","paymentUrl":"https://sandbox.vnpayment.vn/paymentv2/vpcpay.html?vnp_Amount=800000000&vnp_Command=pay&vnp_CreateDate=20251208165916&vnp_CurrCode=VND&vnp_ExpireDate=20251208171416&vnp_IpAddr=100.64.0.4&vnp_Locale=vn&vnp_OrderInfo=Thanh+toan+tour+BK202512080002+-+NoN0zBypH3CQyPCiG0LG&vnp_OrderType=other&vnp_ReturnUrl=https%3A%2F%2Fsmarttra
+D/EGL_emulation( 5812): app_time_stats: avg=16.65ms min=12.41ms max=20.17ms count=61
+E/FrameTracker( 5812): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.example.smart_travel_app>
+E/OpenGLRenderer( 5812): Unable to match the desired swap behavior.
+I/Choreographer( 5812): Skipped 30 frames!  The application may be doing too much work on its main thread.
+D/EGL_emulation( 5812): app_time_stats: avg=81.85ms min=2.75ms max=1302.88ms count=20
+D/EGL_emulation( 5812): app_time_stats: avg=13.23ms min=1.99ms max=25.30ms count=61

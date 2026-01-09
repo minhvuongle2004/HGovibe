@@ -17,8 +17,6 @@ enum PaymentMethod {
   cash, // Tiền mặt
   bankTransfer, // Chuyển khoản
   creditCard, // Thẻ tín dụng
-  vnpay, // VNPay
-  momo, // MoMo
 }
 
 /// Trạng thái booking
@@ -144,12 +142,6 @@ class TourBooking {
         break;
       case 'credit_card':
         paymentMethod = PaymentMethod.creditCard;
-        break;
-      case 'vnpay':
-        paymentMethod = PaymentMethod.vnpay;
-        break;
-      case 'momo':
-        paymentMethod = PaymentMethod.momo;
         break;
       default:
         paymentMethod = null;
@@ -282,10 +274,6 @@ class TourBooking {
         return 'bank_transfer';
       case PaymentMethod.creditCard:
         return 'credit_card';
-      case PaymentMethod.vnpay:
-        return 'vnpay';
-      case PaymentMethod.momo:
-        return 'momo';
     }
   }
 

@@ -4,10 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:intl/intl.dart';
 import 'package:smart_travel_app/models/tours/tour_booking.dart';
 import 'package:smart_travel_app/providers/tours/tour_booking_provider.dart';
-import 'package:smart_travel_app/screens/payments/payment_screen.dart';
 import 'package:smart_travel_app/screens/tours/tour_detail_screen.dart';
 import 'package:smart_travel_app/models/tours/tour_package.dart';
 import 'package:smart_travel_app/services/tours/tour_package_service.dart';
+import 'package:smart_travel_app/screens/reviews/review_form_screen.dart';
 
 /// Screen hiển thị danh sách bookings của user
 class MyBookingsScreen extends StatefulWidget {
@@ -407,15 +407,13 @@ class _MyBookingsScreenState extends State<MyBookingsScreen>
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  if (_canPayOnline(booking))
+                  if (_canReview(booking))
                     OutlinedButton.icon(
-                      onPressed: booking.id == null
-                          ? null
-                          : () => _openPaymentScreen(context, booking, tour),
-                      icon: const Icon(Icons.payments_outlined),
-                      label: const Text('Thanh toán VNPay'),
+                      onPressed: () => _openReviewScreen(context, booking, tour),
+                      icon: const Icon(Icons.rate_review_outlined),
+                      label: const Text('Viết đánh giá'),
                     ),
-                  if (_canPayOnline(booking)) const SizedBox(width: 8),
+                  if (_canReview(booking)) const SizedBox(width: 8),
                   if (booking.status == BookingStatus.pending ||
                       booking.status == BookingStatus.confirmed)
                     TextButton.icon(
@@ -448,33 +446,32 @@ class _MyBookingsScreenState extends State<MyBookingsScreen>
     );
   }
 
-  bool _canPayOnline(TourBooking booking) {
+  bool _canReview(TourBooking booking) {
     if (booking.id == null) return false;
+    if (booking.paymentStatus != PaymentStatus.paid) return false;
     if (booking.status == BookingStatus.cancelled) return false;
-    final allowStatus = booking.paymentStatus == PaymentStatus.unpaid ||
-        booking.paymentStatus == PaymentStatus.failed;
-    if (!allowStatus) return false;
-    return booking.paymentMethod == PaymentMethod.vnpay ||
-        booking.paymentMethod == null;
+    return true;
   }
 
-  void _openPaymentScreen(
+  void _openReviewScreen(
     BuildContext context,
     TourBooking booking,
     TourPackage? tour,
   ) {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null || booking.id == null) return;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => PaymentScreen(
+        builder: (_) => ReviewFormScreen(
+          tourId: booking.tourPackageId,
           bookingId: booking.id!,
-          bookingNumber: booking.bookingNumber,
-          amount: booking.totalAmount,
-          currency: booking.currency,
-          tour: tour,
+          userId: user.uid,
+          tourTitle: tour?.title,
+          onSubmitted: _loadBookings,
         ),
       ),
-    ).then((_) => _loadBookings());
+    );
   }
 
   Widget _buildInfoRow(IconData icon, String label, String value) {

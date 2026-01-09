@@ -25,10 +25,31 @@ service cloud.firestore {
       }
     }
 
-    // Các collection công khai khác (ví dụ destinations) vẫn giữ nguyên rule mặc định
+    // Reviews: ai cũng đọc được, chỉ chủ review mới được ghi
+    match /tour_reviews/{reviewId} {
+      // Public read
+      allow read: if true;
+
+      // Tạo mới: user phải đăng nhập và trùng userId
+      allow create: if request.auth != null
+        && request.auth.uid == request.resource.data.userId
+        && request.resource.data.tourId is string
+        && request.resource.data.bookingId is string
+        && request.resource.data.rating is number
+        && request.resource.data.rating >= 1
+        && request.resource.data.rating <= 5;
+
+      // Cập nhật/xóa: chỉ chủ review
+      allow update, delete: if request.auth != null
+        && request.auth.uid == resource.data.userId;
+    }
+
+    // Các collection khác:
+    // - Ai cũng đọc được (public read)
+    // - Chỉ user đã đăng nhập mới được ghi (web admin, app người dùng...)
     match /{document=**} {
       allow read: if true;
-      allow write: if false;
+      allow write: if request.auth != null;
     }
   }
 }

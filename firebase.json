@@ -20,6 +20,9 @@
       }
     }
   },
+  "firestore": {
+    "rules": "firebase/firestore.rules"
+  },
   "hosting": {
     "public": "admin_web/build/web",
     "ignore": [

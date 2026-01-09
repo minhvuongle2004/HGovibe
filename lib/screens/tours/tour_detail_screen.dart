@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:smart_travel_app/models/tours/tour_package.dart';
 import 'package:smart_travel_app/providers/tours/tour_package_provider.dart';
 import 'package:smart_travel_app/widgets/tours/tour_itinerary_widget.dart';
 import 'package:smart_travel_app/widgets/tours/tour_inclusions_widget.dart';
 import 'package:smart_travel_app/screens/tours/tour_booking_screen.dart';
 import 'package:intl/intl.dart';
+import 'package:smart_travel_app/services/reviews/tour_review_service.dart';
+import 'package:smart_travel_app/screens/reviews/review_list_section.dart';
+import 'package:smart_travel_app/models/reviews/tour_review.dart';
+import 'package:smart_travel_app/services/tours/tour_booking_service.dart';
+import 'package:smart_travel_app/screens/reviews/review_form_screen.dart';
+import 'package:smart_travel_app/models/tours/tour_booking.dart';
 
 /// Screen chi tiết tour với tabs
 class TourDetailScreen extends StatefulWidget {
@@ -26,6 +33,11 @@ class _TourDetailScreenState extends State<TourDetailScreen>
   late TabController _tabController;
   final PageController _imagePageController = PageController();
   int _currentImageIndex = 0;
+  List<TourReview> _reviews = [];
+  bool _isLoadingReviews = true;
+  bool _checkingEligibility = true;
+  bool _canWriteReview = false;
+  String? _eligibleBookingId;
 
   @override
   void initState() {
@@ -34,7 +46,106 @@ class _TourDetailScreenState extends State<TourDetailScreen>
     // Tăng viewCount
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<TourPackageProvider>().incrementViewCount(widget.tour.id!);
+      _loadReviews();
+      _checkReviewEligibility();
     });
+  }
+
+  Future<void> _loadReviews() async {
+    setState(() => _isLoadingReviews = true);
+    try {
+      final list = await TourReviewService.instance.getReviewsByTour(widget.tour.id!);
+      if (!mounted) return;
+      setState(() {
+        _reviews = list;
+        _isLoadingReviews = false;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _isLoadingReviews = false;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Lỗi tải đánh giá: $e')),
+      );
+    }
+  }
+
+  Future<void> _checkReviewEligibility() async {
+    setState(() {
+      _checkingEligibility = true;
+      _canWriteReview = false;
+      _eligibleBookingId = null;
+    });
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        setState(() {
+          _checkingEligibility = false;
+          _canWriteReview = false;
+          _eligibleBookingId = null;
+        });
+        return;
+      }
+
+      final bookings = await TourBookingService.instance.getUserBookings(user.uid);
+      // Điều kiện: booking thuộc tour này, paymentStatus == paid, không cancelled
+      for (final b in bookings) {
+        final isSameTour = b.tourPackageId == widget.tour.id;
+        final paid = b.paymentStatus == PaymentStatus.paid;
+        final notCancelled = b.status != BookingStatus.cancelled;
+        if (isSameTour && paid && notCancelled && b.id != null) {
+          final hasReview =
+              await TourReviewService.instance.hasReviewForBooking(b.id!);
+          if (!hasReview) {
+            setState(() {
+              _checkingEligibility = false;
+              _canWriteReview = true;
+              _eligibleBookingId = b.id;
+            });
+            return;
+          }
+        }
+      }
+
+      setState(() {
+        _checkingEligibility = false;
+        _canWriteReview = false;
+        _eligibleBookingId = null;
+      });
+    } catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _checkingEligibility = false;
+        _canWriteReview = false;
+        _eligibleBookingId = null;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Lỗi kiểm tra điều kiện đánh giá: $e')),
+      );
+    }
+  }
+
+  void _openWriteReview() {
+    if (!_canWriteReview || _eligibleBookingId == null) return;
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => ReviewFormScreen(
+          tourId: widget.tour.id!,
+          bookingId: _eligibleBookingId!,
+          userId: user.uid,
+          tourTitle: widget.tour.title,
+          onSubmitted: () async {
+            await _loadReviews();
+            await _checkReviewEligibility();
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -402,33 +513,52 @@ class _TourDetailScreenState extends State<TourDetailScreen>
   }
 
   Widget _buildReviewsTab() {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(32),
+    if (_isLoadingReviews) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.star_outline, size: 64, color: Colors.grey[400]),
-            const SizedBox(height: 16),
-            const Text(
-              'Chưa có đánh giá',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
+          if (_checkingEligibility)
+            const Padding(
+              padding: EdgeInsets.only(bottom: 12),
+              child: LinearProgressIndicator(minHeight: 2),
+            ),
+          if (_canWriteReview)
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: _openWriteReview,
+                icon: const Icon(Icons.rate_review_outlined),
+                label: const Text(
+                  'Viết đánh giá',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            )
+          else
+            Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Text(
+                _checkingEligibility
+                    ? 'Đang kiểm tra điều kiện đánh giá...'
+                    : 'Bạn cần có booking đã thanh toán của tour này để viết đánh giá.',
+                style: TextStyle(color: Colors.grey[600]),
               ),
             ),
-            const SizedBox(height: 8),
-            Text(
-              'Tính năng đánh giá sẽ được thêm trong Phase 5',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[600],
-              ),
-              textAlign: TextAlign.center,
-            ),
+          const SizedBox(height: 12),
+          ReviewListSection(
+            reviews: _reviews,
+            onWriteReview: _canWriteReview ? _openWriteReview : null,
+            onReload: () async {
+              await _loadReviews();
+              await _checkReviewEligibility();
+            },
+            tourId: widget.tour.id!,
+          ),
           ],
-        ),
       ),
     );
   }
